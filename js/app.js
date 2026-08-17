@@ -4,8 +4,11 @@
   const grid = document.getElementById('terms-grid');
   const resultCount = document.getElementById('result-count');
   const emptyState = document.getElementById('empty-state');
+  const emptyQuery = document.getElementById('empty-query');
   const searchInput = document.getElementById('search-input');
+  const searchClear = document.getElementById('search-clear');
   const catButtons = document.querySelectorAll('.cat-btn');
+  const toast = document.getElementById('toast');
 
   let terms = [];
   let fuse = null;
@@ -32,6 +35,20 @@
     ignoreLocation: true,
   });
 
+  function slugify(str) {
+    return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  }
+
+  // ---------- Category badge counts ----------
+  function renderBadgeCounts() {
+    const counts = { all: terms.length };
+    terms.forEach(t => { counts[t.category] = (counts[t.category] || 0) + 1; });
+    Object.keys(counts).forEach(cat => {
+      const el = document.getElementById(`count-${cat}`);
+      if (el) el.textContent = `(${counts[cat]})`;
+    });
+  }
+
   // ---------- Rendering ----------
   function currentResults() {
     let base = query.trim()
@@ -46,10 +63,12 @@
 
   function render() {
     const results = currentResults();
+    searchClear.classList.toggle('is-visible', query.trim().length > 0);
 
     grid.innerHTML = '';
     if (results.length === 0) {
       emptyState.hidden = false;
+      emptyQuery.textContent = query.trim() || activeCategory;
       resultCount.textContent = 'No matches.';
       return;
     }
@@ -92,6 +111,15 @@
     }, 120);
   });
 
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      searchInput.value = '';
+      query = '';
+      render();
+      searchInput.blur();
+    }
+  });
+
   catButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       catButtons.forEach(b => b.classList.remove('is-active'));
@@ -101,11 +129,35 @@
     });
   });
 
-  document.getElementById('clear-search').addEventListener('click', () => {
+  searchClear.addEventListener('click', () => {
     searchInput.value = '';
     query = '';
     render();
     searchInput.focus();
+  });
+
+  document.getElementById('empty-state-cta').addEventListener('click', () => {
+    openModal(submitModal);
+    document.getElementById('term-name').value = query.trim();
+  });
+
+  // ---------- Global keyboard shortcut: Cmd/Ctrl+K or "/" focuses search ----------
+  document.addEventListener('keydown', (e) => {
+    const isTypingElsewhere = ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName);
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      searchInput.focus();
+      searchInput.select();
+    } else if (e.key === '/' && !isTypingElsewhere) {
+      e.preventDefault();
+      searchInput.focus();
+    }
+  });
+
+  // ---------- Surprise Dose (randomizer) ----------
+  document.getElementById('surprise-btn').addEventListener('click', () => {
+    const pick = terms[Math.floor(Math.random() * terms.length)];
+    openTermModal(pick);
   });
 
   // ---------- Word of the Day ----------
@@ -129,16 +181,49 @@
   // ---------- Term detail modal ----------
   const termModal = document.getElementById('term-modal');
   let lastFocusedEl = null;
+  let currentModalTerm = null;
 
   function openTermModal(t) {
+    currentModalTerm = t;
     document.getElementById('term-modal-cat').textContent = t.category;
     document.getElementById('term-modal-title').textContent = t.term;
     document.getElementById('term-modal-playful').textContent = t.playful;
     document.getElementById('term-modal-real').textContent = t.real;
     openModal(termModal);
+    history.replaceState(null, '', `#term=${slugify(t.term)}`);
   }
 
-  document.getElementById('close-term-modal').addEventListener('click', () => closeModal(termModal));
+  document.getElementById('close-term-modal').addEventListener('click', () => {
+    closeModal(termModal);
+    history.replaceState(null, '', window.location.pathname);
+  });
+
+  // ---------- Copy shareable link ----------
+  document.getElementById('copy-link-btn').addEventListener('click', async () => {
+    if (!currentModalTerm) return;
+    const url = `${window.location.origin}${window.location.pathname}#term=${slugify(currentModalTerm.term)}`;
+    try {
+      await navigator.clipboard.writeText(url);
+      showToast('Link copied — go spread the word.');
+    } catch (err) {
+      showToast('Couldn\'t copy automatically — link is in your address bar.');
+    }
+  });
+
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('is-visible');
+    setTimeout(() => toast.classList.remove('is-visible'), 2600);
+  }
+
+  // ---------- Deep link on load ----------
+  function openFromHash() {
+    const match = window.location.hash.match(/#term=(.+)/);
+    if (!match) return;
+    const slug = match[1];
+    const found = terms.find(t => slugify(t.term) === slug);
+    if (found) openTermModal(found);
+  }
 
   // ---------- Submit-a-term modal ----------
   const submitModal = document.getElementById('submit-modal');
@@ -213,6 +298,8 @@
   }
 
   // ---------- Init ----------
+  renderBadgeCounts();
   renderWotd();
   render();
+  openFromHash();
 })();

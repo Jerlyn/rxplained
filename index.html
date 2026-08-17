@@ -29,45 +29,60 @@
     <h1>The pharma ad dictionary<br>nobody asked for.<br><span class="hero-accent">Everybody needed.</span></h1>
     <p class="hero-sub">283 real terms from inside pharmaceutical advertising — decoded, demystified, occasionally roasted.</p>
 
-    <div class="search-wrap">
-      <label for="search-input" class="visually-hidden">Search terms</label>
-      <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input type="search" id="search-input" placeholder="Search &ldquo;fair balance,&rdquo; &ldquo;KOL,&rdquo; &ldquo;DTC&rdquo;&hellip;" autocomplete="off">
-      <button class="search-clear" id="search-clear" aria-label="Clear search" type="button">&times;</button>
-      <span class="search-kbd" aria-hidden="true"><kbd>&#8984;</kbd><kbd>K</kbd></span>
-    </div>
-    <p class="result-count" id="result-count" role="status" aria-live="polite"></p>
-
-    <nav class="cat-nav" aria-label="Category filters">
-      <button class="cat-btn is-active" data-cat="all">All <span class="badge-count" id="count-all"></span></button>
-      <button class="cat-btn" data-cat="Doctor Speak">🩺 Doctor Speak <span class="badge-count" id="count-Doctor Speak"></span></button>
-      <button class="cat-btn" data-cat="Money Talk">💰 Money Talk <span class="badge-count" id="count-Money Talk"></span></button>
-      <button class="cat-btn" data-cat="Legal Says">⚖️ Legal Says <span class="badge-count" id="count-Legal Says"></span></button>
-      <button class="cat-btn" data-cat="Behind the Ad">🎬 Behind the Ad <span class="badge-count" id="count-Behind the Ad"></span></button>
-      <button class="cat-btn" data-cat="Ask Your Doctor">📺 Ask Your Doctor <span class="badge-count" id="count-Ask Your Doctor"></span></button>
-    </nav>
-
-    <button class="surprise-btn" id="surprise-btn" type="button">🎲 Surprise Dose — show me a random term</button>
-  </section>
-
-  <section class="wotd-section" aria-labelledby="wotd-heading">
-    <div class="wotd-card">
+    <div class="wotd-card" aria-labelledby="wotd-heading">
       <p class="wotd-eyebrow" id="wotd-heading">Word of the Day</p>
-      <h2 class="wotd-term" id="wotd-term"></h2>
       <p class="wotd-cat" id="wotd-cat"></p>
+      <h2 class="wotd-term" id="wotd-term"></h2>
       <p class="wotd-playful" id="wotd-playful"></p>
-      <div class="wotd-real-block">
+      <button class="wotd-reveal-btn" id="wotd-reveal-btn" type="button" aria-expanded="false" aria-controls="wotd-real-block">
+        <span id="wotd-reveal-label">Tap to see what it actually means</span>
+        <span class="wotd-reveal-arrow" aria-hidden="true">▾</span>
+      </button>
+      <div class="wotd-real-block" id="wotd-real-block" hidden>
         <p class="wotd-real-label">What it actually means</p>
         <p class="wotd-real-text" id="wotd-real-text"></p>
       </div>
     </div>
+
+    <div class="search-filter-row">
+      <div class="search-wrap">
+        <label for="search-input" class="visually-hidden">Search terms</label>
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="search" id="search-input" placeholder="Search &ldquo;fair balance,&rdquo; &ldquo;KOL,&rdquo; &ldquo;DTC&rdquo;&hellip;" autocomplete="off">
+        <button class="search-clear" id="search-clear" aria-label="Clear search" type="button">&times;</button>
+        <span class="search-kbd" aria-hidden="true"><kbd>&#8984;</kbd><kbd>K</kbd></span>
+      </div>
+
+      <div class="filter-controls">
+        <div class="select-wrap">
+          <label for="cat-select" class="visually-hidden">Filter by category</label>
+          <select id="cat-select">
+            <option value="all">All Categories</option>
+            <option value="Doctor Speak">🩺 Doctor Speak</option>
+            <option value="Money Talk">💰 Money Talk</option>
+            <option value="Legal Says">⚖️ Legal Says</option>
+            <option value="Behind the Ad">🎬 Behind the Ad</option>
+            <option value="Ask Your Doctor">📺 Ask Your Doctor</option>
+            <option value="saved">♥ Saved</option>
+          </select>
+        </div>
+        <button class="sort-toggle" id="sort-toggle" type="button" aria-pressed="false">
+          <span id="sort-label">Sort: A–Z</span>
+          <span class="sort-arrow" id="sort-arrow" aria-hidden="true">↓</span>
+        </button>
+      </div>
+    </div>
+    <p class="result-count" id="result-count" role="status" aria-live="polite"></p>
   </section>
 
   <section class="terms-section">
     <div id="terms-grid" class="terms-grid" aria-live="polite"></div>
     <div class="empty-state" id="empty-state" hidden>
-      <p>No prescription found for "<span id="empty-query"></span>."</p>
+      <p id="empty-state-default">No prescription found for "<span id="empty-query"></span>."</p>
+      <p id="empty-state-saved" hidden>No saved terms yet. Tap the heart on any word to add it here.</p>
+      <p id="empty-state-filtered" hidden>No matches in <span id="empty-filtered-cat"></span> for "<span id="empty-filtered-query"></span>."</p>
       <button class="empty-state-cta" id="empty-state-cta" type="button">Be the first to define it →</button>
+      <button class="empty-state-cta" id="empty-clear-category-btn" type="button" hidden>See results in all categories →</button>
     </div>
   </section>
 </main>
@@ -75,26 +90,9 @@
 <footer class="site-footer">
   <p>RxPlained is a living dictionary. Something missing? <button class="link-btn" id="open-submit-footer">Tell us</button>.</p>
   <div class="footer-links">
-    <a class="kofi-link" href="https://ko-fi.com/rxplained" target="_blank" rel="noopener noreferrer">☕ Support RxPlained on Ko-fi</a>
+    <a class="kofi-link" href="https://ko-fi.com/designlady" target="_blank" rel="noopener noreferrer">☕ Support RxPlained on Ko-fi</a>
   </div>
 </footer>
-
-<!-- Term detail dialog -->
-<div class="modal-overlay" id="term-modal" role="dialog" aria-modal="true" aria-labelledby="term-modal-title" hidden>
-  <div class="modal-content term-modal-content">
-    <button class="modal-close" id="close-term-modal" aria-label="Close">&times;</button>
-    <p class="modal-cat" id="term-modal-cat"></p>
-    <h2 id="term-modal-title"></h2>
-    <p class="modal-playful" id="term-modal-playful"></p>
-    <div class="modal-real">
-      <p class="modal-real-label">What it actually means</p>
-      <p id="term-modal-real"></p>
-    </div>
-    <div class="modal-actions">
-      <button class="modal-share-btn" id="copy-link-btn" type="button">🔗 Copy Dose Link</button>
-    </div>
-  </div>
-</div>
 
 <!-- Submit a term dialog -->
 <div class="modal-overlay" id="submit-modal" role="dialog" aria-modal="true" aria-labelledby="submit-modal-title" hidden>
@@ -103,6 +101,7 @@
     <h2 id="submit-modal-title">Submit a term</h2>
     <p>Know a pharma-ad term we're missing? Send it our way — we read every submission.</p>
     <form id="submit-form">
+      <input type="hidden" name="_subject" value="RxPlained term submission">
       <div class="form-group">
         <label for="term-name">Term</label>
         <input type="text" id="term-name" name="term" required>
@@ -128,6 +127,10 @@
 </div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top" hidden>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+</button>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
 <script src="js/app.js"></script>

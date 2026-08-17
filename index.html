@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#36069A">
+<meta name="description" content="RxPlained — the pharmaceutical advertising dictionary. Learn the jargon, decode the ads, one term at a time.">
+<title>RxPlained — The Pharma Advertising Dictionary</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo" id="logo-home">Rx<span>Plained</span></a>
+    <nav class="cat-nav" aria-label="Category filters">
+      <button class="cat-btn is-active" data-cat="all">All</button>
+      <button class="cat-btn" data-cat="Doctor Speak">🩺 Doctor Speak</button>
+      <button class="cat-btn" data-cat="Money Talk">💰 Money Talk</button>
+      <button class="cat-btn" data-cat="Legal Says">⚖️ Legal Says</button>
+      <button class="cat-btn" data-cat="Behind the Ad">🎬 Behind the Ad</button>
+      <button class="cat-btn" data-cat="Ask Your Doctor">📺 Ask Your Doctor</button>
+    </nav>
+    <button class="submit-term-btn" id="open-submit">+ Submit a Term</button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <h1>The pharma ad dictionary<br>nobody asked for.<br><span class="hero-accent">Everybody needed.</span></h1>
+    <p class="hero-sub">283 real terms from inside pharmaceutical advertising — decoded, demystified, occasionally roasted.</p>
+
+    <div class="search-wrap">
+      <label for="search-input" class="visually-hidden">Search terms</label>
+      <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="search" id="search-input" placeholder="Search “fair balance,” “KOL,” “DTC”…" autocomplete="off">
+    </div>
+    <p class="result-count" id="result-count" role="status" aria-live="polite"></p>
+  </section>
+
+  <section class="wotd-section" id="wotd-section" aria-labelledby="wotd-heading">
+    <div class="wotd-card">
+      <p class="wotd-eyebrow" id="wotd-heading">Word of the Day</p>
+      <h2 class="wotd-term" id="wotd-term"></h2>
+      <p class="wotd-cat" id="wotd-cat"></p>
+      <p class="wotd-playful" id="wotd-playful"></p>
+      <details class="wotd-real">
+        <summary>What it actually means</summary>
+        <p id="wotd-real-text"></p>
+      </details>
+    </div>
+  </section>
+
+  <section class="terms-section">
+    <div id="terms-grid" class="terms-grid" aria-live="polite"></div>
+    <p class="empty-state" id="empty-state" hidden>No terms match that search. Try a shorter word, or <button class="link-btn" id="clear-search">clear the search</button>.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>RxPlained is a living dictionary. Something missing? <button class="link-btn" id="open-submit-footer">Tell us</button>.</p>
+</footer>
+
+<!-- Term detail dialog -->
+<div class="modal-overlay" id="term-modal" role="dialog" aria-modal="true" aria-labelledby="term-modal-title" hidden>
+  <div class="modal-content term-modal-content">
+    <button class="modal-close" id="close-term-modal" aria-label="Close">&times;</button>
+    <p class="modal-cat" id="term-modal-cat"></p>
+    <h2 id="term-modal-title"></h2>
+    <p class="modal-playful" id="term-modal-playful"></p>
+    <div class="modal-real">
+      <p class="modal-real-label">What it actually means</p>
+      <p id="term-modal-real"></p>
+    </div>
+  </div>
+</div>
+
+<!-- Submit a term dialog -->
+<div class="modal-overlay" id="submit-modal" role="dialog" aria-modal="true" aria-labelledby="submit-modal-title" hidden>
+  <div class="modal-content">
+    <button class="modal-close" id="close-submit-modal" aria-label="Close">&times;</button>
+    <h2 id="submit-modal-title">Submit a term</h2>
+    <p>Know a pharma-ad term we're missing? Send it our way — we read every submission.</p>
+    <form id="submit-form">
+      <div class="form-group">
+        <label for="term-name">Term</label>
+        <input type="text" id="term-name" name="term" required>
+      </div>
+      <div class="form-group">
+        <label for="term-def">What does it mean?</label>
+        <textarea id="term-def" name="definition" rows="3" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="term-cat">Best-fit category</label>
+        <select id="term-cat" name="category" required>
+          <option value="">Choose one…</option>
+          <option>Doctor Speak</option>
+          <option>Money Talk</option>
+          <option>Legal Says</option>
+          <option>Behind the Ad</option>
+          <option>Ask Your Doctor</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-primary">Send it in</button>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

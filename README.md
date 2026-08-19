@@ -1,22 +1,27 @@
 # RxPlained
 
-The pharmaceutical advertising dictionary — 283 terms from inside the industry, decoded with a sense of humor. Search, browse by category, and get a new Word of the Day, every day, automatically.
+The pharmaceutical advertising dictionary — 354 terms from inside the industry, decoded with a sense of humor. Search, browse by category, and get a new Word of the Day, every day, automatically.
 
 ## What's here
 
 ```
 rxplained/
-├── index.html          # App shell
-├── css/styles.css       # All styling — brand palette, WCAG AA-audited contrast
-├── js/app.js             # Search (Fuse.js), filtering, word of day, in-place term expansion
-├── data/terms.json      # The 283-term dataset — source of truth
+├── index.html          # App shell — markup + Tailwind CDN config
+├── css/styles.css       # Custom layer Tailwind can't do: glass panels, orbs, focus ring, reduced-motion override
+├── js/app.js             # RxPlainedApp class — search (Fuse.js), filtering, Cmd+K palette, Word of the Day
+├── data/terms.json      # The 354-term dataset — source of truth
+├── scripts/
+│   └── generate_term_pages.py  # Generates term/, sitemap.xml, robots.txt from terms.json — see below
+├── term/                 # Generated — one static shim page per term, for social-preview crawlers
+├── sitemap.xml            # Generated
+├── robots.txt             # Generated
 ├── manifest.json        # PWA manifest (installable, standalone display)
-├── sw.js                 # Service worker — offline caching of app + data
+├── sw.js                 # Service worker — offline caching of app shell + data
 ├── icons/                # PWA icons (192px, 512px)
 └── README.md
 ```
 
-No build step. No framework. No dependencies beyond Fuse.js (loaded from CDN) and two Google Fonts. This is intentional — it keeps the app fast, keeps it a true PWA, and keeps it trivial to host anywhere static files are served.
+**No build step** — Tailwind CSS is loaded via its CDN script (JIT-compiled in the browser), not a compiled stylesheet. That's a deliberate trade-off, not an oversight: it keeps the "no build step, edit and refresh" workflow intact, at the cost of full offline support (see *Known gaps* below) and a small runtime compile cost on first paint. Other dependencies: Fuse.js (fuzzy search fallback), canvas-confetti (save/submit micro-delight), and two Google Fonts — all from CDN, no package manager involved.
 
 ## Local preview
 
@@ -27,10 +32,25 @@ then visit `http://localhost:8000`. (Opening `index.html` directly via `file://`
 
 ## Deploying
 
-1. Push this repo to GitHub.
-2. Enable **GitHub Pages** (Settings → Pages → deploy from `main` branch), or connect the repo to **Netlify** / **Vercel** for a faster CDN and cleaner custom-domain setup.
-3. In Porkbun's DNS settings for `rxplained.com`, point the domain at whichever host you chose (CNAME to Vercel/Netlify, or the `A`/`ALIAS` records GitHub Pages provides).
-4. Confirm HTTPS is active on the new host (all three options above provide free SSL) — required for the service worker/PWA install prompt to work.
+1. Regenerate the per-term pages if `data/terms.json` has changed since the last deploy: `python3 scripts/generate_term_pages.py` (see *Per-term pages & social sharing* below). Commit the result — `term/`, `sitemap.xml`, and `robots.txt` are generated files checked into the repo, not built at deploy time.
+2. Push this repo to GitHub.
+3. Enable **GitHub Pages** (Settings → Pages → deploy from `main` branch), or connect the repo to **Netlify** / **Vercel** for a faster CDN and cleaner custom-domain setup.
+4. In Porkbun's DNS settings for `rxplained.com`, point the domain at whichever host you chose (CNAME to Vercel/Netlify, or the `A`/`ALIAS` records GitHub Pages provides).
+5. Confirm HTTPS is active on the new host (all three options above provide free SSL) — required for the service worker/PWA install prompt to work.
+
+## Per-term pages & social sharing
+
+Sharing a term used to be pointless: deep links use a URL *fragment* (`#term=slug`), and fragments are never sent to a server — not to a social-preview crawler (Facebook, Slack, Twitter/X…), not to anything. Every shared link showed the same generic site-wide preview no matter which term it was.
+
+`scripts/generate_term_pages.py` fixes this by generating one lightweight static page per term at `term/<slug>/index.html`. Each one is *not* a duplicate of the app — it's a shim that carries that term's own `<title>`/description/Open Graph/Twitter tags for crawlers, then immediately redirects a real visitor into the full app at `/#term=<slug>` (the app's existing deep-link handling, unchanged). The "Copy Dose Link" button on every card now copies this `/term/<slug>/` URL instead of the old hash link.
+
+Run it after editing `terms.json`:
+```
+python3 scripts/generate_term_pages.py
+```
+This also regenerates `sitemap.xml` and `robots.txt`. All of it is static output — no server, no framework, nothing installed beyond Python's standard library — but it *is* a real generation step you have to remember to re-run and commit, which is a deliberate, disclosed exception to this project's "no build step" rule. The alternative (a serverless/edge function to inject tags at request time) would avoid that, at the cost of ruling out GitHub Pages as a host. Static generation was chosen to keep hosting flexible.
+
+One thing to check before relying on this in production: `BASE_URL` at the top of the script is hardcoded to `https://rxplained.com` for absolute canonical/OG URLs. Update it if the real deployed domain ends up different.
 
 ## Updating the dictionary
 
@@ -39,6 +59,7 @@ Everything the app displays comes from `data/terms.json`. To add, edit, or remov
 ```json
 {
   "term": "Example Term",
+  "aliases": ["alternate name", "abbreviation"],
   "category": "Doctor Speak",
   "playful": "The fun, plain-language explanation.",
   "real": "The accurate, complete definition.",
@@ -49,29 +70,40 @@ Everything the app displays comes from `data/terms.json`. To add, edit, or remov
 
 Valid `category` values: `Doctor Speak`, `Money Talk`, `Legal Says`, `Behind the Ad`, `Ask Your Doctor`.
 
+`aliases` is an array of alternate names, abbreviations, or nicknames the term also goes by — omit or leave empty (`[]`) for terms with no common alternate names. Search checks `aliases` at the same first-pass priority as `term` itself (term-name matches rank first, alias matches second, both ahead of fuzzy fallback — see `searchTerms()` in `js/app.js`), so a term only surfaces for a synonym if that synonym is listed here. Mentioning a synonym in the `playful`/`real` prose is not enough on its own — search does not parse prose for alternate names. Keep aliases reasonably specific: a 2-letter alias (e.g. a bare `"OL"`) will substring-match all kinds of unrelated terms and does more harm than good; prefer the fuller form (`"Opinion Leader"`) instead.
+
 `sponsored` / `sponsoredBy` are schema-only for now — every entry defaults to `false` / `null` and nothing in the UI reads them yet. They exist so a future sponsorship/ads decision is a data change, not a rebuild.
+
+**354, `aliases` field added, August 2026**: search previously depended on a synonym happening to be mentioned in a term's prose (e.g. "detail aid" surfaced "Visual Aid" only because that phrase was written into its definition) — a real alternate name with no prose mention, like "eDetail", wouldn't surface at all. Added a structured `aliases` array so alternate names are explicit, searchable data instead of an accident of phrasing. Populated for `Visual Aid` (`detail aid`, `eDetail`, `visAid`, `iVis`, per the case that surfaced the gap) and for 7 other entries whose prose already signaled an alternate name ("also called," "goes by," etc.) — `Boxed Warning`, `Advisory Board`, `HCP (Healthcare Professional)`, `MA & MA-PD (Medicare Advantage Plans)`, `KOL (Key Opinion Leader)`, `Prescription (Rx)`, and `Help-Seeking Ad`. All other 346 entries have `aliases: []`. Existing prose synonyms were left in place — this was purely additive.
+
+**283 → 298, August 2026**: 15 foundational terms — including `ISI`, `Fair Balance`, `OPDP`, and `DTC` — were shown during an early tone/voice pilot round but never actually committed to `terms.json`, a tracking error rather than a deliberate cut. If you're reading commit history and wondering why the count jumped outside a normal content-addition pass, that's why. The 283 pre-existing entries were untouched — verified byte-identical before the 15 were appended — and the per-term static pages (`term/`) and `sitemap.xml` were regenerated to include them.
+
+**298 → 354, August 2026**: a second glossary source (141 terms) was cross-referenced against the dataset — 84 were already covered, sometimes under different phrasing (their "Off-Label" matched the existing "Off Label"; their "Detail Aid" was already folded into the existing "Visual Aid" entry). The 56 genuinely new terms were written in the established voice and added, several consolidated from multiple near-duplicate source rows the same way the original 511-term project handled them (e.g. `NRx`/`NBRx`/`TRx` as one entry, `Warning Letter` + `Untitled Letter` as one entry). The 298 pre-existing entries were untouched — verified byte-identical before the 56 were appended.
+
+## Interface
+
+- **Word of the Day** and every term card show both sides at once — 🎭 The Pitch (the playful, roasted take) and 📋 The Reality (the official definition) — side by side on desktop, stacked on mobile. No click needed to see the full definition.
+- **Category filter** is a horizontal row of pill chips (including a "Saved" pill), each showing a live count. Search, sort (A–Z / Z–A / Random), and the pill row combine to narrow the list; when a category filter is hiding a real match elsewhere, the empty state says so and offers a one-click "See results in all categories" that clears just the category filter, preserving the search.
+- **Cmd+K / ⌘K** opens a quick-search palette: type to filter, arrow keys to move the highlight, Enter to jump straight to that term (scrolls to it and gives it a brief highlight pulse). Built as a proper ARIA combobox/listbox (`aria-activedescendant`, `role="option"`), not just visual hints — Escape or a click outside closes it.
+- **Save** (heart), **Copy Dose Link** (share), and **Listen** (text-to-speech via the browser's `speechSynthesis` API, where supported) are icon buttons on every card and on Word of the Day. Save persists to `localStorage`; deep links (`#term=slug`) find, scroll to, and highlight the matching card on load.
+- **Submit a Term** posts to Formspree (`https://formspree.io/f/mvkpwkze`) with success/error states surfaced through the toast component — submissions land in the Formspree dashboard, not a local-only array.
+- Small celebratory confetti burst on save and successful submit — skipped automatically for anyone with `prefers-reduced-motion` set.
+- **Install prompt**: a dismissible bottom banner appears once the browser signals the app is installable (`beforeinstallprompt`, Chrome/Edge/Android) or, on iOS, shows "tap Share → Add to Home Screen" instead (iOS has no programmatic install trigger, so a button that did nothing would be worse than instructions). Dismissal is remembered in `localStorage`; already-installed visits (`display-mode: standalone`) never see it.
+- **"More from [Category]"**: every card and Word of the Day link to a few other terms in the same category — the next ones alphabetically, wrapping around. Deliberately not a fabricated "related terms" claim; there's no data to support real semantic relatedness yet, so this only ever reflects the one relationship the data actually has (shared category).
 
 ## Known gaps before public launch
 
-- **Category balance**: "Ask Your Doctor" (DTC/consumer culture) has 17 entries versus 125 in "Behind the Ad" (agency operations). Accurate to the source material, but worth a second content pass if DTC content is meant to be a flagship section.
+- **Tailwind CDN and full offline support don't fully coexist.** `cdn.tailwindcss.com` doesn't send CORS headers for `fetch()`/`cache.addAll()` (only plain `<script src>` loading works cross-origin without them), so the service worker can't precache it — trying to include it in the precache list made the *entire* install step fail silently (`cache.addAll` is all-or-nothing), which is worth knowing if this area gets touched again. Everything else (HTML, JS, data, fonts, Fuse, confetti) is cached and works offline after first visit; Tailwind's utility CSS itself needs network access, so styling degrades if the user is fully offline.
+- **Category balance**: current breakdown is Behind the Ad 145, Doctor Speak 90, Money Talk 52, Legal Says 44, Ask Your Doctor 23. "Ask Your Doctor" (DTC/consumer culture) remains the smallest category by a wide margin — 6.5% of the dataset, up slightly from 6.0% at the original 283-entry baseline (17/283 → 23/354), so the two correction passes haven't changed the underlying imbalance in any meaningful way. Accurate to the source material, but worth a dedicated content pass if DTC/consumer-facing content is meant to be a bigger part of the product.
 - **Icons** are a placeholder monogram, not final brand artwork — swap `icons/icon-192.png` and `icons/icon-512.png` before shipping.
-- **Pagination**: not implemented, and deliberately so — rendering all 283 filtered cards at once measured at ~9–11ms per full re-render (well under one frame), so a "Show More" control isn't earning its complexity yet. Re-measure if the dataset grows substantially past this size.
-
-### Resolved
-
-- **Submit-a-term form** now POSTs to Formspree (`https://formspree.io/f/mvkpwkze`) via `fetch`, with success/error states surfaced through the existing `.toast` component. Submissions land in the Formspree dashboard — no more manual copy-paste into `terms.json`.
-- **Ko-fi link** points at the real account (`https://ko-fi.com/designlady`).
-- **Voting/reactions** — deferred rather than built. In its place, each term has a localStorage-backed Save (heart) toggle on the card itself, plus a "Saved" option in the category dropdown to view them. No backend, no counts to moderate.
-- **Copy Dose Link** (share) lives directly on each card as an icon button — same clipboard logic, reused.
-- **Layout**: Word of the Day now renders above the search bar (previously buried below the category filters). The six category pill buttons are replaced by a single dropdown with counts in each option label, paired with a standalone A–Z / Z–A sort toggle. A floating back-to-top button appears after scrolling 400px, respects `prefers-reduced-motion`, and smooth-scrolls (or jumps) to the top.
-- **Search zone**: search input, category dropdown, and sort toggle now share a single row on desktop/tablet. They stack only at narrow mobile widths — search full-width on its own line, category + sort side by side beneath it.
-- **Surprise Dose** button is removed — no random-term entry point in the UI. The pick-a-random-term logic stays in `js/app.js` as an unused `randomTerm()` utility in case a future feature wants it.
-- **Word of the Day** now matches the term-card reading order: category label → term name → playful definition → real meaning. The real meaning is hidden behind a "Tap to see what it actually means" toggle instead of always showing, consistent with how every grid card works.
-- **Term detail modal is gone.** Clicking a term row now expands it in place — no overlay, no backdrop, no focus trap — using a standard disclosure pattern (`aria-expanded` on the trigger, `aria-controls` pointing at the associated content block, toggled via the `hidden` attribute). Deep links (`#term=slug`) now scroll to the matching row and expand it, rather than opening a dialog. Collapsed rows show only category, term, and a one-line teaser; the Save and Copy Dose Link icons are hidden until you hover/focus a row (desktop) or expand it (any viewport) — with 283 rows on screen at once, icons on all of them read as noise.
-- **Quote-mark styling**: terms whose name is a quoted phrase (e.g. `"Results May Vary"`) now render the phrase in italics instead of literal quote characters, for a consistent look against terms that don't have quotes baked in. `terms.json` itself is untouched — this is a display-only transform.
-- **Grid → list.** The multi-column card grid is now a single-column stacked list — a plain `border-bottom` divider between rows, no per-row box/shadow/left-border accent, no lift-on-hover. This follows the reference pattern for the whole project (urbandictionary.com, the original prototype, standard dictionary UX): content read in sequence belongs in a list, not a grid meant for browsing-to-choose. It also fixes a real layout bug the expand-in-place pattern exposed — a variable-height row in a multi-column grid broke its row, leaving short neighboring cards next to a tall expanded one. Rows only pick up a background tint (no shadow/blur) on hover, focus, or expansion. The content column is capped at 900px so list rows don't stretch into unreadably long lines at wide viewports.
-- **Search relevance.** A plain case-insensitive substring match against the term name now always runs first (prefix matches ranked above mid-string matches); Fuse.js fuzzy search across `term`/`playful`/`real` only runs as a fallback when nothing in the term names matches at all. Previously, fuzzy search ran unconditionally with a loose 0.35 threshold, so a short query like "KOL" could return a wall of unrelated results fuzzily matched deep in other terms' body text — tightened to 0.25 for the fallback case. The A–Z/Z–A sort toggle now only governs browsing order; while a search is active, relevance ordering wins (previously the toggle re-sorted search results alphabetically too, silently discarding any relevance signal). When a search + category filter combination produces zero results, the empty state now says so honestly — "No matches in [Category] for '[query]'" — with a button that clears just the category filter and re-runs the same search across everything, rather than the old behavior of only ever showing "no results" with no indication a match exists outside the current filter.
+- **Social preview image**: per-term OG/Twitter tags reuse `icon-512.png` (square) as a stopgap. Social platforms generally expect a wide banner (~1200×630); a square image often gets cropped oddly, especially for `summary_large_image`-style cards. Worth a proper branded OG image before launch — swap the image URL in `scripts/generate_term_pages.py` and regenerate.
+- **Text-to-speech** relies on the browser's built-in `speechSynthesis` — not universal (no support shows a toast instead of failing silently), and voice quality varies by OS/browser.
+- **Pagination**: not implemented. Not re-measured against this dual-pane layout's render cost yet — worth a quick check if the list ever feels sluggish, though 283 items previously measured well under a frame in the single-line list version.
 
 ## Accessibility
 
-Contrast-audited against WCAG AA (4.5:1 text, 3:1 UI components) — see commit history for two fixes made during that audit (a failing teal focus ring, a borderline muted-gray text color). Skip link, visible focus states, `aria-live` search result announcements, and full keyboard operability are built in. The Submit-a-Term dialog is the only true modal left, with focus trapping and Escape-to-close; term cards use a lighter disclosure pattern (expand/collapse in place) that doesn't need either. Re-audit with a tool like axe DevTools before launch — this was a manual pass, not automated tooling.
+Contrast-audited against WCAG AA (4.5:1 text, 3:1 UI components) using the actual computed worst-case background (both ambient gradient orbs overlapping at peak opacity, composited through the glass-panel layers) — not eyeballed. Skip link, visible focus states, `aria-live` result-count announcements, and full keyboard operability are built in. Two real modals — Submit a Term and the Cmd+K palette — both get proper focus handling (Tab-cycling trap for the form; combobox/listbox pattern with `aria-activedescendant` for the palette, which is the more correct pattern for a type-ahead widget than a generic focus trap) and Escape-to-close with focus returned to whatever opened them. Re-audit with a tool like axe DevTools before launch — this was a manual pass, not automated tooling.
+
+## Design history
+
+This app went through several iterations before landing on the current dual-pane, pill-filtered, Cmd+K-equipped design — including a phase with single-column list rows, click-to-expand disclosure cards, and a category dropdown instead of pills. That direction was deliberately reversed in favor of the current one, which draws from a fuller prototype exploration. See commit history for the reasoning trail if any of these patterns come up for reconsideration again.

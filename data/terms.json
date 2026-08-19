@@ -5,7 +5,8 @@
     "playful": "The batting order for your treatment plan. 1L is the leadoff hitter (first thing tried), 2L comes off the bench if that fails, and by 4L you're basically out of lineup.",
     "real": "Shorthand for first-, second-, third-, and fourth-line treatment — the sequence in which therapies are tried for a condition.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Abstract",
@@ -13,7 +14,8 @@
     "playful": "The movie trailer for a research paper. All the highlights, none of the three-hour runtime, and occasionally more exciting than the actual paper.",
     "real": "A brief summary of a research article or study, used to quickly convey its purpose and findings.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Adjuvant (Adj)",
@@ -21,7 +23,8 @@
     "playful": "The cleanup crew of cancer treatment — shows up after the main event to mop up anything trying to stage a comeback.",
     "real": "Therapy applied after initial cancer treatment, especially to suppress secondary tumor formation.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "AMA (American Medical Association)",
@@ -29,7 +32,8 @@
     "playful": "Medicine's professional association — think of it as doctors' HOA, minus the noise complaints.",
     "real": "A national physician organization whose mission is to promote the art and science of medicine and public health.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "ASCO (American Society of Clinical Oncology)",
@@ -37,7 +41,8 @@
     "playful": "The Coachella of cancer research. Every oncologist's calendar clears for this one, every late May/early June, in Chicago.",
     "real": "One of the largest oncology societies in the world, known for its major annual meeting where new cancer data drops.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "AUC (Area Under the Curve)",
@@ -45,7 +50,8 @@
     "playful": "Math's way of asking 'but how much, overall?' instead of just 'how much right now?'",
     "real": "A statistical measure summarizing the total exposure or effect represented by a curve over time.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "BID",
@@ -53,7 +59,8 @@
     "playful": "Twice a day. Not to be confused with an auction — though your pharmacy bill might make you wish it were.",
     "real": "Twice-daily dosing of a medication.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Biologics",
@@ -61,7 +68,8 @@
     "playful": "Drugs that were technically alive at some point. Vaccines, gene therapies, and other medicines grown rather than synthesized in a lab flask.",
     "real": "Medicinal products such as vaccines, blood components, gene therapies, and recombinant proteins, produced by living organisms.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Biosimilar",
@@ -69,7 +77,8 @@
     "playful": "The 'basically the same, promise' version of an expensive biologic drug — close enough that regulators shrug and say ship it.",
     "real": "A biologic drug highly similar to a reference drug, with no clinically meaningful differences in safety, purity, or potency.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "CD / CDx (Companion Diagnostic)",
@@ -77,7 +86,8 @@
     "playful": "The bouncer that checks whether a drug is actually right for you before you're let in.",
     "real": "A diagnostic test used alongside a therapy to determine whether a patient is a suitable candidate for that treatment.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "CI (Confidence Interval)",
@@ -85,7 +95,8 @@
     "playful": "Science's way of saying 'probably this number, give or take,' dressed up in statistics so it sounds more official.",
     "real": "A range of plausible values proposed for an unknown parameter, based on study data.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "CR (Complete Response)",
@@ -93,7 +104,8 @@
     "playful": "The best possible report card in oncology: the cancer packed up and left, at least for now.",
     "real": "Disappearance of all detectable signs of cancer in response to treatment.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Clinical Trial Phases (I–IV)",
@@ -101,7 +113,8 @@
     "playful": "The four-round audition a drug survives before it's allowed on TV. Phase I: does it kill anyone? Phase II: does it work, a little? Phase III: does it work, a lot, on lots of people? Phase IV: does it still behave once it's out in the wild?",
     "real": "Phase I tests safety in small groups; Phase II tests safety/efficacy in medium groups; Phase III tests efficacy at scale (300–3,000 patients) and typically precedes FDA submission; Phase IV monitors real-world safety after launch.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "505(b)(2)",
@@ -109,7 +122,8 @@
     "playful": "The FDA's expedited lane for drugs that aren't brand new — same destination, shorter line.",
     "real": "A regulatory approval pathway for new formulations of already-approved drugs, faster and less costly than a traditional New Drug Application.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Binder Submission",
@@ -117,7 +131,8 @@
     "playful": "The literal binder of paperwork pharma sends the FDA before certain ads can run — no PDF shortcuts here.",
     "real": "Materials sent to OPDP for review for indications with Subpart E status.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "BLA (Biologics License Application)",
@@ -125,7 +140,8 @@
     "playful": "A biologic drug's application to prom — full of manufacturing details, chemistry, and hopes for approval.",
     "real": "A regulatory submission containing detailed information on a biologic product's manufacturing, chemistry, pharmacology, and medical effects.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Boxed Warning",
@@ -133,7 +149,10 @@
     "playful": "Also called a Black Box Warning — the drug world's version of a skull-and-crossbones sticker, reserved for the serious stuff.",
     "real": "The FDA's strongest safety warning, displayed in a bordered box at the start of the prescribing information, for risks that can cause death or serious injury.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": [
+      "Black Box Warning"
+    ]
   },
   {
     "term": "Brief Summary",
@@ -141,7 +160,8 @@
     "playful": "The Cliff's Notes version of a drug's full safety information — still long, just shorter than the real thing.",
     "real": "An abbreviated form of the prescribing information, generally used to accompany print advertising.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Access",
@@ -149,7 +169,8 @@
     "playful": "The department whose entire job is making sure the drug you need doesn't cost you a kidney (figuratively).",
     "real": "The function at a pharmaceutical company responsible for ensuring affordable access to its drugs.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Account Manager",
@@ -157,7 +178,8 @@
     "playful": "The pharma rep whose job is convincing insurance companies and hospital systems, not doctors, that a drug is worth covering.",
     "real": "A field representative who calls on payers, health system administration, and other value decision-makers.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "ACO (Accountable Care Organization)",
@@ -165,7 +187,8 @@
     "playful": "A group of doctors and hospitals that agreed to a group project where the grade depends on how healthy everyone stays.",
     "real": "A Medicare designation for provider groups that take on financial risk/reward based on patient outcomes.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "AMCP Dossier",
@@ -173,7 +196,8 @@
     "playful": "A drug's résumé, submitted to convince a health plan it deserves a spot on the formulary.",
     "real": "A standardized document (from the Academy of Managed Care Pharmacy) manufacturers submit with clinical and economic data for formulary consideration.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "AMP (Average Manufacturer Price)",
@@ -181,7 +205,8 @@
     "playful": "What wholesalers actually pay for a drug, on average — spoiler, it's not the sticker price you see anywhere.",
     "real": "The average price paid to a manufacturer by wholesalers for drugs distributed to retail pharmacies.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "BIM (Budget Impact Model)",
@@ -189,7 +214,8 @@
     "playful": "The spreadsheet that answers a health plan's real question: 'okay, but what's this going to cost us?'",
     "real": "A standard deliverable estimating the cost impact of adding a drug to a formulary, sometimes including projected savings from fewer complications.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "CMS (Centers for Medicare & Medicaid Services)",
@@ -197,7 +223,8 @@
     "playful": "The federal agency running the two biggest insurance plans in the country — basically the landlord of American healthcare payment.",
     "real": "A federal agency within HHS responsible for Medicare, Medicaid, and the State Children's Health Insurance Program.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Consulting Agreement (CA)",
@@ -205,7 +232,8 @@
     "playful": "The paperwork that turns 'hey doc, want to share your opinion?' into an official, compensated business relationship.",
     "real": "A contract between a pharmaceutical company and a Key Opinion Leader outlining services and compensation for specific activities.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "AAAA (American Association of Advertising Agencies)",
@@ -213,7 +241,8 @@
     "playful": "Advertising's own trade group — agencies getting together to agree on what counts as playing fair.",
     "real": "A committee of advertising agencies that promotes shared standards and practices across the industry.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "ACCME (Accreditation Council for Continuing Medical Education)",
@@ -221,7 +250,8 @@
     "playful": "The body that decides whether the 'educational' event your doctor attended actually counts, or was just a nice dinner.",
     "real": "Sets and enforces standards for continuing medical education (CME) credit in the United States.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Accounts Payable (A/P)",
@@ -229,7 +259,8 @@
     "playful": "The 'we owe you money' ledger. Every agency has one; every vendor watches it closely.",
     "real": "A record of outstanding invoices owed to vendors or suppliers.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Accounts Receivable (A/R)",
@@ -237,7 +268,8 @@
     "playful": "The mirror image of A/P — the 'people owe us money' ledger, tracking costs and hours billed back to clients.",
     "real": "A record of outstanding invoices scheduled to be paid to the agency for costs incurred, such as hours worked and out-of-pocket expenses.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "ADP",
@@ -245,7 +277,8 @@
     "playful": "The website every employee visits exactly twice a year: tax season, and 'wait, how much PTO do I have left?'",
     "real": "A common payroll platform used to access pay stubs, W-2s, and benefits information.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Advisory Board",
@@ -253,7 +286,10 @@
     "playful": "A full-day meeting where a pharma company gathers respected doctors, feeds them well, and asks 'so, what do you actually think of our drug?' Also called an 'ad board.'",
     "real": "A meeting with recognized thought leaders intended to gain feedback on a specific brand need.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": [
+      "ad board"
+    ]
   },
   {
     "term": "AFP (Approved For Production)",
@@ -261,7 +297,8 @@
     "playful": "The magic words that mean a project can stop being a draft and start becoming a real thing.",
     "real": "A status denoting that an item or project has been approved to move into production.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "After Effects",
@@ -269,7 +306,8 @@
     "playful": "The software where a static ad becomes a moving one — motion graphics, green screen work, and postproduction magic.",
     "real": "An Adobe program commonly used by creative teams for motion graphics and video postproduction.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "AMA Style",
@@ -277,7 +315,8 @@
     "playful": "The grammar rulebook most medical writers live and die by — because 'e.g.' vs 'i.e.' errors will absolutely get flagged in review.",
     "real": "Style guidelines from the American Medical Association Manual of Style, used by most medical advertisers and publishers.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "AOR (Agency of Record)",
@@ -285,7 +324,8 @@
     "playful": "The one agency a client trusts with everything for a brand — the main character energy of the ad-agency world.",
     "real": "A single agency responsible for all services for a client, often for a specific brand.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "APE (Annual Performance Evaluation)",
@@ -293,7 +333,8 @@
     "playful": "The yearly meeting where your entire year of work gets summarized into a rating and a slightly awkward conversation.",
     "real": "A yearly review, conducted by a supervisor, evaluating an employee's performance and setting development goals.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Biweekly (BIW)",
@@ -301,7 +342,8 @@
     "playful": "A word that technically means both 'twice a week' and 'every two weeks' — check the context before you show up to the wrong meeting.",
     "real": "Every two weeks (context-dependent — always double-check which meaning is intended).",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Body Copy",
@@ -309,7 +351,8 @@
     "playful": "The actual words doing the work in an ad — everything that isn't the flashy headline or the logo.",
     "real": "The bulk of the written copy in a piece, not including the headline, logo, or footnotes.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Brand Name",
@@ -317,7 +360,8 @@
     "playful": "The catchy name a drug gets to wear in public, as opposed to its much less quotable chemical name. OPDIVO, not nivolumab.",
     "real": "The tradename of a product — what the FDA calls the proprietary name, as opposed to the generic name.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Brand Style Guide",
@@ -325,7 +369,8 @@
     "playful": "The rulebook that keeps every piece of a brand's advertising speaking with the same voice, down to the Oxford comma.",
     "real": "A living document capturing a brand's specific editorial and design style, maintained and updated as new guidance comes in from legal and medical review.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Brand Vision",
@@ -333,7 +378,8 @@
     "playful": "A brand's one-sentence answer to 'where are we headed, big picture?'",
     "real": "A short, simple statement of a brand's long-term ambition.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Branding",
@@ -341,7 +387,8 @@
     "playful": "Everything that makes a product recognizable at a glance — the name, the colors, the vibe — even before you read a word.",
     "real": "A consistently delivered name, design, symbol, or other feature that distinguishes a product from its competitors.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Capabilities Presentation",
@@ -349,7 +396,8 @@
     "playful": "The agency's highlight reel — 'here's everything cool we've done, please hire us.'",
     "real": "A presentation showcasing an agency's relevant experience and capabilities, typically used to win new business.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Change Order",
@@ -357,7 +405,8 @@
     "playful": "The polite corporate phrase for 'this project got bigger than we thought, and it's going to cost more.'",
     "real": "A revised project estimate reflecting a change in scope, when actual hours or costs differ from what was initially planned.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "The Proofing Gauntlet",
@@ -365,7 +414,8 @@
     "playful": "Every ad's obstacle course before it's allowed to exist. It starts with a Cold Read (a fresh set of eyes hunting for typos), moves to a Copyedit (tightening the language), then a Consistency Check (do the fonts, acronyms, and formatting match across every page?), a comparison against the Backup (the last approved version, checked word-for-word), a final Check Changes & Slug pass (did every correction actually get made, and did any type fall off?) — and only once all of that is done does a piece get marked Clean: no more changes, ready to submit.",
     "real": "The multi-stage editorial review process ads go through before final approval: cold read, copyedit, consistency check, backup comparison, and a final changes/slug check, ending in 'clean' status.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Confidentiality Agreement",
@@ -373,7 +423,8 @@
     "playful": "The document you sign before anyone tells you the good gossip — legally binds you to keep it that way.",
     "real": "A contract restricting an employee from disclosing confidential or proprietary information.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Concept",
@@ -381,7 +432,8 @@
     "playful": "An ad's rough draft of an idea — a visual and a line of copy, not yet fully built out, but enough to know if it's got legs.",
     "real": "The main idea behind a communication; the initial stage of creative ideation, expressed in both visual and copy form but not fully executed.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Congress",
@@ -389,7 +441,8 @@
     "playful": "Not the government kind — the massive medical conventions where new drug data drops, booths compete for attention, and every hallway is a networking opportunity.",
     "real": "A large medical convention featuring data releases, symposia, and commercial exhibitor presence.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "COB (Close of Business)",
@@ -397,7 +450,8 @@
     "playful": "Corporate shorthand for '5 PM' — the deadline everyone quietly interprets as '5:45 PM, don't @ me.'",
     "real": "Close of business, 5 PM — commonly used when setting timing expectations for a deliverable.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "DBL (Database Lock)",
@@ -405,7 +459,8 @@
     "playful": "The moment a clinical trial's data gets frozen in carbonite — no more edits, no more do-overs, just analysis from here on out.",
     "real": "The point in a clinical trial when data collection is complete and no further changes can be made, allowing formal analysis to begin.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "DCR (Disease Control Rate)",
@@ -413,7 +468,8 @@
     "playful": "The 'at least it's not getting worse' stat — counts patients whose cancer shrank, disappeared, or just politely stayed put.",
     "real": "The percentage of patients who achieved complete response, partial response, or stable disease in a cancer clinical trial.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "DFS (Disease-Free Survival)",
@@ -421,7 +477,8 @@
     "playful": "The clock that starts the moment treatment ends and keeps ticking as long as the cancer stays gone.",
     "real": "The length of time after primary cancer treatment that a patient survives without any signs or symptoms of that cancer.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "DLTs (Dose-Limiting Toxicities)",
@@ -429,7 +486,8 @@
     "playful": "The side effects bad enough to make researchers say 'okay, we're not going any higher than this.'",
     "real": "Side effects serious enough to prevent an increase in a drug's dose or treatment level during a trial.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "DOR (Duration of Response)",
@@ -437,7 +495,8 @@
     "playful": "Not just 'did the drug work,' but 'how long did it keep working before the tumor got any ideas.'",
     "real": "The length of time a tumor continues responding to treatment without growing or spreading.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "DPP-4 (Dipeptidyl Peptidase-4)",
@@ -445,7 +504,8 @@
     "playful": "A protein involved in blood sugar control, and the reason a whole class of diabetes drugs has '-gliptin' in the name.",
     "real": "A protein that plays an important role in glucose metabolism; the target of DPP-4 inhibitor diabetes medications.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "GLP-1 (Glucagon-Like Peptide 1)",
@@ -453,7 +513,8 @@
     "playful": "The hormone behind the most talked-about weight-loss drug class in recent memory — it tells your brain 'you're full' and slows your stomach down to match. Its cousin GIP shows up too, in the dual-action versions.",
     "real": "A hormone that acts as a satiety signal in the brain and slows stomach emptying while stimulating insulin release; the target of GLP-1 receptor agonist medications used for diabetes and weight management.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "HbA1c (Glycosylated Hemoglobin)",
@@ -461,7 +522,8 @@
     "playful": "Blood sugar's report card — instead of grading one test, it averages your glucose levels over the past few months.",
     "real": "A form of hemoglobin used to measure average plasma glucose concentration over an extended period, key in diabetes management.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "GFR (Glomerular Filtration Rate)",
@@ -469,7 +531,8 @@
     "playful": "How well your kidneys are filtering — the number doctors check before deciding if your dose needs adjusting.",
     "real": "A measure of the flow rate of filtered fluid through the kidney, commonly used to assess kidney function and adjust drug dosing.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "ECG / EKG (Electrocardiogram)",
@@ -477,7 +540,8 @@
     "playful": "The squiggly-line printout of your heartbeat — the same test, two different abbreviations depending on which side of an argument about the German spelling you're on.",
     "real": "A recording of the electrical activity of the heart, used as a diagnostic tool.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Extended Release (XR / ER / SR)",
@@ -485,7 +549,8 @@
     "playful": "The reason some drug names end in a mysterious extra letter — special coatings that release the medicine slowly, so you take it once instead of three times a day.",
     "real": "A drug formulation using special coatings or ingredients to control the rate of release into the body, reducing dosing frequency.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "ECOG PS (Performance Status)",
@@ -493,7 +558,8 @@
     "playful": "A 0-to-5 scale for 'how much can this cancer patient actually do today' — 0 means fully active, higher numbers mean more support needed.",
     "real": "Eastern Cooperative Oncology Group performance status; used to quantify a cancer patient's general well-being and ability to perform daily activities.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "I-O (Immuno-Oncology)",
@@ -501,7 +567,8 @@
     "playful": "The 'teach the immune system to fight cancer itself' approach — one of the biggest shifts in cancer treatment this century.",
     "real": "A field of cancer treatment focused on harnessing the body's own immune system to identify and attack cancer cells.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Oncology's Alphabet Soup (CRC / GAS / ESO / HCC / H&N / GU)",
@@ -509,7 +576,8 @@
     "playful": "Every cancer type gets its own two-to-four-letter nickname in trial paperwork. CRC = colorectal, GAS = gastric, ESO = esophageal, HCC = liver, H&N = head & neck, GU = genitourinary. Basically medicine's version of airport codes.",
     "real": "Common shorthand abbreviations used across clinical and marketing documents for major cancer types: colorectal (CRC), gastric (GAS), esophageal (ESO), hepatocellular/liver (HCC), head & neck (H&N), and genitourinary (GU).",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "HCP (Healthcare Professional)",
@@ -517,7 +585,10 @@
     "playful": "The generic, all-purpose term for 'the person with the medical license' — doctor, nurse practitioner, PA, whoever's writing the prescription.",
     "real": "A qualified individual who delivers health care services; also called a healthcare provider.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": [
+      "healthcare provider"
+    ]
   },
   {
     "term": "Efficacy",
@@ -525,7 +596,8 @@
     "playful": "The word that answers 'okay, but does it actually work?' — as opposed to safety, which answers 'okay, but is it going to hurt me?'",
     "real": "The capacity of a treatment or intervention to produce a beneficial, therapeutic effect.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "DDMAC",
@@ -533,7 +605,8 @@
     "playful": "OPDP's previous name, back when the FDA's drug-ad watchdog had an even clunkier acronym.",
     "real": "Division of Drug Marketing, Advertising, and Communications — the predecessor office to OPDP, responsible for reviewing prescription drug advertising for accuracy.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "EMA (European Medicines Agency)",
@@ -541,7 +614,8 @@
     "playful": "The FDA's counterpart across the pond — same job, different accent, different flag on the letterhead.",
     "real": "The European Union's regulatory agency for evaluating and approving medicines, equivalent to the FDA.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "FDA (Food and Drug Administration)",
@@ -549,7 +623,8 @@
     "playful": "The referee of American healthcare — decides what drugs, food, and devices are safe enough to reach you, and throws the flag when an ad oversells.",
     "real": "A U.S. federal agency responsible for regulating and supervising food safety, pharmaceuticals, vaccines, medical devices, and more.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "End Matter",
@@ -557,7 +632,8 @@
     "playful": "The tiny-print neighborhood at the bottom of an ad where all the legally required stuff lives: disclaimers, footnotes, references, and the acronym key nobody reads but legal insists on.",
     "real": "Information placed at the bottom of a page or slide, including disclaimers, footnotes, reference citations, acronym lists, and 'please see' lines — typically in smaller type than the body copy.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "DRG (Diagnosis Related Group)",
@@ -565,7 +641,8 @@
     "playful": "Medicare's flat-rate menu for hospital stays — instead of paying for every individual service, hospitals get one lump sum per diagnosis, which quietly encourages efficiency.",
     "real": "A Medicare system that categorizes hospital-based patient care by diagnosis and reimburses a total cost of care rather than paying for individual services.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "DUR (Drug Utilization Review)",
@@ -573,7 +650,8 @@
     "playful": "The ongoing audit checking whether prescribing, dispensing, and taking medications are all happening the way they're supposed to.",
     "real": "An ongoing review of prescribing, dispensing, and patient medication use, typically conducted by clinical pharmacists at a health plan's PBM.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Formulary Kit",
@@ -581,7 +659,8 @@
     "playful": "The pitch deck a drug brings to a hospital's decision-making committee — research, credentials, and everything else needed to make the cut.",
     "real": "A packet of documents (including the drug monograph, journal reprints, and prescribing information) developed for Pharmacy & Therapeutics Committees considering a drug for formulary.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Health Plan",
@@ -589,7 +668,8 @@
     "playful": "The umbrella term for whoever's actually paying (or not paying) for your prescription — HMO, PPO, POS, or the increasingly common high-deductible plan.",
     "real": "An insurer offering health care benefit products, including medical, pharmacy, dental, and vision coverage, structured as HMOs, PPOs, POS plans, or HDHPs.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "HEOR (Health Economics and Outcomes Research)",
@@ -597,7 +677,8 @@
     "playful": "The team that puts a price tag on 'does this drug actually save money and lives in the long run.'",
     "real": "A research field studying the benefits and costs of therapeutic interventions to help clinicians, payers, and patients make informed decisions.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Honorarium",
@@ -605,7 +686,8 @@
     "playful": "The polite word for 'we're paying you for your time and expertise' when a doctor speaks at an educational event.",
     "real": "A fee paid to a Key Opinion Leader for time and effort spent on an educational activity.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "IDN (Integrated Delivery Network)",
@@ -613,7 +695,8 @@
     "playful": "Healthcare's version of a one-stop shop — insurer, hospitals, pharmacies, and doctors, all owned by the same parent company.",
     "real": "A network of insurers, hospitals, pharmacies, and providers operating under one parent organization.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "EOM (Enhancing Oncology Model)",
@@ -621,7 +704,8 @@
     "playful": "Medicare's latest attempt to pay cancer clinics for better outcomes instead of just more visits.",
     "real": "An optional, value-based Medicare reimbursement model for oncology practices, aimed at improving care quality and reducing costs through payment incentives.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Credit & Debit",
@@ -629,7 +713,8 @@
     "playful": "Money coming in versus money going out — the two words every finance conversation in an agency eventually boils down to.",
     "real": "Credit refers to funds owed to another party or added to an account; debit refers to funds deducted from an account.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "EBITDA",
@@ -637,7 +722,8 @@
     "playful": "A number executives love to say out loud in meetings — a company's profitability, minus the boring parts like interest and taxes.",
     "real": "Earnings Before Interest, Tax, Depreciation, and Amortization — an accounting measure used as a proxy for operating profitability.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Financial Audit",
@@ -645,7 +731,8 @@
     "playful": "The yearly check-up where an outside accountant makes sure the books are telling the truth.",
     "real": "An independent examination of a company's financial statements, conducted by a certified public accountant.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "CVA (Core Visual Aid)",
@@ -653,7 +740,8 @@
     "playful": "The flip-book a sales rep carries into a doctor's office — a simplified, visual pitch for why this drug, this patient, this moment.",
     "real": "A simple, distilled presentation covering a product's efficacy, target patient profile, and potential side effects, used by sales representatives.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "DBM (District Business Manager)",
@@ -661,7 +749,8 @@
     "playful": "The boss of the sales reps' boss — manages a whole territory of reps, their training, and their numbers.",
     "real": "An experienced representative who supervises a territory of sales reps, overseeing training, management, and performance reporting.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Draft",
@@ -669,7 +758,8 @@
     "playful": "The watermark stamped across a piece to remind everyone — especially the client — that it's not final yet, so please hold the panic.",
     "real": "A watermark placed on a live round of a job sent to a client, indicating the piece is still a work in progress.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Punctuation Nerdery (Ellipsis / Em Dash / En Dash)",
@@ -677,7 +767,8 @@
     "playful": "The trio editors argue about at 6 PM on deadline day. Ellipsis (…) trails off a thought. Em dash (—) is the dramatic pause. En dash (–) is shorter, mostly reserved for number ranges like 2020–2024.",
     "real": "Three distinct punctuation marks with specific style-guide rules: the ellipsis signals omitted text or a trailing thought, the em dash (width of a capital M) sets off emphasis, and the en dash (half an em dash) typically expresses numerical ranges.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Eyebrow",
@@ -685,7 +776,8 @@
     "playful": "The little line of text that sits above the headline, quietly setting up the main event.",
     "real": "A short introductory phrase that leads into the primary headline on a page.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Footnote",
@@ -693,7 +785,8 @@
     "playful": "The tiny superscript number that sends you scrambling to the bottom of the page to see what's actually being claimed.",
     "real": "An explanatory note at the bottom of a page, referenced by a symbol or number placed within the body copy.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "FPO (For Placement Only)",
@@ -701,7 +794,8 @@
     "playful": "The 'we'll swap this out later, promise' label slapped on an image that hasn't been officially licensed yet.",
     "real": "A label used on projects with images or logos that aren't yet final, often because the image hasn't been purchased — typically remains until after medical-legal review.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Studio File Types (AI / EPS / INDD / Flash Files)",
@@ -709,7 +803,8 @@
     "playful": "The alphabet soup of files creative teams pass around: AI/EPS for logos and vector art out of Illustrator, INDD for layouts out of InDesign, and the now-mostly-retired Flash formats (FLA, FLV, EXE) for the animations of a bygone era.",
     "real": "Common production file formats: AI/EPS (Adobe Illustrator vector files, used for logos and illustrations), INDD (Adobe InDesign layout files), and legacy Flash-based formats (FLA source files, FLV video, EXE executables) once used for interactive animation.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "FTE & FL (Full-Time Employee & Freelancer)",
@@ -717,7 +812,8 @@
     "playful": "The two flavors of 'person working on your account' — one's on staff full-time, the other shows up for a project and vanishes like a contractor ghost.",
     "real": "FTE denotes a full-time staff member billing a set number of hours per year (often ~1,800); FL denotes a temporary, project-based freelance employee.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "F&B (Food and Beverage)",
@@ -725,7 +821,8 @@
     "playful": "The line item nobody questions until the catering bill for a 400-person congress booth arrives.",
     "real": "Term used when coordinating with a hotel or venue for a live meeting, referring to all food and beverage served on-site.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "EOD & EOW (End of Day / End of Week)",
@@ -733,7 +830,8 @@
     "playful": "Deadline shorthand's other two flavors, alongside COB — technically meaning 'today' or 'this week,' practically meaning 'whenever it actually gets done.'",
     "real": "Common project-timing shorthand: EOD means by the end of the business day; EOW means by the end of the work week.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "GTM (Google Tag Manager)",
@@ -741,7 +839,8 @@
     "playful": "The invisible plumbing behind a pharma website that tracks which ads are actually working — and quietly sets the cookies doing it.",
     "real": "A tool that manages tracking tags and scripts on a website, including analytics and marketing tags used to measure ad performance.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Embargoed",
@@ -749,7 +848,8 @@
     "playful": "Information that's finished and ready — it just isn't allowed to be released yet, usually timed to a big medical congress announcement.",
     "real": "A time-dependent release restriction placed on information, preventing publication before a specified date.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Generic Name",
@@ -757,7 +857,8 @@
     "playful": "A drug's unglamorous scientific name — nivolumab, not OPDIVO — and by FDA rule, it has to appear on packaging at no smaller than half the visual size of the flashy brand name.",
     "real": "The name assigned to a drug's active ingredient, referred to by the FDA as the established name. FDA guidance requires the generic name's smallest letter to be at least half the visual size of the brand name's largest letter in logo design.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Icon",
@@ -765,7 +866,8 @@
     "playful": "A brand's visual shorthand — think the Nike swoosh — with one FDA-specific rule: it can't crowd out or obscure the actual drug name.",
     "real": "A graphic design element associated with a logo or brand. FDA guidance specifies an icon's placement must not obscure or intervene between the legibility of the brand and generic name.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Disaster Check, Fact Check & Full Edit",
@@ -773,7 +875,8 @@
     "playful": "Three more stops on the editorial obstacle course, beyond the Proofing Gauntlet. A Disaster Check hunts only for the most egregious typos, fast. A Fact Check verifies every cited claim actually matches its source. A Full Edit is the whole enchilada — grammar, style, citations, and consistency, all at once.",
     "real": "Distinct editorial review types: a Disaster Check scans only for glaring errors; a Fact Check confirms cited statements match their sources and citation numbers are correct; a Full Edit combines a complete copyedit and fact-check in one pass.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "DSA & DSE (Disease State Awareness & Education)",
@@ -781,7 +884,8 @@
     "playful": "The 'let's talk about the disease before we talk about the drug' content — the quiet setup act that runs before a new medication even launches.",
     "real": "DSA refers to non-branded educational programs raising awareness of a disease state ahead of a drug launch; DSE refers to materials educating patients and providers on a given disease state, independent of any specific product.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "ITT (Intent to Treat)",
@@ -789,7 +893,8 @@
     "playful": "The stats principle of 'once you're in the study, you're in the study' — patients get counted in their original treatment group even if they later switched or dropped out, to keep the comparison honest.",
     "real": "A clinical trial analysis principle in which patients are analyzed according to their originally assigned treatment group, regardless of adherence or discontinuation.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "IV (Intravenous)",
@@ -797,7 +902,8 @@
     "playful": "Medicine straight into the bloodstream — skips the stomach entirely, works fast, requires a needle.",
     "real": "A route of drug administration delivering medication directly into a vein.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "K-M (Kaplan-Meier)",
@@ -805,7 +911,8 @@
     "playful": "The stair-step chart at the center of almost every survival study — each drop marks another patient's story ending, plotted against time.",
     "real": "A statistical method (and its resulting curve) used to estimate the fraction of patients surviving for a given amount of time after treatment.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Neoadjuvant",
@@ -813,7 +920,8 @@
     "playful": "Adjuvant's opposite number — treatment given before the main event (usually surgery) to shrink things down first, instead of mopping up after.",
     "real": "Treatment given as an initial step to shrink a tumor before the primary treatment, typically surgery, is performed.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "MDT (Multidisciplinary Team)",
@@ -821,7 +929,8 @@
     "playful": "Healthcare's version of assembling the Avengers — oncologist, surgeon, radiologist, and more, all coordinating on one patient's care.",
     "real": "A team structure organizing and coordinating health and care services to meet the needs of patients with complex conditions.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "MOA & MOD (Mechanism of Action & Mechanism of Disease)",
@@ -829,7 +938,8 @@
     "playful": "The 'how' pair of pharma: MOD is how the disease breaks the body in the first place; MOA is how the drug steps in to fix (or block) it.",
     "real": "MOA refers to the specific biochemical interaction through which a drug produces its effect; MOD refers to the molecular and cellular defects that trigger a given disease.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "More Oncology Alphabet Soup (MM / mMel / mNSCLC / mUC / NHL / NSQ)",
@@ -837,7 +947,8 @@
     "playful": "Round two of cancer's nickname system: MM is multiple myeloma, mMel is metastatic melanoma, mNSCLC is metastatic non-small cell lung cancer, mUC is metastatic urothelial (bladder) carcinoma, NHL is non-Hodgkin's lymphoma, and NSQ marks a non-squamous lung cancer subtype.",
     "real": "Common oncology shorthand: MM (multiple myeloma), mMel (metastatic melanoma), mNSCLC (metastatic non-small cell lung cancer), mUC (metastatic urothelial carcinoma), NHL (non-Hodgkin's lymphoma), and NSQ (nonsquamous histology, a lung cancer subtype).",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "NCCN (National Comprehensive Cancer Network)",
@@ -845,7 +956,8 @@
     "playful": "The organization whose cancer treatment guidelines oncologists actually build their decisions around — 'NCCN-listed' carries real weight in the field.",
     "real": "An alliance of cancer centers that publishes widely followed clinical practice guidelines for cancer treatment.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "NGC (National Guideline Clearinghouse)",
@@ -853,7 +965,8 @@
     "playful": "A now-retired federal repository of medical guidelines — two decades of service, then the plug got pulled. Even government websites have a shelf life.",
     "real": "A federal resource created in 1998 by AHRQ, in partnership with the American Medical Association and the American Association of Health Plans, to compile evidence-based clinical practice guidelines. The original partnership ended in 2002, and the site closed in 2018; AHRQ launched a new initiative that same year to build on NGC's work.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "NGS (Next-Generation Sequencing)",
@@ -861,7 +974,8 @@
     "playful": "The technology that reads a patient's DNA fast enough to actually guide treatment decisions in real time, rather than just for research.",
     "real": "A high-throughput DNA sequencing technology used to identify genetic mutations, increasingly central to precision oncology treatment decisions.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "MRI (Magnetic Resonance Imaging)",
@@ -869,7 +983,8 @@
     "playful": "The loud, magnetic tube that sees soft tissue better than almost anything else — no radiation, just a lot of banging noises.",
     "real": "An imaging technique providing high contrast between soft tissues, used across neurology, cardiology, and oncology.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Who's Prescribing? (NPs & PCPs)",
@@ -877,7 +992,8 @@
     "playful": "Two of the most common faces behind a prescription pad: your everyday family doctor, and the increasingly common nurse practitioner who can prescribe independently in many states.",
     "real": "PCP (Primary Care Physician) refers to a patient's main treating doctor; NP (Nurse Practitioner) refers to an advanced-practice nurse who, depending on state law, can independently diagnose and prescribe.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "ORR (Overall Response Rate)",
@@ -885,7 +1001,8 @@
     "playful": "The percentage of patients whose tumor meaningfully shrank or vanished — the headline efficacy number in most oncology drug ads.",
     "real": "The proportion of patients who achieve a complete or partial response to treatment in a clinical trial.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "OS (Overall Survival)",
@@ -893,7 +1010,8 @@
     "playful": "The gold-standard endpoint: not 'did the tumor shrink,' but 'did the patient live longer.' Hardest to prove, most convincing when it's shown.",
     "real": "A clinical trial endpoint measuring the length of time from treatment start until death from any cause, widely regarded as the most definitive efficacy measure.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "OTC (Over the Counter)",
@@ -901,7 +1019,8 @@
     "playful": "No prescription, no doctor's note, no pharmacist gatekeeping — just grab it off the shelf.",
     "real": "A classification for medications that can be purchased without a prescription.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "PARP Inhibitor",
@@ -909,7 +1028,8 @@
     "playful": "A drug class that blocks cancer cells from repairing their own broken DNA — turns out cells with enough existing damage just give up and die when you take away their fix-it kit.",
     "real": "Poly (ADP-ribose) polymerase inhibitor — a class of drugs blocking a DNA-repair enzyme, used particularly in cancers with existing DNA-repair deficiencies (such as certain ovarian and breast cancers).",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "PA — Which One? (Prior Authorization vs. Physician Assistant)",
@@ -917,7 +1037,8 @@
     "playful": "Pharma's favorite acronym collision. In a payer conversation, PA means Prior Authorization. In a clinic, PA means the Physician Assistant who just walked in. Context is everything.",
     "real": "PA commonly refers to either Prior Authorization (a payer pre-approval requirement) or Physician Assistant (a licensed clinician who can diagnose, treat, and prescribe under physician supervision) — the correct meaning depends entirely on context.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Medication Guide",
@@ -925,7 +1046,8 @@
     "playful": "The extra safety handout that comes with certain prescriptions — not the standard leaflet, a specific FDA-mandated one for drugs with particular risks worth spelling out clearly.",
     "real": "An FDA-required document provided with certain prescriptions to address specific safety issues, adherence directions, or proper use of the medication.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "MLR (Medical-Legal Review)",
@@ -933,7 +1055,8 @@
     "playful": "The gate every piece of pharma promotion has to pass through before it reaches the public — medical checks the science, legal checks the liability, and nothing ships without both signing off.",
     "real": "The internal review process (known by various names depending on the client) in which a pharmaceutical company's medical and legal teams review promotional materials for scientific accuracy and regulatory compliance before release.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "NDA (New Drug Application)",
@@ -941,7 +1064,8 @@
     "playful": "The massive formal ask: 'FDA, may we please sell this drug now?' Comes after successful trials, and comes with a mountain of supporting data.",
     "real": "The formal application submitted to the FDA requesting approval to market a new drug in the United States.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Off Label",
@@ -949,7 +1073,8 @@
     "playful": "Using a drug for something it wasn't officially approved to treat — legal for doctors to do, but pharma companies can get in serious trouble for promoting it.",
     "real": "The use of an approved drug for an indication, dosage, or population not included on its FDA-approved label.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "OIG (Office of Inspector General)",
@@ -957,7 +1082,8 @@
     "playful": "The federal watchdog sniffing out fraud and waste across Medicare, Medicaid, and pretty much every healthcare dollar the government touches.",
     "real": "A federal office leading efforts to combat waste, fraud, and abuse in Medicare, Medicaid, and other HHS programs.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Orphan Drug",
@@ -965,7 +1091,8 @@
     "playful": "A drug developed for a disease so rare it needs its own special incentive program to make the economics work out for anyone to bother.",
     "real": "A pharmaceutical product developed specifically to treat a rare ('orphan') disease, eligible for special FDA incentives such as extended market exclusivity.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "JV (Joint Venture)",
@@ -973,7 +1100,8 @@
     "playful": "When two pharma companies decide teaming up on a drug beats going it alone.",
     "real": "An arrangement in which two or more pharmaceutical companies collaborate on a drug's development or commercialization.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Medicaid",
@@ -981,7 +1109,8 @@
     "playful": "The state-run safety net for lower-income Americans — rules and coverage vary depending on which state you're standing in.",
     "real": "A state-administered program of health insurance benefits for low-income individuals and families.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Medicare's Alphabet (Parts A-D & FFS)",
@@ -989,7 +1118,8 @@
     "playful": "Medicare's confusing menu, decoded: Part A covers hospital stays, Part B covers doctor visits and equipment, Part C (Medicare Advantage) swaps the whole thing for a private plan, and Part D covers prescription drugs. Fee-for-Service just means A+B (sometimes plus D) with the freedom to see any provider who accepts Medicare.",
     "real": "Medicare Part A covers inpatient hospital costs; Part B covers office visits, infusions, and durable medical equipment; Part C (Medicare Advantage) is a private-plan alternative with a restricted network; Part D covers outpatient prescription drugs through private plans. Fee-for-Service (FFS) refers to traditional A/B (sometimes plus D) coverage, allowing patients to see any Medicare-accepting provider.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "MCO (Managed Care Organization)",
@@ -997,7 +1127,8 @@
     "playful": "The catch-all term for 'a health plan,' when you don't feel like specifying which flavor.",
     "real": "A generic term for a health plan or managed care entity.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Monograph",
@@ -1005,7 +1136,8 @@
     "playful": "A drug's full dossier, and it comes in three flavors: a promotional version (sales-rep friendly, limited to what's in the prescribing information), an AMCP-formatted version (for formulary committees, packed with unpublished data), and a CME-accredited version (educational, focused on the disease state).",
     "real": "A comprehensive document of drug information. Promotional monographs are limited to prescribing-information content and distributed by sales reps; AMCP-format monographs support formulary submissions and may include unpublished studies and pharmacoeconomic data; CME-accredited monographs focus on disease education and can be distributed more broadly.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "NDC (National Drug Code)",
@@ -1013,7 +1145,8 @@
     "playful": "Every medication's unique barcode-style ID number — the thing that makes sure a pharmacy claim gets matched to the exact right drug.",
     "real": "A unique 10-digit code assigned by the FDA to identify prescription medications, used in submitting reimbursement claims.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "OOP (Out-of-Pocket Cost)",
@@ -1021,7 +1154,8 @@
     "playful": "What's left on your bill after insurance does whatever it's going to do — the number patients actually feel.",
     "real": "The portion of a healthcare cost that a patient pays directly, not covered by insurance.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "\"Out\" (Rx Volume Metric)",
@@ -1029,7 +1163,8 @@
     "playful": "Sales-team shorthand for the total number of prescriptions — new and refilled — going out the pharmacy door for a drug, used to track whether a brand is actually gaining ground.",
     "real": "A metric representing total weekly or monthly prescriptions (new and refill) for a drug, used to forecast brand growth and measure sales performance.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "P&T Committee (Pharmacy & Therapeutics)",
@@ -1037,7 +1172,8 @@
     "playful": "The group deciding whether a drug earns a spot on the formulary — the actual audience the Monograph, AMCP Dossier, and Formulary Kit are all trying to impress.",
     "real": "An advisory committee within a health plan or health system responsible for reviewing evidence and managing the formulary.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "PBM (Pharmacy Benefit Manager)",
@@ -1045,7 +1181,8 @@
     "playful": "The middleman negotiating drug prices between manufacturers, pharmacies, and health plans — hugely influential, rarely a household name.",
     "real": "An organization that manages prescription drug benefits on behalf of health plans, employers, or government programs, including formulary decisions and price negotiations.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "MA & MA-PD (Medicare Advantage Plans)",
@@ -1053,7 +1190,10 @@
     "playful": "Medicare Part C's other name, plus its prescription-drug-included version — private insurance stepping in to replace traditional Medicare, drug coverage optional or bundled.",
     "real": "MA (Medicare Advantage) is a private-plan alternative to traditional Medicare, also called Part C; MA-PD is a Medicare Advantage plan that bundles in Part D prescription drug coverage.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": [
+      "Part C"
+    ]
   },
   {
     "term": "ITS (Institutional Treatment Specialist)",
@@ -1061,7 +1201,8 @@
     "playful": "The sales rep whose whole territory is hospitals and academic medical centers — a different beat entirely from the reps calling on private practices.",
     "real": "A sales force role focused on academic and hospital-based customers, as distinct from reps calling on private-office physicians.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "IVA (Interactive Visual Aid)",
@@ -1069,7 +1210,8 @@
     "playful": "The Core Visual Aid's tech-savvy cousin — same sales-pitch job, but built with video, animation, and audio instead of flat pages.",
     "real": "A digital sales detail aid incorporating rich media (audio, video, animation) and interactive components, as opposed to a static Core Visual Aid.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Journal Club",
@@ -1077,7 +1219,8 @@
     "playful": "A print or digital piece built entirely around dissecting one specific research paper — for the audience that wants the receipts, not just the highlight reel.",
     "real": "A marketing or educational piece, in print or digital form, highlighting a specific published manuscript.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "KOL (Key Opinion Leader)",
@@ -1085,7 +1228,12 @@
     "playful": "The doctors influential enough that pharma companies actively court their opinion, early, often before a drug even launches. Also goes by OL (Opinion Leader), TL (Thought Leader), or KEE — ask your brand team which one they're using this week.",
     "real": "Physicians who influence their peers' prescribing behavior and medical practice. Pharmaceutical companies typically engage them early in drug development for advocacy and marketing feedback.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": [
+      "Opinion Leader",
+      "Thought Leader",
+      "KEE"
+    ]
   },
   {
     "term": "LBA (Late-Breaker Abstract)",
@@ -1093,7 +1241,8 @@
     "playful": "The research so new it missed the regular submission deadline for a medical congress and got squeezed in anyway, usually because it's a big deal.",
     "real": "An abstract submitted after the standard deadline for a medical conference, typically reserved for particularly significant or time-sensitive findings.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "LCM (Life-Cycle Management)",
@@ -1101,7 +1250,8 @@
     "playful": "A drug's long game — planning years ahead for new trials, new indications, and new marketing angles long after the initial launch buzz fades.",
     "real": "The long-term strategic planning of a drug's clinical trials, anticipated indications, and medical/marketing approach over its commercial lifetime.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Legal & Medical Affairs",
@@ -1109,7 +1259,8 @@
     "playful": "The client-side duo standing between a creative idea and public release — Legal makes sure nothing's a liability, Medical Affairs makes sure everything's scientifically accurate. Both have veto power.",
     "real": "Legal refers to a client's legal representative ensuring materials comply with corporate guidelines and applicable law; Medical Affairs refers to a client's medical representative ensuring materials are medically and scientifically accurate.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Live Round",
@@ -1117,7 +1268,8 @@
     "playful": "The current, active version of a job everyone should actually be looking at — as opposed to that one outdated PDF still floating around someone's inbox.",
     "real": "The most recent version of a job that the team should be reviewing.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Logo",
@@ -1125,7 +1277,8 @@
     "playful": "A brand's face — the single graphic mark designed to be recognized instantly, no words required.",
     "real": "A graphic mark or emblem used to aid and promote instant public recognition of an organization or product.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Lunch and Learns",
@@ -1133,7 +1286,8 @@
     "playful": "Free food in exchange for forty-five minutes of professional development — any department can host one, and attendance mysteriously spikes when the topic is 'optional.'",
     "real": "A midday meeting used to share information and educate employees across departments.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Manuscript",
@@ -1141,7 +1295,8 @@
     "playful": "In agency-speak, not a novel draft — it's the plain, unformatted 'copy deck' that Art and Interactive teams turn into the actual finished layout.",
     "real": "An unformatted copy document (typically in Word) used as the source text that Art or Interactive teams build out into a full designed layout.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "MR (Market Research)",
@@ -1149,7 +1304,8 @@
     "playful": "The team asking real people what they actually think, before the agency spends months building a campaign around a guess.",
     "real": "The function responsible for gathering data and insights on target audiences to inform marketing strategy.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "MSA (Master Services Agreement)",
@@ -1157,7 +1313,8 @@
     "playful": "The big contract that sets the ground rules for an agency-client relationship, before any actual project work begins.",
     "real": "The overarching contract establishing the terms of a business relationship between an agency and a client.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "MSL (Medical Scientific Liaison)",
@@ -1165,7 +1322,8 @@
     "playful": "The company's non-sales-rep doctor-to-doctor connector — handles off-label questions reps legally can't touch, and builds peer relationships with physicians.",
     "real": "A client-side PharmD, MD, or PhD who serves as a scientific point of contact for physicians, answering off-label questions and facilitating peer-to-peer medical discussions.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Net Income",
@@ -1173,7 +1331,8 @@
     "playful": "The number left after literally everything else has been subtracted — the true bottom line.",
     "real": "The after-tax profit generated from revenue or sales.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "NPP (Nonpersonal Promotion)",
@@ -1181,7 +1340,8 @@
     "playful": "Marketing that reaches a doctor without an actual human rep in the room — email, digital ads, direct mail, all doing the legwork solo.",
     "real": "Promotional activity delivered without in-person sales representative interaction, such as digital or print advertising.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "NPV (Net Present Value)",
@@ -1189,7 +1349,8 @@
     "playful": "The finance trick of asking 'what is money I'll get years from now actually worth today?' — because a dollar later is never quite worth a dollar now.",
     "real": "A calculation of the current value of future cash flows, discounted to reflect the time value of money.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Agency Software Stack (NetSuite & OpenAir)",
@@ -1197,7 +1358,8 @@
     "playful": "The unglamorous backend duo running the business side of most agencies — one tracks jobs and billing, the other tracks time and resourcing. Nobody loves them, everyone depends on them.",
     "real": "NetSuite and OpenAir are widely used enterprise software platforms for agency operations — commonly used together to manage job numbers, billing, timesheets, and resource planning.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "OBS Rep (Office-Based Specialty Representative)",
@@ -1205,7 +1367,8 @@
     "playful": "The rep calling on specialists in private practice — independent cardiologists, neurologists — rather than hospital-based physicians, usually focused on longer-term, ongoing care relationships.",
     "real": "A sales representative role focused on specialists working in private offices rather than hospitals, typically involved in long-term rather than acute care.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "OOTO (Out Of The Office)",
@@ -1213,7 +1376,8 @@
     "playful": "The email-culture abbreviation for 'don't expect a reply' — deployed liberally in the last week of December.",
     "real": "Shorthand for 'out of the office,' commonly used in email and status updates.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Overhead Cost",
@@ -1221,7 +1385,8 @@
     "playful": "All the business expenses that keep the lights on but never show up in a client's creative brief — payroll, office space, the usual.",
     "real": "Business expenses necessary for a company's operations, such as payroll, corporate expenses, and facilities costs.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Typesetting Lingo (Italics, Kerning & Leading)",
@@ -1229,7 +1394,8 @@
     "playful": "The trio of type nerdery that separates good design from cramped, awkward design. Italics slant a typeface for emphasis or journal names. Kerning tightens the space between two specific letters. Leading (pronounced 'led-ding') controls the vertical space between lines.",
     "real": "Italics are a slanted typeface variation, often used for journal name citations. Kerning is the adjustment of horizontal space between specific letter pairs. Leading is the vertical space between lines of type, measured baseline to baseline.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Paper & Page Sizes (Letter, Ledger, A4 & Landscape)",
@@ -1237,7 +1403,8 @@
     "playful": "The dimensions everyone in a layout meeting has memorized without meaning to: Letter is the standard 8.5x11 US page, Ledger (or Tabloid) is the bigger 11x17, A4 is the international standard, and Landscape just means it's wider than it is tall.",
     "real": "Letter paper is 8.5x11 inches (US standard); Ledger/Tabloid paper is 11x17 inches; A4 is 210x297mm (international standard); Landscape orientation means a layout's width exceeds its height.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Creative Brief",
@@ -1245,7 +1412,8 @@
     "playful": "The document that turns a vague client ask into an actual creative assignment — the roadmap the Creative team builds the whole concept from.",
     "real": "A document capturing the guidance and direction needed for a Creative team to begin a conceptual or ideation project.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "FSA (Flexible Spending Account)",
@@ -1253,7 +1421,8 @@
     "playful": "Pretax dollars set aside for medical expenses — the 'use it or lose it' benefit that sends everyone scrambling to buy new glasses in December.",
     "real": "A benefit plan allowing employees to set aside pretax dollars to pay for eligible medical expenses, including copays, deductibles, and other out-of-pocket costs.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "IKOM (Internal Kick-Off Meeting)",
@@ -1261,7 +1430,8 @@
     "playful": "The meeting where a project actually begins — the full internal team gathers to align on scope before any work starts, separate from whatever kickoff happens with the client.",
     "real": "A meeting held at the start of a project bringing together the internal team and support services to discuss project scope.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "pCR (Pathological Complete Response)",
@@ -1269,7 +1439,8 @@
     "playful": "The clean-slate result: surgeons remove tissue after treatment and find zero remaining cancer cells under the microscope.",
     "real": "No evidence of cancer cells in the tissue removed during surgery following treatment.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Tumor Response Categories (CR / PR / SD / PD)",
@@ -1277,7 +1448,8 @@
     "playful": "Oncology's four-tier report card for how a tumor reacted to treatment: Complete Response (gone), Partial Response (shrank), Stable Disease (held steady), or Progressive Disease (grew). These are the official RECIST criteria in action.",
     "real": "Standardized tumor response categories used in oncology trials: Complete Response (disappearance of all detectable cancer), Partial Response (measurable shrinkage), Stable Disease (neither significant shrinkage nor growth), and Progressive Disease (growth or spread) — defined by the RECIST criteria.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "PD-1 & PD-L1",
@@ -1285,7 +1457,8 @@
     "playful": "The lock-and-key pair behind an entire generation of cancer drugs. PD-1 is a brake pedal on immune cells; PD-L1 is the signal cancer cells use to hit that brake and hide. Checkpoint inhibitors work by jamming the connection.",
     "real": "PD-1 (Programmed cell death receptor-1) is an immune checkpoint receptor on T-cells; PD-L1 (Programmed death-ligand 1) is a protein some cancer cells use to bind PD-1 and suppress immune attack. PD-1/PD-L1 inhibitor drugs block this interaction to let the immune system attack the tumor.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "PFS (Progression-Free Survival)",
@@ -1293,7 +1466,8 @@
     "playful": "How long a patient goes without their cancer getting worse — one of oncology's most commonly cited efficacy endpoints.",
     "real": "The length of time during and after treatment that a patient lives without the disease getting worse.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "PT (Pan Tumor)",
@@ -1301,7 +1475,8 @@
     "playful": "A drug approved based on a tumor's genetic fingerprint rather than which organ it started in — cancer treatment finally catching up to the idea that biology matters more than geography.",
     "real": "Refers to a tissue-agnostic (pan-tumor) drug approval or treatment approach, based on a shared biomarker across cancer types rather than the tumor's location of origin.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "PRO (Patient-Reported Outcomes)",
@@ -1309,7 +1484,8 @@
     "playful": "The data that comes straight from the patient, not a lab test — how they say they actually feel and function, which increasingly matters just as much as the scan results.",
     "real": "Health outcome data reported directly by the patient, without interpretation by a clinician, capturing symptoms, function, or quality of life.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Preclinical Research",
@@ -1317,7 +1493,8 @@
     "playful": "The lab-and-animal-study phase that happens before a drug ever meets a human — all theory and petri dishes until this stage clears the bar.",
     "real": "Basic science research that precedes clinical trials, based primarily on theoretical models and animal studies.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Prescription (Rx)",
@@ -1325,7 +1502,10 @@
     "playful": "The written go-ahead from a licensed prescriber — the actual document (or e-script) that turns 'you should take this' into 'you can legally have this.'",
     "real": "A written direction from a licensed prescriber for the preparation and use of a medication; also called a script.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": [
+      "script"
+    ]
   },
   {
     "term": "QOL (Quality of Life)",
@@ -1333,7 +1513,8 @@
     "playful": "The measure that asks not just 'is the patient alive' but 'is the patient's life actually good' — increasingly central to how drugs get evaluated and marketed.",
     "real": "A measure of a patient's overall well-being, encompassing physical, emotional, and social functioning, often assessed alongside clinical outcomes.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "More Dosing Shorthand (Q4W & QD)",
@@ -1341,7 +1522,8 @@
     "playful": "Two more entries in dosing's abbreviation family, alongside BID. QD means once a day. Q4W means once every four weeks — handy when a drug's effects last a while.",
     "real": "QD denotes once-daily dosing; Q4W denotes dosing once every four weeks.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "r/m (Recurrent/Metastatic)",
@@ -1349,7 +1531,8 @@
     "playful": "Oncology shorthand for cancer that either came back after treatment or has spread beyond where it started — often the point where treatment strategy shifts significantly.",
     "real": "Abbreviation indicating a cancer that is recurrent (has returned after treatment) and/or metastatic (has spread to other parts of the body).",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "RCC (Renal Cell Carcinoma)",
@@ -1357,7 +1540,8 @@
     "playful": "The most common type of kidney cancer — and a major target for a whole category of oncology drug marketing.",
     "real": "A type of kidney cancer originating in the lining of the kidney's small tubes; the most common form of kidney cancer in adults.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "RECIST",
@@ -1365,7 +1549,8 @@
     "playful": "The rulebook that defines exactly what counts as a Complete Response versus Progressive Disease in a cancer trial — without it, 'the tumor got better' would mean something different in every study.",
     "real": "Response Evaluation Criteria In Solid Tumors — the standardized criteria used to define and measure tumor response categories (CR, PR, SD, PD) in clinical trials.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "RT (Radiotherapy)",
@@ -1373,7 +1558,8 @@
     "playful": "Using targeted radiation to damage cancer cells' DNA badly enough that they stop dividing — one of oncology's oldest and still most-used tools.",
     "real": "Treatment using high-energy radiation to kill or damage cancer cells.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "PET Scan (Positron Emission Tomography)",
@@ -1381,7 +1567,8 @@
     "playful": "The imaging test that shows which tissues are metabolically hyperactive — cancer cells tend to glow on the scan because they're burning through sugar fast.",
     "real": "A nuclear medicine imaging technique producing three-dimensional images of functional processes in the body, commonly used in oncology to detect metabolically active tissue.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Types of Medical Literature (Primary, Secondary & Review)",
@@ -1389,7 +1576,8 @@
     "playful": "Not all published research carries the same weight. A Primary article reports fresh, original study data. A Secondary article reanalyzes or builds on that original data. A Review article steps back and summarizes progress across a whole body of research.",
     "real": "A Primary article/source presents original research data, typically following the introduction-methods-results-discussion (IMRAD) format. A Secondary article/source discusses or reanalyzes previously presented data. A Review article summarizes the state of research on a topic over a given period.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Oncology's Alphabet Soup, Round 3 (SCCHN & SCLC)",
@@ -1397,7 +1585,8 @@
     "playful": "Two more cancer-type codes for the collection: SCCHN is squamous cell carcinoma of the head and neck; SCLC is small cell lung cancer, a fast-growing lung cancer subtype.",
     "real": "SCCHN denotes squamous cell carcinoma of the head and neck; SCLC denotes small cell lung cancer, a distinct and typically more aggressive lung cancer subtype.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "PDUFA (Prescription Drug User Fee Act)",
@@ -1405,7 +1594,8 @@
     "playful": "The law that lets the FDA charge pharma companies review fees — and in exchange, commits to actually reviewing submissions within a set timeline. A deal that speeds up the whole system.",
     "real": "Legislation allowing the FDA to charge fees for reviewing drug submissions, in exchange for the FDA committing to review applications within specified timeframes.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "PhRMA",
@@ -1413,7 +1603,8 @@
     "playful": "The pharmaceutical industry's own lobbying and advocacy group — representing the country's major research-based drug and biotech companies in Washington.",
     "real": "Pharmaceutical Research and Manufacturers of America — a trade association representing leading pharmaceutical and biotechnology research companies, advocating for policies supporting drug discovery.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "PI (Prescribing Information)",
@@ -1421,7 +1612,8 @@
     "playful": "The dense, official document packed inside every drug's packaging — dosing, side effects, warnings, everything a prescriber legally needs to know, in famously tiny print.",
     "real": "The FDA-approved document accompanying a prescription drug, containing comprehensive information on dosing, indications, contraindications, and safety.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "PDMA (Prescription Drug Marketing Act)",
@@ -1429,7 +1621,8 @@
     "playful": "The law cracking down on the shady 'diversion market' for prescription drugs — counterfeit, expired, or improperly relabeled meds sneaking into the legitimate supply chain.",
     "real": "A U.S. federal law establishing safeguards for prescription drug distribution, aimed at preventing counterfeit, adulterated, misbranded, or expired drugs from entering the market. Note: the source glossary listed this as enacted in 1997, but its own citation (Public Law 100-293) places it in the 100th Congress, meaning 1988 — the correct year.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Regulatory",
@@ -1437,7 +1630,8 @@
     "playful": "The third leg of the client-side compliance stool, alongside Legal and Medical Affairs — this one's specifically watching for FDA rule violations.",
     "real": "A client's FDA-regulation representative responsible for ensuring all produced materials meet FDA standards and guidelines.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "PIE (Pre-Approval Information Exchange)",
@@ -1445,7 +1639,8 @@
     "playful": "A legal way for a drug company to start talking dollars-and-cents with insurers months before the drug is even approved — so payers aren't blindsided on launch day.",
     "real": "Presentations manufacturers use to share information with formulary decision-makers about a drug expected to reach market, typically shared 6-12 months before anticipated approval.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "PVP (Payer Value Proposition)",
@@ -1453,7 +1648,8 @@
     "playful": "The Core Visual Aid's finance-minded sibling — same job of telling a drug's story, but aimed at the people deciding whether to cover it, not the people prescribing it.",
     "real": "A visual sales aid used by account managers to present the value story of an approved therapy to payer decision-makers, typically closely aligned with the core HCP visual aid but including additional economic data.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "QL (Quantity Limit)",
@@ -1461,7 +1657,8 @@
     "playful": "A payer's cap on how much of a drug you can get at once — meant to manage cost and discourage misuse.",
     "real": "A limit set by a health plan or PBM on the dose or amount of a medication, used to manage utilization or deter abuse.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "RWE (Real World Evidence)",
@@ -1469,7 +1666,8 @@
     "playful": "Data that doesn't come from a controlled trial — it comes from what actually happens once a drug is out in ordinary clinical practice, messy real life included.",
     "real": "Safety and efficacy evidence generated from data collected during regular healthcare delivery, after a drug's approval, often used by HEOR teams to assess real-world cost-effectiveness.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "PCS (Product Commercialization Strategy)",
@@ -1477,7 +1675,8 @@
     "playful": "The worldwide brand-planning process for the year ahead — now usually called something else at most companies, because names in this industry never sit still.",
     "real": "A brand planning process for developing the following year's commercialization strategy; the term has largely been superseded by newer naming conventions (such as SBP) at many companies.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Peer Review",
@@ -1485,7 +1684,8 @@
     "playful": "The process of other experts in the field picking apart a study before it's allowed to be published — science's built-in 'are you sure about this?' filter.",
     "real": "The process of subjecting scholarly research to evaluation by other experts in the same field before publication.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Pencils Down",
@@ -1493,7 +1693,8 @@
     "playful": "The 'no more changes, we mean it' date — content has to be locked and final by this point to make final label and launch timing.",
     "real": "The date by which content is deemed final in preparation for final labeling and launch.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Performance Improvement Plan (PIP)",
@@ -1501,7 +1702,8 @@
     "playful": "The structured, slightly nerve-wracking conversation a supervisor initiates to say 'here's specifically what needs to change.'",
     "real": "A formal plan implemented by a supervisor to provide an employee with constructive feedback and structured goals for improvement.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Permissions",
@@ -1509,7 +1711,8 @@
     "playful": "The paperwork trail proving an agency actually has the right to use that chart, photo, or quote — skip this step and you've got a copyright problem.",
     "real": "Rights obtained to use content, charts, or graphics from the original author or content owner.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Photoshop & PSD",
@@ -1517,7 +1720,8 @@
     "playful": "The go-to tool for anything photographic — retouching, photo-realistic illustrations, layered files that only open correctly in Photoshop itself.",
     "real": "Photoshop is Adobe's raster-image editing software, used for photo retouching and photographic-style illustration. PSD is its native layered file format, commonly requested for high-resolution art assets.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "PHQ (ProofHQ)",
@@ -1525,7 +1729,8 @@
     "playful": "The online proofing tool where reviewers mark up a piece with digital sticky notes instead of a red pen — standard software at most agencies for routing approvals.",
     "real": "A widely used online proofing and review platform for routing creative projects through approval stages.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Pickups",
@@ -1533,7 +1738,8 @@
     "playful": "A word with two agency meanings: reused copy or art 'picked up' from a previous piece, or a voiceover artist coming back to re-record just a few lines instead of the whole script.",
     "real": "Refers either to copy or art reused from another piece, or to partial re-recordings made by voiceover talent for interactive projects.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Positioning Statement",
@@ -1541,7 +1747,8 @@
     "playful": "A brand's formal answer to 'why should anyone choose you over the competition' — target audience, the brand, the reason to believe it, and the payoff, all in one tight statement.",
     "real": "A formal statement of how a brand will compete in the market, including its target audience, the brand itself, the reason to believe its claims, and its core benefit.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "PR — Which One? (Partial Response vs. Public Relations)",
@@ -1549,7 +1756,8 @@
     "playful": "In a clinical conversation, PR means the tumor shrank. In an agency meeting, PR means someone's managing the brand's public image. Read the room before you nod along.",
     "real": "PR commonly refers to either Partial Response (a clinical trial tumor-response category) or Public Relations (a marketing communications discipline) — meaning depends entirely on context.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "The Interactive Production Pipeline",
@@ -1557,7 +1765,8 @@
     "playful": "How a video or audio project actually gets made, in three acts. Preproduction is the planning phase — storyboards, casting, a pre-pro meeting to review specs, and a scratch read to time the script aloud. Production is the one-shot main event: the actual shoot or recording. Postproduction is everything after — editing rough cuts (checked word-for-word against the script), adding music or motion graphics, and polishing the final assets.",
     "real": "A three-phase framework for interactive projects with audio/video components: Preproduction (planning, storyboarding, and a pre-pro meeting to finalize specs, including a scratch or read-aloud script timing pass), Production (the actual recording or shoot), and Postproduction (editing, quality-checking rough cuts against the script, and final asset preparation).",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Project Brief & Project Update",
@@ -1565,7 +1774,8 @@
     "playful": "The pair that keeps a project honest: the Project Brief lays out every detail of a deliverable up front, while Project Updates keep the wider team informed as things shift along the way.",
     "real": "A Project Brief is a document outlining all aspects of a deliverable, typically completed by Account in consultation with the full team. A Project Update is a follow-up communication informing the team of new information or scope changes as a project progresses.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Procurement",
@@ -1573,7 +1783,8 @@
     "playful": "The client-side department that actually decides which agencies get hired, and manages the relationship once they are.",
     "real": "A department within a company responsible for sourcing vendors or agencies and managing those relationships.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "PTC / PTE (Pass-Through Costs / Expenses)",
@@ -1581,7 +1792,8 @@
     "playful": "Costs an agency pays out on a client's behalf and simply passes along, dollar for dollar, with zero markup — no profit made, no profit expected.",
     "real": "Expenses incurred by an agency on behalf of a client and billed back for reimbursement without markup.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "PTO (Paid Time Off)",
@@ -1589,7 +1801,8 @@
     "playful": "The benefit everyone tracks obsessively in a spreadsheet by November, wondering if they'll actually use it all before it resets.",
     "real": "A benefit providing employees with paid leave from work.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Qual vs. Quant (Market Research)",
@@ -1597,7 +1810,8 @@
     "playful": "Two different ways of asking people what they think: Qual digs deep with a small group (interviews, focus groups) to understand the 'why.' Quant surveys a large group to get statistically solid numbers on the 'how many.'",
     "real": "Qual (qualitative) market research uses in-depth, small-sample methods to explore attitudes and motivations. Quant (quantitative) market research uses larger samples to produce statistically measurable data.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "QA / QC (Quality Assurance / Quality Control)",
@@ -1605,7 +1819,8 @@
     "playful": "The final gut-check before anything ships — does this file actually meet spec, and does it work the way it's supposed to?",
     "real": "The process of checking a digital file, printout, or interactive program to confirm it meets quality standards at its current stage of development, including technical testing prior to release.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Queries",
@@ -1613,7 +1828,8 @@
     "playful": "The questions scribbled in the margins as a job passes from department to department — each one a small item someone downstream needs to answer before the piece can move on.",
     "real": "Questions marked on a routing job as it passes from one department to another for review.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "RACI",
@@ -1621,7 +1837,8 @@
     "playful": "A cheat sheet for 'wait, whose job is this?' — every task gets exactly one Responsible (the doer), one Accountable (where the buck stops), plus anyone Consulted (has input) or Informed (kept in the loop).",
     "real": "A responsibility assignment matrix defining project roles: Responsible (the person doing the task), Accountable (the person ultimately answerable for it), Consulted (those who provide input), and Informed (those kept updated).",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Rapid Response",
@@ -1629,7 +1846,8 @@
     "playful": "The all-hands scramble that kicks in when a competitor drops a new drug, or a label suddenly changes — plans get thrown out, speed becomes the priority.",
     "real": "An urgent turnaround necessitated by a competitor's market entry, a new label update, a new indication, or similar time-sensitive developments.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Raster vs. Vector",
@@ -1637,7 +1855,8 @@
     "playful": "The two basic flavors of digital image. Raster images (like a JPG from Photoshop) are made of pixels and get blurry if you blow them up too far. Vector images (like an Illustrator file) are made of math and stay crisp at any size.",
     "real": "Raster images are composed of pixels and are resolution-dependent, commonly used for photographs. Vector images are defined by mathematical paths and can be scaled to any size without quality loss, commonly used for logos and illustrations.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Regroup",
@@ -1645,7 +1864,8 @@
     "playful": "The emergency huddle anyone can call when a job's stuck — the whole team gets in a room, hashes out every open issue at once, and gets the piece moving again.",
     "real": "A meeting called by any team member when a routing job is behind schedule or has unresolved queries, bringing the full team together to resolve outstanding issues at once.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "RIDER",
@@ -1653,7 +1873,8 @@
     "playful": "A small add-on piece tacked onto a bigger project, routing through review on its own separate track.",
     "real": "An addition or standalone portion of a project that routes through review separately from the main project.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Rights-Managed vs. Royalty-Free (RM vs. RF)",
@@ -1661,7 +1882,8 @@
     "playful": "Two very different ways to license a stock image. Rights-Managed costs more, comes with tighter restrictions on how and where it's used, and needs renegotiating every time — but the quality (medical illustrations especially) tends to be higher. Royalty-Free costs less, can be reused freely once purchased, but the pool is more generic.",
     "real": "Rights-Managed (RM) images carry usage restrictions based on file type, distribution, geography, and placement, requiring renegotiation for each new use — commonly used for medical illustrations and diagnostic images. Royalty-Free (RF) images have more open usage terms and can be reused without renegotiation, typically at a lower cost.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Routing & Route to Clean (RTC)",
@@ -1669,7 +1891,8 @@
     "playful": "A job's full journey through the agency, department by department — Medical/Copy, then Account, then Studio, then Editorial, repeating that loop until nothing's left to fix. That finish line is what 'Route to Clean' means: no more open issues.",
     "real": "Routing is the process of a job moving sequentially through agency departments (typically Medical/Copy, Account, Studio, and Editorial) for review and development. Route to Clean (RTC) describes this process continuing until no further changes or corrections remain.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "SC (Steering Committee)",
@@ -1677,7 +1900,8 @@
     "playful": "The group steering a project or brand's bigger-picture direction — less about day-to-day execution, more about setting the course.",
     "real": "A committee providing strategic oversight and direction for a project, brand, or initiative.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "SOW (Scope of Work)",
@@ -1685,7 +1909,8 @@
     "playful": "The contract's fine-grained version of the Master Services Agreement — spelling out exactly what's being delivered, by when, by whom, and for how much.",
     "real": "A contract document outlining a project's full details: description, objectives, timing, personnel, and financial terms including fees and out-of-pocket costs.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "SOV (Share of Voice)",
@@ -1693,7 +1918,8 @@
     "playful": "A brand's slice of the total advertising noise in its category — how much of the media spending pie is actually theirs.",
     "real": "An advertising measurement comparing a brand's media spending to total media expenditure across its product category or market.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Service Order (SO)",
@@ -1701,7 +1927,8 @@
     "playful": "The green light from procurement that lets a vendor actually start working — and billing — on a project.",
     "real": "A number issued once a cost estimate is approved by procurement, authorizing a vendor to begin work and bill for the project.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "New Business Trio (RFI, RFP & Pitch)",
@@ -1709,7 +1936,8 @@
     "playful": "The courtship stages of landing a new client. An RFI is the polite first ask — 'tell us about your agency.' An RFP goes deeper — 'here's our project, submit a formal proposal.' The Pitch is the final act: the agency in the room, presenting capabilities, strategy, and big ideas, hoping to win the account.",
     "real": "RFI (Request for Information) is an early-stage document a prospective client uses to gather general agency information. RFP (Request for Proposal) solicits a formal, detailed proposal for a specific project. A Pitch is the agency's live presentation of capabilities, strategy, and creative ideas aimed at winning the business.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Color Systems (PMS & RGB)",
@@ -1717,7 +1945,8 @@
     "playful": "Two different ways of specifying color, for two different worlds. PMS gives print materials an exact, consistent ink color no matter who's printing it. RGB builds color from light, mixing red, green, and blue for anything viewed on a screen.",
     "real": "PMS (Pantone Matching System) is a standardized color-matching system for print, ensuring color consistency across printers and materials. RGB is a color model for screens, combining red, green, and blue light in varying intensities to produce color.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Revenue",
@@ -1725,7 +1954,8 @@
     "playful": "The money coming in for the agency's normal work — the top-line number, before Overhead Cost and everything else takes a bite.",
     "real": "Funds or income received for an agency's normal business activities.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Shared Services",
@@ -1733,7 +1963,8 @@
     "playful": "The pool of specialist departments (Editorial, Presentations, Creative, Studio, Digital) that every Account and Medical team draws on — not tied to one brand, available to all of them.",
     "real": "A group of specialized departments (such as Editorial, Presentations, Creative, and Digital/Motion) that support projects across all account and brand teams within an agency.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "SQ (Squamous Histology)",
@@ -1741,7 +1972,8 @@
     "playful": "The lung cancer subtype with the tougher prognosis — the counterpart to the nonsquamous (NSQ) subtype already covered in the Oncology Alphabet Soup.",
     "real": "A lung cancer subtype originating in squamous cells, generally associated with a poorer prognosis compared to nonsquamous histology.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "STEMI (ST-Segment Elevation Myocardial Infarction)",
@@ -1749,7 +1981,8 @@
     "playful": "The most severe kind of heart attack — a coronary artery is completely blocked, and the heart muscle it feeds starts dying. The name comes straight from what shows up on the ECG.",
     "real": "The most severe form of heart attack, in which a coronary artery is completely blocked by a clot, diagnosed by ST-segment elevation on an ECG along with elevated cardiac enzymes indicating cell damage.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Standard of Care (SOC)",
@@ -1757,7 +1990,8 @@
     "playful": "The 'this is just what you do' treatment for a given condition — and the benchmark every new drug in a Phase III trial has to actually beat.",
     "real": "The treatment a reasonably skilled healthcare professional would provide under similar circumstances; also describes the most prevalent current therapy for a condition, frequently used as the comparison arm in clinical trials.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "TFS (Treatment-Free Survival)",
@@ -1765,7 +1999,8 @@
     "playful": "Time spent alive and off treatment entirely — not just cancer-free, but medication-free too.",
     "real": "The length of time a patient survives without requiring further treatment after a course of therapy ends.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "TTP (Time to Progression)",
@@ -1773,7 +2008,8 @@
     "playful": "The countdown clock from diagnosis (or treatment start) to the moment the disease starts getting worse again.",
     "real": "The length of time from disease diagnosis or treatment until the disease begins to progress.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "TIP (Trial in Progress)",
@@ -1781,7 +2017,8 @@
     "playful": "The poster at a medical congress announcing 'this study is happening right now' — results still pending, but the design and rationale are worth sharing early.",
     "real": "A designation for clinical trial data or posters presented while a trial is still actively enrolling or ongoing, ahead of final results.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "TMB (Tumor Mutational Burden)",
@@ -1789,7 +2026,8 @@
     "playful": "A count of how many mutations a tumor is carrying — the more glitches in its code, the more likely the immune system (with the right nudge) might notice something's off.",
     "real": "A measure of the number of mutations within a tumor's genome, used as a biomarker to help predict response to certain immunotherapies.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Tolerability",
@@ -1797,7 +2035,8 @@
     "playful": "Efficacy's quieter partner — not 'does it work,' but 'can a patient actually stick with it without the side effects becoming the bigger problem.'",
     "real": "A measure of how well a medication is tolerated by patients in terms of side effects, distinct from its clinical efficacy.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "TPS (Tumor Proportion Score)",
@@ -1805,7 +2044,8 @@
     "playful": "The percentage score from a PD-L1 test that helps decide whether a patient's tumor is likely to respond to a checkpoint inhibitor.",
     "real": "A scoring method quantifying the percentage of tumor cells expressing PD-L1, used to help determine eligibility for certain immunotherapies.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "TRAE (Treatment-Related Adverse Event)",
@@ -1813,7 +2053,8 @@
     "playful": "An AE with the causal question already answered — this one's confirmed to be connected to the treatment, not just something that happened nearby in time.",
     "real": "An adverse event determined to be related to the study treatment, as opposed to a general adverse event of uncertain cause.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Tx",
@@ -1821,7 +2062,8 @@
     "playful": "Medical shorthand for 'treatment' — short enough to fit anywhere a chart or slide is running out of space.",
     "real": "Standard medical abbreviation for treatment.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "TKI (Tyrosine Kinase Inhibitor)",
@@ -1829,7 +2071,8 @@
     "playful": "A drug class that blocks the 'on switch' enzymes many cancer cells rely on to keep dividing — jam the switch, slow the growth.",
     "real": "A class of drugs that inhibit tyrosine kinase enzymes, which play a key role in signaling pathways that drive cell growth, frequently targeted in cancer treatment.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Unblinding",
@@ -1837,7 +2080,8 @@
     "playful": "The moment a clinical trial's best-kept secret gets revealed — who was actually on the drug, and who was on placebo.",
     "real": "The point at which trial personnel learn which patients received which treatment, information kept confidential during a blinded study to preserve data integrity.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "VEGF (Vascular Endothelial Growth Factor)",
@@ -1845,7 +2089,8 @@
     "playful": "The signal protein telling the body to grow new blood vessels — tumors hijack it to build their own supply lines, which is exactly why anti-VEGF drugs exist.",
     "real": "A signaling protein that stimulates new blood vessel growth; a major drug target, since tumors often exploit VEGF signaling to fuel their own blood supply.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "VKA (Vitamin K Antagonist)",
@@ -1853,7 +2098,8 @@
     "playful": "An older class of blood thinners (warfarin being the household name) that works by blocking vitamin K's role in clotting.",
     "real": "A class of anticoagulant drugs that reduce blood clotting by inhibiting the action of vitamin K.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "More Diabetes Drug Classes (Sulfonylureas & TZDs)",
@@ -1861,7 +2107,8 @@
     "playful": "Two more entries in diabetes's crowded drug-class roster, alongside DPP-4 and GLP-1. Sulfonylureas push the pancreas to release more insulin. TZDs (glitazones) make the body's cells more sensitive to the insulin it's already got.",
     "real": "Sulfonylureas are a class of antidiabetic drugs that stimulate insulin release from the pancreas. Thiazolidinediones (TZDs, or glitazones) are a class that improves insulin sensitivity in the body's cells.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Sequencing Types (WES & WGS)",
@@ -1869,7 +2116,8 @@
     "playful": "Two flavors of genetic sequencing, alongside NGS. WES reads just the protein-coding parts of the genome — the 'important' 2%. WGS reads the entire genome, coding and non-coding alike.",
     "real": "WES (Whole-Exome Sequencing) sequences only the protein-coding regions of the genome. WGS (Whole-Genome Sequencing) sequences the entire genome, including non-coding regions.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Supplement (Journal Supplement)",
@@ -1877,7 +2125,8 @@
     "playful": "A special-issue publication built around one specific topic or drug, often bankrolled by an industry educational grant — genuinely useful data, just worth knowing who paid for the printing.",
     "real": "A multi-article journal publication focused in depth on a particular topic or agent, typically sponsored by an educational grant. Because of this industry sponsorship, supplements may carry less perceived credibility than primary or review articles, despite often containing valuable data.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "SmPC (Summary of Product Characteristics)",
@@ -1885,7 +2134,8 @@
     "playful": "The European Union's version of a drug's Prescribing Information — same job, different regulatory system.",
     "real": "The EU regulatory equivalent of a U.S. Prescribing Information (PI) document, summarizing a drug's approved characteristics and usage information.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Sub-Part E",
@@ -1893,7 +2143,8 @@
     "playful": "The FDA's fast lane for drugs targeting serious, life-threatening conditions with no good treatment options yet — speed matters more when the alternative is nothing at all.",
     "real": "An FDA designation providing expedited approval pathways for drugs treating serious or life-threatening illnesses with high unmet medical need.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Submission Systems",
@@ -1901,7 +2152,8 @@
     "playful": "Every pharma company's own formal digital gateway for medical-legal review — the specific portal changes by client, but the gatekeeping function (feeding into MLR) stays the same.",
     "real": "Company-specific formal systems used to submit promotional materials for medical-legal review before public release.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Specialty Drug",
@@ -1909,7 +2161,8 @@
     "playful": "The high-cost category (Medicare's current line is over $670/month) reserved for medications that need special handling, storage, or hands-on support to actually use — think biologics and injectables, not a pill bottle off a shelf.",
     "real": "A high-cost drug, defined by Medicare Part D as exceeding a set monthly cost threshold, requiring special handling, administration, or additional patient support.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Step Therapy",
@@ -1917,7 +2170,8 @@
     "playful": "A payer's 'prove the cheap stuff doesn't work first' policy — try (and fail) a more cost-effective drug before the plan will approve the pricier alternative.",
     "real": "A health plan requirement that a patient try a more cost-effective or safer drug and fail on it before advancing to a more expensive alternative; the specific requirement is called a 'step edit.'",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Tiers / Tiered Formulary",
@@ -1925,7 +2179,8 @@
     "playful": "The reason your copay changes depending on which drug you're picking up — generics in the cheap tier, preferred brands a bit more, non-preferred brands the most.",
     "real": "A pharmacy benefit design assigning increasing copay amounts based on a drug's formulary tier — for example, a lower copay for generics and progressively higher copays for preferred and non-preferred brand products.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "VAP (Value. Access. Pricing.)",
@@ -1933,7 +2188,8 @@
     "playful": "Three words that basically summarize an entire market access team's job description.",
     "real": "Shorthand referencing the interconnected considerations of a drug's value proposition, market access, and pricing strategy.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "VDMs (Value Decision Makers)",
@@ -1941,7 +2197,8 @@
     "playful": "The actual people an Account Manager is trying to win over — the Medical, Pharmacy, and Finance Directors at a health plan who decide whether a drug makes the formulary.",
     "real": "Administrators at health plans or health systems (commonly holding titles such as Medical Director, Pharmacy Director, or Director of Finance) who assess therapies and determine formulary coverage decisions.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "WAC (Wholesale Acquisition Cost)",
@@ -1949,7 +2206,8 @@
     "playful": "The manufacturer's official list price — the number everyone else's price (AMP, ASP, and your copay) ultimately gets negotiated down from.",
     "real": "The manufacturer's list price for a prescription drug sold to wholesalers or direct purchasers, before rebates or discounts.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Sitemap & Wireframe",
@@ -1957,7 +2215,8 @@
     "playful": "Two more pieces of the interactive submission package, alongside the Storyboard. A Sitemap is the flowchart of how every page connects. A Wireframe is the annotated screenshot showing exactly how navigation and buttons are supposed to work.",
     "real": "A Sitemap is a flowchart or diagram showing how the pages of an interactive project are organized, used when a project has complex or non-linear navigation. A Wireframe includes annotated screenshots detailing navigation and functionality, submitted alongside the Sitemap and Storyboard for complex interactive projects.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Template Swap",
@@ -1965,7 +2224,8 @@
     "playful": "Rebuilding an entire presentation's look from the ground up — new backgrounds, new colors, new master pages — followed by a full word-for-word check to make sure nothing got lost in the shuffle. Requires sign-off before it even starts.",
     "real": "The process of changing a presentation's entire design template, including backgrounds, colors, and master page styles, requiring full sign-off beforehand and a word-for-word editorial check against backup afterward to confirm content integrity.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Stet",
@@ -1973,7 +2233,8 @@
     "playful": "The proofreader's favorite two-dollar Latin word, meaning 'ignore that edit, leave it exactly as it was.'",
     "real": "A proofreading notation, from the Latin for 'let it stand,' indicating that a marked change should not actually be made.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "SWOT",
@@ -1981,7 +2242,8 @@
     "playful": "The classic four-box strategy exercise: what's working (Strengths), what isn't (Weaknesses), what could work (Opportunities), and what could go wrong (Threats).",
     "real": "A strategic planning framework analyzing a product's Strengths, Weaknesses, Opportunities, and Threats.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Sympo (Symposium)",
@@ -1989,7 +2251,8 @@
     "playful": "Agency shorthand for symposium — the smaller, often single-topic cousin of a full medical Congress.",
     "real": "Shorthand for a symposium, a focused educational or scientific meeting, often on a single topic.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "T&E (Travel and Expenses)",
@@ -1997,7 +2260,8 @@
     "playful": "The line item covering flights, hotels, and meals — the cost of actually showing up in person.",
     "real": "Travel and related expenses, such as airfare, hotel, and meals, incurred for business purposes.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Target Audience Drivers",
@@ -2005,7 +2269,8 @@
     "playful": "The 'why do they actually buy this' question, answered — the underlying motivations that make a Positioning Statement land or fall flat.",
     "real": "The underlying motivations driving a target audience's purchasing decisions, used to define and measure marketing success.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "TPP (Target Product Profile)",
@@ -2013,7 +2278,8 @@
     "playful": "A drug's wish list, written before it even exists — intended use, target patients, and every other attribute the team is aiming for.",
     "real": "A strategic document outlining the characteristics of a target product for a particular disease, including intended use, target populations, and other desired attributes.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Town Hall Meeting",
@@ -2021,7 +2287,8 @@
     "playful": "The agency-wide gathering where leadership makes announcements and everyone gets a chance to ask the question they've been quietly wondering about.",
     "real": "An agency-wide meeting, typically led by senior leadership, for announcements, process updates, and open Q&A.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Typo",
@@ -2029,7 +2296,8 @@
     "playful": "The single-letter slip that an entire Proofing Gauntlet exists to catch before it reaches a client, or worse, the public.",
     "real": "A typographical error in a published work.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Unedited",
@@ -2037,7 +2305,8 @@
     "playful": "A piece that hasn't been through Editorial yet — and if it's leaving the building in this state, it had better be stamped Draft or Unedited so nobody mistakes it for final.",
     "real": "A document that has not yet been submitted to Editorial for review; recommended practice is to clearly label such documents as Draft or Unedited before external distribution.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Unofficial Review Comments",
@@ -2045,7 +2314,8 @@
     "playful": "Feedback from the client that arrives early, off the official record — Account's job is to double-check it matches the official version once that finally comes through the system.",
     "real": "Medical-legal review comments provided directly by the client before being formally released through the official submission system; Account is responsible for reconciling these against the official comments once received.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "UX (User Experience)",
@@ -2053,7 +2323,8 @@
     "playful": "How it actually feels to use something — a website, an app, or (fittingly) a dictionary like this one.",
     "real": "The overall experience of an end-user interacting with a product, service, or system.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Violator",
@@ -2061,7 +2332,8 @@
     "playful": "The little starburst or banner slapped across an ad shouting 'NEW INDICATION!' or 'NOW ONCE-DAILY!' — deliberately breaking the clean design to grab your eye first.",
     "real": "An intrusive visual element, such as a banner or starburst, that disrupts a design's original layout, typically used to announce new information.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Visual Aid",
@@ -2069,7 +2341,13 @@
     "playful": "A sales rep's actual pitch tool — meant to be shown to a doctor during a conversation, not handed over to be read alone. Goes by several names: visAid, iVis on an iPad, or detail aid.",
     "real": "A printed or digital piece designed to support a sales representative's presentation of information to healthcare providers, intended to be shown during a conversation rather than read independently. Also called a visAid, iVis, or detail aid.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": [
+      "detail aid",
+      "eDetail",
+      "visAid",
+      "iVis"
+    ]
   },
   {
     "term": "W-9 Form",
@@ -2077,7 +2355,8 @@
     "playful": "The IRS form every freelancer and vendor fills out at least once — confirms your tax ID before anyone gets paid.",
     "real": "An IRS form providing a U.S. taxpayer's identification number, used by businesses to collect vendor or freelancer tax information before payment.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "WFH (Work From Home)",
@@ -2085,7 +2364,8 @@
     "playful": "Three letters that quietly reshaped the entire agency world.",
     "real": "Shorthand for working remotely rather than in an office.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "WSM (Weekly Status Meeting)",
@@ -2093,7 +2373,8 @@
     "playful": "The recurring check-in where a team and Shared Services compare notes on where every project actually stands.",
     "real": "A weekly meeting where teams gather with shared services to discuss project status and updates.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Widow",
@@ -2101,7 +2382,8 @@
     "playful": "A single short line stranded at the top of a page, cut off from the rest of its paragraph — editors reword or respace text specifically to avoid leaving one behind.",
     "real": "A short line ending a paragraph that gets separated from the rest of the paragraph by a column or page break; typically avoided through wording or spacing adjustments.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Word Count",
@@ -2109,7 +2391,8 @@
     "playful": "The budget for a script's spoken words, set before production even starts — go over, and suddenly the video's too long for its own timeline and postproduction budget.",
     "real": "The number of words spoken in a script, estimated at the start of an interactive project to keep the script within the scope of its planned duration and budget.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Slug vs. Word-for-Word Read",
@@ -2117,7 +2400,8 @@
     "playful": "Two very different intensities of proofing. A Slug check is the fast version — just confirm the first and last word of each line match the backup. A Word-for-Word Read is the exhaustive version — every single word, graphic, and label checked against backup, nothing skipped.",
     "real": "A Slug check verifies only the first and last word of each line against the previous approved version, confirming line breaks haven't shifted. A Word-for-Word Read is a full comparison of every word, graphic, and label against backup, the most rigorous level of proofing.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Workfront & Workfront Requests",
@@ -2125,7 +2409,8 @@
     "playful": "The project-management platform many agencies route work through, plus the formal request tickets — generated by Project Management, emailed to the right department — that tell a team exactly what needs to get built or changed.",
     "real": "Workfront is a widely used project-management platform for routing and tracking creative and production work. A Workfront request is a formal ticket generated by Project Management, containing the information a specific department needs to execute a task.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "X-Height",
@@ -2133,7 +2418,8 @@
     "playful": "The height of a lowercase letter measured without any of the tall or dangly bits — basically, how big the letter 'x' looks in a given font.",
     "real": "The height of a lowercase letter excluding its ascender or descender, a key measurement in typography.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Product Claim Ad",
@@ -2141,7 +2427,8 @@
     "playful": "The 'full disclosure' ad — it names the drug, names what it treats, and by law has to give the risks just as much airtime as the benefits.",
     "real": "An official FDA advertising category. A Product Claim Ad names both the drug and the condition it treats, and is legally required to present fair-balanced risk and benefit information.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Reminder Ad",
@@ -2149,7 +2436,8 @@
     "playful": "The ad that just says the drug's name and basically nothing else — a billboard that exists purely to keep the brand top-of-mind.",
     "real": "An official FDA advertising category. A Reminder Ad names the drug but does not state what condition it treats, which historically exempted it from including full risk information.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Help-Seeking Ad",
@@ -2157,7 +2445,10 @@
     "playful": "The ad that never mentions a drug at all — just 'do you have these symptoms? Talk to your doctor,' quietly setting the stage for a launch still to come.",
     "real": "An official FDA advertising category, also called Disease Awareness Communication. It discusses a condition and encourages viewers to see a doctor, without naming any specific drug — often used ahead of a product launch.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": [
+      "Disease Awareness Communication"
+    ]
   },
   {
     "term": "Ask Your Doctor If [Drug] Is Right For You",
@@ -2165,7 +2456,8 @@
     "playful": "The universal closing line of every DTC ad ever made. Never 'take this drug' — always 'ask if it's right for you,' because the actual prescribing decision legally has to happen between you and an HCP, not a 30-second spot.",
     "real": "A standard direct-to-consumer advertising phrase reflecting that a licensed prescriber, not the advertisement, must make the actual treatment decision.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "The Beach Walk",
@@ -2173,7 +2465,8 @@
     "playful": "The visual shorthand of DTC advertising: an attractive couple, usually 55-plus, walking or running along a beach, implying that whatever ailment they had is now thoroughly behind them.",
     "real": "A recurring aspirational-lifestyle visual convention in pharmaceutical advertising — showing vitality and independence — used because lifestyle imagery isn't restricted the way specific efficacy claims are.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "The Mumble (Rapid Risk Read)",
@@ -2181,7 +2474,8 @@
     "playful": "The fast, flat voiceover listing every possible side effect while the visuals keep smiling and gardening like nothing was just said.",
     "real": "The spoken risk disclosure required in broadcast DTC ads — delivered quickly to fit runtime, while imagery continues, a format frequently criticized by researchers for reducing how well viewers actually retain the risk information.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Golden Hour Glow",
@@ -2189,7 +2483,8 @@
     "playful": "The warm, sun-drenched lighting every DTC ad seems to film in — nothing says 'hope' quite like backlighting.",
     "real": "A cinematographic convention using warm, low-angle lighting (typical of the hour after sunrise or before sunset) to convey optimism and emotional warmth in advertising.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "The Injector Close-Up",
@@ -2197,7 +2492,8 @@
     "playful": "The extreme close-up of hands demonstrating exactly how to click, twist, or press a drug's delivery device — because if you're about to self-inject something, the ad wants zero room for confusion.",
     "real": "A common visual sequence in biologic and insulin advertising, showing step-by-step device operation to support patient self-administration.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "\"Results May Vary\"",
@@ -2205,7 +2501,8 @@
     "playful": "The four words doing the most legal heavy lifting in the entire ad, usually in the smallest font on screen.",
     "real": "A standard disclaimer indicating that individual outcomes shown in testimonials or demonstrations may not be typical or guaranteed.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Actual Patient vs. Paid Actor",
@@ -2213,7 +2510,8 @@
     "playful": "The tiny on-screen text that answers the question you didn't know you were supposed to ask: is this heartwarming testimonial real, or is it SAG-AFTRA?",
     "real": "A required disclosure distinguishing genuine patient testimonials from paid actors portraying a patient experience in advertising.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Copay Card Tag",
@@ -2221,7 +2519,8 @@
     "playful": "The last few seconds of the ad, quietly mentioning that eligible patients might pay as little as [suspiciously specific dollar amount] per month — the savings-card pitch tacked onto the emotional close.",
     "real": "An advertising segment promoting a manufacturer copay assistance or savings card program, aimed at offsetting patient out-of-pocket costs.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Condition Mascot",
@@ -2229,7 +2528,8 @@
     "playful": "The oddly specific cartoon character invented to represent a side effect or disease state — giving something uncomfortable a friendlier, more marketable face.",
     "real": "A recurring DTC advertising technique using an original character or visual metaphor to represent a medical condition or side effect in an approachable, memorable way.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "\"This Is a Paid Advertisement\"",
@@ -2237,7 +2537,8 @@
     "playful": "The on-screen text making sure nobody mistakes a drug commercial for genuine breaking news, no matter how it's styled.",
     "real": "A required on-screen disclosure identifying certain advertising formats (particularly those styled like editorial or news content) as paid promotional material.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "The Fine Print Scroll",
@@ -2245,7 +2546,8 @@
     "playful": "The wall of text scrolling up the screen in a digital or print ad, technically readable, functionally a speed-reading test.",
     "real": "On-screen scrolling or static risk-information text used to satisfy fair-balance requirements in digital and print advertising formats.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "Unbranded Teaser Phase",
@@ -2253,7 +2555,8 @@
     "playful": "The 'coming soon, no spoilers' stage of a drug launch — ads raise awareness of a condition for months before the actual drug name ever shows up.",
     "real": "A pre-launch marketing phase using Help-Seeking / Disease Awareness advertising to build condition awareness ahead of a branded campaign, without naming the product.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
   },
   {
     "term": "The Slow-Motion Joy Loop",
@@ -2261,6 +2564,646 @@
     "playful": "Grandparents playing catch, a couple laughing over dinner, someone finally gardening again — all in gentle slow motion, all implying one thing: life got its color back.",
     "real": "A recurring emotional-payoff visual convention in DTC advertising, using slow-motion lifestyle footage to signal restored quality of life as the ultimate benefit of treatment.",
     "sponsored": false,
-    "sponsoredBy": null
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Formulary",
+    "category": "Money Talk",
+    "playful": "The insurance company's \"approved guest list\" for drugs. Get on it and you're covered. Get left off and enjoy paying full price.",
+    "real": "A health plan's continually-updated list of covered medications, overseen by a Pharmacy & Therapeutics Committee.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "ASP (Average Sales Price)",
+    "category": "Money Talk",
+    "playful": "Not the price on the sticker. The price after Medicare, rebates, and reality all take a swing at it.",
+    "real": "Medicare Part B's benchmark for what physicians actually get paid for administering a drug, after rebates/discounts, reported quarterly to CMS.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "GPO (Group Purchasing Organization)",
+    "category": "Money Talk",
+    "playful": "Drug-buying's version of a bulk Costco run, except the shoppers are small medical practices and the \"cart\" is worth millions.",
+    "real": "An organization that purchases drugs wholesale on behalf of small group practices.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "ISI (Important Safety Information)",
+    "category": "Legal Says",
+    "playful": "The part of the ad legal won't let anyone skip. The fine print that's technically not fine print because it has to be the same size as everything else.",
+    "real": "Mandated information on adverse reactions, contraindications, and warnings for any FDA-governed product.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Fair Balance",
+    "category": "Legal Says",
+    "playful": "The law's way of saying \"you can't just brag.\" If you show the upside, you show the downside, in the same font, at the same volume. No whispering the side effects.",
+    "real": "Risk information must get equal size and weight to benefit copy in advertising — it's federally required, not a suggestion.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "OPDP (Office of Prescription Drug Promotion)",
+    "category": "Legal Says",
+    "playful": "The FDA's truth police for drug ads. If a commercial oversells, OPDP is the one sending the strongly worded letter.",
+    "real": "An FDA office that protects public health by ensuring prescription drug promotion is truthful and balanced, through surveillance, enforcement, and education.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "2253 Submission",
+    "category": "Legal Says",
+    "playful": "The permission slip pharma has to hand the FDA before an ad airs, not after. Nobody's winging it here.",
+    "real": "Submission of promotional materials to OPDP prior to public use.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "REMS (Risk Evaluation and Mitigation Strategies)",
+    "category": "Legal Says",
+    "playful": "The FDA's seatbelt requirement for riskier drugs — extra training, extra paperwork, extra checkpoints before the medicine reaches you.",
+    "real": "FDA-mandated safety programs (since 2008) for safely distributing or administering certain drugs — may include targeted education, reminder systems, or restricted-access certification.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "AE (Adverse Event)",
+    "category": "Doctor Speak",
+    "playful": "Medical-speak for \"something happened, and we're legally required to write it down,\" whether or not the drug's actually to blame.",
+    "real": "Any unfavorable medical occurrence in a patient, regardless of causal relationship to treatment.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "ADR (Adverse Drug Reaction)",
+    "category": "Doctor Speak",
+    "playful": "The stricter cousin of AE — this one's confirmed to actually be the drug's fault.",
+    "real": "An injury caused by taking a medication.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "All-Comer (AC)",
+    "category": "Doctor Speak",
+    "playful": "A clinical trial with an open-door policy: if you've got the condition, you're in, subtype be damned.",
+    "real": "A trial design enrolling patients regardless of disease subtype, as long as they have the condition under investigation.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Storyboard",
+    "category": "Behind the Ad",
+    "playful": "The comic book that becomes your TV commercial. Every scene sketched out before a single camera rolls.",
+    "real": "Part of the submission package pairing script and visuals for a video.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Tagline",
+    "category": "Behind the Ad",
+    "playful": "The brand's catchphrase, built to outlive the campaign. Think \"Just Do It,\" but for a drug.",
+    "real": "Short copy summarizing a brand's idea or offering, kept consistent across every touchpoint.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Claim",
+    "category": "Behind the Ad",
+    "playful": "Anything an ad says (or shows) that implies the drug does something — and yes, a picture counts. Show someone jogging, you're claiming mobility. Legal reads every frame.",
+    "real": "A statement or image describing product benefits, which must be supported by clinical evidence.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "DTC (Direct to Consumer)",
+    "category": "Ask Your Doctor",
+    "playful": "The reason you know more prescription drug names than your pharmacist's shift schedule. Ads aimed straight at you, not your doctor.",
+    "real": "Promotion of prescription drugs directly to consumers via TV, radio, print, and digital.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Adherence, Compliance & Persistence",
+    "category": "Doctor Speak",
+    "playful": "Three ways to measure the same slippery problem: does the patient actually take the medicine. Adherence is the broad umbrella — timing, dosage, frequency, all of it. Compliance is the stricter subset — did they take the exact doses correctly. Persistence asks a different question entirely: how long did they stay on the drug before quitting altogether.",
+    "real": "Adherence is the degree to which a patient follows prescribed timing, dosage, and frequency. Compliance is the percentage of prescribed doses taken correctly while actively on therapy. Persistence measures the length of time a patient continues therapy before discontinuing. All three are central to patient support program design.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Bioavailability",
+    "category": "Doctor Speak",
+    "playful": "How much of a drug actually makes it into your bloodstream to do its job, versus how much gets lost along the way before it ever has a chance.",
+    "real": "The rate and extent to which a drug's active ingredient is absorbed and becomes available at its site of action in the body.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Generic Drug / Generic Equivalent",
+    "category": "Doctor Speak",
+    "playful": "The same active ingredient, the same effect, none of the brand-name markup — once patent protection runs out, anyone can make it.",
+    "real": "A drug product that is pharmaceutically and therapeutically equivalent to a brand-name reference drug, typically sold at a lower price after the brand's exclusivity period ends.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Indication / Approved Indication",
+    "category": "Doctor Speak",
+    "playful": "The specific condition a drug is legally allowed to say it treats — the whole reason Off-Label exists as a concept in the first place.",
+    "real": "The medical condition or use for which a drug has received FDA approval, as stated in its official labeling.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Institutional Review Board (IRB)",
+    "category": "Doctor Speak",
+    "playful": "The committee whose entire job is protecting the humans in a clinical trial — nothing involving human subjects moves forward without their sign-off.",
+    "real": "An independent committee that reviews and approves clinical trial protocols to ensure the rights, safety, and welfare of human research subjects.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "VAERS & FAERS",
+    "category": "Doctor Speak",
+    "playful": "Two federal databases doing the same basic job for different products — VAERS collects reports of problems after vaccines, FAERS does the same for every other approved drug.",
+    "real": "VAERS (Vaccine Adverse Event Reporting System) and FAERS (FDA Adverse Event Reporting System) are federal databases that collect and monitor reports of adverse events, used by safety teams to track real-world safety signals.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Bioequivalence",
+    "category": "Legal Says",
+    "playful": "The proof a generic drug has to show the FDA: same active ingredient, same dose, same rate of absorption as the original — no meaningful difference, just a different price tag.",
+    "real": "Demonstration that a generic drug shows no significant difference in rate and extent of absorption compared to the reference brand drug at the same dose — a core requirement for ANDA approval.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Complete Response Letter (CRL)",
+    "category": "Legal Says",
+    "playful": "The FDA's version of 'not yet' — a formal letter explaining exactly why an application isn't ready for approval, and what needs fixing before it can try again.",
+    "real": "An official FDA communication stating that a drug application (NDA or BLA) is not ready for approval in its current form, outlining specific deficiencies that must be addressed.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Contraindications",
+    "category": "Legal Says",
+    "playful": "The hard 'do not' list — specific conditions or situations where a drug should never be given, full stop, no exceptions negotiated.",
+    "real": "Specific medical conditions or concurrent therapies in which a drug should not be administered due to serious safety risk, listed prominently in the prescribing information and brief summary.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Corrective DTC Advertising",
+    "category": "Legal Says",
+    "playful": "The FDA's rare 'you need to un-say that' remedy — a mandated follow-up campaign correcting a previous ad that was misleading, at the company's own expense.",
+    "real": "An FDA-mandated or requested advertising campaign designed to correct false, deceptive, or misleading claims made in previous DTC promotional materials. A rare but severe regulatory consequence.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Fast Track Designation",
+    "category": "Legal Says",
+    "playful": "Another FDA expedited lane, alongside Sub-Part E and Orphan Drug status — reserved for drugs addressing a serious condition with real unmet medical need.",
+    "real": "An FDA process designed to facilitate development and expedite review of drugs that treat serious conditions and fill an unmet medical need.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "FD&C Act (Federal Food, Drug, and Cosmetic Act)",
+    "category": "Legal Says",
+    "playful": "The foundational law underneath almost everything else in this dictionary's Legal Says category — PDMA, PDUFA, and OPDP's whole authority all trace back to this one.",
+    "real": "The primary federal statute governing the safety and labeling of food, drugs, medical devices, and cosmetics in the United States, first enacted in 1938.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Good Clinical Practice (GCP) & Good Manufacturing Practice (cGMP)",
+    "category": "Legal Says",
+    "playful": "Two quality standards covering opposite ends of a drug's life. GCP governs how a clinical trial has to be run to be trustworthy. cGMP governs how the drug itself has to be manufactured to be safe and consistent.",
+    "real": "GCP is an international quality standard for the design, conduct, and reporting of clinical trials involving human subjects. cGMP (current Good Manufacturing Practice) is the FDA standard ensuring drugs are consistently produced and controlled to quality standards.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Guidance (FDA Guidance)",
+    "category": "Legal Says",
+    "playful": "The FDA's way of saying 'here's how we'd like you to do this' without making it an actual law — not binding, but ignore it at your own risk.",
+    "real": "Non-binding recommendations published by the FDA describing the agency's current thinking on a regulatory topic, widely treated as de facto standards by industry even though they aren't legally enforceable rules.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Hatch-Waxman Act",
+    "category": "Legal Says",
+    "playful": "The 1984 law that created the modern generic drug industry — it built the ANDA pathway and the patent-exclusivity tradeoffs that still shape drug pricing today.",
+    "real": "Formally the Drug Price Competition and Patent Term Restoration Act of 1984, this law established the modern framework for generic drug approval (via the ANDA pathway) while granting brand manufacturers patent term extensions.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "HIPAA",
+    "category": "Legal Says",
+    "playful": "The law behind every 'due to privacy regulations' you've ever heard at a doctor's office — and a major reason pharma marketers have to be careful with any patient health data.",
+    "real": "The Health Insurance Portability and Accountability Act, a federal law protecting the privacy and security of patients' health information.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Human Factors Testing",
+    "category": "Legal Says",
+    "playful": "Watching real people try to use a drug's delivery device — an injector pen, an inhaler — before it's approved, to make sure ordinary users won't mess it up in ways that matter.",
+    "real": "FDA-required usability testing evaluating how real users interact with a drug delivery device, used to identify and reduce use-related errors before approval.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "New Molecular Entity (NME / NCE)",
+    "category": "Legal Says",
+    "playful": "A drug with an active ingredient that has genuinely never been approved before — as opposed to a new formulation or new use for something already on the market.",
+    "real": "A drug containing an active ingredient that has not been previously approved by the FDA in any form, as distinct from reformulations of existing approved drugs.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Orange Book",
+    "category": "Legal Says",
+    "playful": "The FDA's master list of every approved drug, plus which ones are considered interchangeable with which generics — the reference book generic manufacturers live and die by.",
+    "real": "An FDA publication (formally 'Approved Drug Products with Therapeutic Equivalence Evaluations') listing approved drugs along with patent and exclusivity information relevant to generic competition.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Unsolicited Request",
+    "category": "Legal Says",
+    "playful": "When a doctor asks a pharma rep an off-label question the rep didn't bring up first — a specific, protected category, since the company didn't initiate the off-label conversation.",
+    "real": "A healthcare provider's independently initiated request for off-label information about a drug, which companies may respond to under specific regulatory allowances, since the company did not initiate the discussion.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Warning Letter & Untitled Letter",
+    "category": "Legal Says",
+    "playful": "OPDP's two levels of 'we need to talk.' An Untitled Letter is the quieter version — a heads-up about a violation. A Warning Letter is the serious one, reserved for violations significant enough to demand immediate correction.",
+    "real": "Both are official OPDP enforcement correspondence. An Untitled Letter cites a violation without requesting immediate public response. A Warning Letter cites a more serious violation and requires prompt corrective action.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Withdrawal (Product Recall)",
+    "category": "Legal Says",
+    "playful": "When a drug gets pulled from the market — sometimes the company's own choice, sometimes the FDA's, but either way, it's not on shelves anymore.",
+    "real": "The voluntary or FDA-mandated removal of a drug product from the market, typically due to safety concerns identified after approval.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Authorized Generic",
+    "category": "Money Talk",
+    "playful": "A brand-name company's clever move: selling their own drug under generic packaging (and generic pricing) to compete with themselves before someone else does it first.",
+    "real": "A prescription drug produced by the original brand manufacturer but marketed and sold as a generic, typically deployed upon patent expiration to retain market share.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "AWP (Average Wholesale Price)",
+    "category": "Money Talk",
+    "playful": "The pricing benchmark that used to run the whole reimbursement system — largely fallen out of favor for being disconnected from what anyone actually pays, but still shows up in older contracts.",
+    "real": "A historical pricing benchmark once widely used in U.S. drug reimbursement calculations by third-party payers, now considered less reliable than more current benchmarks like WAC and ASP.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Co-pay Card / Coupon Program",
+    "category": "Money Talk",
+    "playful": "The actual financial-assistance program behind the Copay Card Tag at the end of a DTC ad — the mechanism that knocks a commercially-insured patient's out-of-pocket cost down, sometimes to nearly nothing.",
+    "real": "A financial assistance program sponsored by a pharmaceutical brand to reduce or eliminate out-of-pocket prescription costs for commercially insured patients, used as a retention and adherence tool.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Co-promotion / Co-marketing",
+    "category": "Money Talk",
+    "playful": "Two companies agreeing to sell one drug together — sharing the sales force, splitting the revenue, both putting their name behind it.",
+    "real": "A commercial arrangement where two or more pharmaceutical companies jointly market and sell a single drug product, sharing sales resources or revenue.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Gross-to-Net (GTN) Bubble",
+    "category": "Money Talk",
+    "playful": "The uncomfortable and growing gap between a drug's sticker price and what the company actually collects after rebates, discounts, and fees eat into it — a number that keeps getting bigger industry-wide.",
+    "real": "The difference between a drug's gross list price (WAC) and its net realized price after rebates, discounts, and fees paid to PBMs, payers, and other intermediaries.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Loss of Exclusivity (LOE)",
+    "category": "Money Talk",
+    "playful": "The day a brand's patent protection runs out and generic competitors are legally free to flood in — the single scariest date on a brand team's calendar.",
+    "real": "The point at which a brand drug's patent or regulatory exclusivity expires, opening the market to generic or biosimilar competition.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Me-Too Drug",
+    "category": "Money Talk",
+    "playful": "A new drug that works basically the same way as one already on the market — not a breakthrough, just another seat at the same table.",
+    "real": "A drug that is structurally or mechanistically similar to an already-approved drug in the same therapeutic class, often developed to compete commercially rather than to offer a novel treatment approach.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "NRx, NBRx & TRx",
+    "category": "Money Talk",
+    "playful": "The three prescription-count metrics sales teams actually watch. NRx counts brand-new prescriptions. NBRx counts patients switching to this brand for the first time. TRx is the big number — every prescription, new and refilled combined.",
+    "real": "NRx (New Prescriptions) counts newly written prescriptions. NBRx (New-to-Brand Prescriptions) counts patients starting this specific brand for the first time, including switches. TRx (Total Prescriptions) counts all prescriptions, new and refill combined — the standard measure behind the 'Out' metric.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Pay-for-Delay / Reverse Payment",
+    "category": "Money Talk",
+    "playful": "A brand company paying a generic competitor to simply wait before launching — a settlement that keeps prices higher for longer, and draws serious antitrust scrutiny.",
+    "real": "A patent litigation settlement in which a brand manufacturer pays a generic competitor to delay market entry, raising significant antitrust concerns due to its effect of maintaining higher drug prices.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Product Hopping",
+    "category": "Money Talk",
+    "playful": "Switching patients to a slightly-tweaked new version of a drug right before the original goes generic — technically an improvement, conveniently also a way to reset the patent clock.",
+    "real": "A commercial strategy of shifting the market toward a reformulated version of a drug shortly before the original loses patent exclusivity, extending brand-level pricing power.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Value-Based Contracting (VBC)",
+    "category": "Money Talk",
+    "playful": "A pricing deal where a drug's payment is tied to how well it actually works in the real world — better outcomes, better price for the manufacturer; underperform, and the payer gets money back.",
+    "real": "A contracting arrangement between a manufacturer and payer that ties a drug's price or rebates to real-world clinical outcomes, rather than a fixed price regardless of performance.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Wholesaler / Pharmaceutical Distributor",
+    "category": "Money Talk",
+    "playful": "The middle link in the supply chain most patients never think about — buys drugs from manufacturers, delivers them to pharmacies and hospitals, and sits right in the math behind WAC and AMP.",
+    "real": "A company that purchases drugs from manufacturers and distributes them to pharmacies, hospitals, and other healthcare providers.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Academic Detailing",
+    "category": "Behind the Ad",
+    "playful": "The non-commercial counter-programming to a sales rep's visit — an educator (not a company employee) briefing doctors on evidence-based prescribing, specifically designed to be free of sales bias.",
+    "real": "An interactive, evidence-based educational approach in which clinical educators visit healthcare providers to deliver unbiased treatment information, often used to counter commercial marketing bias.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Account-Based Marketing (ABM)",
+    "category": "Behind the Ad",
+    "playful": "Treating one big account — a hospital system, a major health network — like its own entire market, with a strategy built just for them.",
+    "real": "A strategic marketing approach treating specific high-value accounts, such as health systems or hospital networks, as individual markets rather than part of a broad target audience.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "AI Voice Localization",
+    "category": "Behind the Ad",
+    "playful": "Using AI to take one KOL's recorded presentation and make it sound fluent in a dozen other languages — same voice, same nuance, without re-recording from scratch.",
+    "real": "The use of AI models to adapt recorded audio or video presentations into multiple languages, allowing global brand teams to scale localized medical education content.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "AMA Masterfile",
+    "category": "Behind the Ad",
+    "playful": "The database of essentially every licensed U.S. physician — the list commercial teams build their entire targeting strategy on top of.",
+    "real": "A comprehensive database maintained by the American Medical Association containing demographic and professional data on U.S. physicians, widely used for HCP segmentation and campaign targeting.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Brick-level Sales Data",
+    "category": "Behind the Ad",
+    "playful": "Sales numbers sliced down to a tiny geographic cluster of a handful of pharmacies — granular enough to actually design sales territories and set rep quotas around.",
+    "real": "Sales and prescription data organized by small geographic clusters ('bricks') of roughly four to five retail pharmacies, used by commercial teams to design territories and measure performance.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Closed-Loop Marketing (CLM)",
+    "category": "Behind the Ad",
+    "playful": "Turning every rep-to-doctor interaction into data — what got clicked, what got skipped — and feeding it straight back to the brand team to sharpen the next pitch.",
+    "real": "The continuous process of deploying multi-channel content to HCPs, capturing interaction data, and feeding it back to brand teams to refine strategy and messaging in real time.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Commercialization",
+    "category": "Behind the Ad",
+    "playful": "Everything that has to happen between 'the drug works' and 'the drug is actually for sale' — pricing, access, marketing, sales, all aligned before launch day.",
+    "real": "The end-to-end process of bringing a drug from late-stage development to market availability, spanning regulatory filing, pricing, market access, and marketing/sales execution.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "CRM & Veeva Systems",
+    "category": "Behind the Ad",
+    "playful": "The software backbone of pharma sales operations. CRM is the general concept — tracking every account interaction. Veeva is the specific platform most of the industry actually runs on.",
+    "real": "CRM (Customer Relationship Management) is the practice and technology of managing HCP and account interactions across sales and marketing channels. Veeva is the dominant CRM and content-management platform used across the pharmaceutical industry specifically.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Detail Types (Primary, Secondary, Tertiary & PDE)",
+    "category": "Behind the Ad",
+    "playful": "Not every topic in a sales call gets equal airtime. The Primary Detail is the main pitch, gets the most time. Secondary and Tertiary Details are shorter follow-up topics further down the list. A PDE (Primary Detail Equivalent) is how companies standardize call-effort measurement when a rep covers multiple products.",
+    "real": "Primary Detail refers to the main product or message emphasized in a sales call, receiving the most time and repetition. Secondary and Tertiary Details are additional messages covered with less emphasis. PDE (Primary Detail Equivalent) is a standardized unit for measuring and comparing call effort across products.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Disease Mongering",
+    "category": "Behind the Ad",
+    "playful": "The critical term for a company exaggerating how serious (or how common) a condition is, specifically to grow the market for a drug that treats it.",
+    "real": "A critical term describing the practice of exaggerating disease severity or medicalizing normal conditions in order to expand a drug's potential market.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Drug Sample / Sampling",
+    "category": "Behind the Ad",
+    "playful": "The free trial-size version a rep leaves with a doctor — a real, federally-regulated practice (PDMA governs exactly how it can be done), not just a friendly gesture.",
+    "real": "The distribution of free drug units to licensed prescribers, governed by the Prescription Drug Marketing Act (PDMA), used to give reps physician access and provide starter therapy for new patients.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "eDetailing",
+    "category": "Behind the Ad",
+    "playful": "A sales detail delivered on a screen instead of in person — video call, tablet presentation, interactive module — same pitch, lower cost, more data captured.",
+    "real": "Promotional presentations delivered electronically rather than face-to-face, expanding sales reach and lowering cost-per-detail while capturing physician engagement data.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "eSampling & ePrescribing",
+    "category": "Behind the Ad",
+    "playful": "Two more 'e-' prefixed modernizations of old-school pharma processes — eSampling digitizes how free samples get requested and tracked, ePrescribing digitizes how the prescription itself gets sent to the pharmacy.",
+    "real": "eSampling refers to electronic systems for requesting, tracking, and fulfilling drug samples. ePrescribing refers to the electronic transmission of prescriptions from prescriber to pharmacy, replacing paper scripts.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Fractional Call / Frequency",
+    "category": "Behind the Ad",
+    "playful": "The sales-ops math behind how often a rep is supposed to see a given doctor — not every physician gets equal visit frequency, and this is the metric that decides who gets how much.",
+    "real": "A sales operations metric determining call frequency allocation across a rep's target list, used in territory and call-plan design.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Key Performance Indicator (KPI)",
+    "category": "Behind the Ad",
+    "playful": "The number leadership actually looks at to decide if a campaign, a rep, or a quarter was any good.",
+    "real": "A measurable value used to evaluate the success of a strategy, campaign, or individual performance against defined objectives.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Moment of Truth (MOT / FMOT / ZMOT)",
+    "category": "Behind the Ad",
+    "playful": "The exact instant someone forms an opinion about a brand. FMOT (First Moment) is seeing it on a shelf or screen for the first time. ZMOT (Zero Moment) happens even earlier — the research they do online before that.",
+    "real": "A marketing concept describing the pivotal moment a consumer forms a brand impression. FMOT (First Moment of Truth) is the initial in-person or on-screen encounter. ZMOT (Zero Moment of Truth) is the research phase that happens online before that encounter.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Multichannel & Omnichannel Marketing",
+    "category": "Behind the Ad",
+    "playful": "Two ways of running a campaign across several channels at once. Multichannel just means using a bunch of channels. Omnichannel means those channels are actually talking to each other, so the experience feels seamless rather than repeated.",
+    "real": "Multichannel Marketing (MCM) uses multiple separate channels to reach an audience. Omnichannel Marketing integrates those channels into a unified, consistent experience across touchpoints, rather than treating each channel independently.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Advergame",
+    "category": "Ask Your Doctor",
+    "playful": "An actual video game built around a drug brand or disease-awareness campaign — engagement dressed up as entertainment.",
+    "real": "An interactive video game developed specifically to promote a pharmaceutical brand or disease-awareness campaign, subject to the same DTC regulatory guidelines as any other promotional content.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Behavioral Targeting",
+    "category": "Ask Your Doctor",
+    "playful": "Serving you a specific drug ad because of what you searched or browsed — the digital version of the pharmacist recognizing your face.",
+    "real": "The practice of serving tailored advertisements based on a user's online browsing behavior, search intent, or health-content interaction patterns, subject to strict health-privacy compliance.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Bookend Ad",
+    "category": "Ask Your Doctor",
+    "playful": "A two-part strategy: a bare-bones reminder ad naming the drug, paired separately with an unbranded disease-awareness ad. Run them too close together and the FDA may decide they're really just one ad wearing a disguise — with all the fair-balance requirements that implies.",
+    "real": "A DTC strategy pairing a reminder ad (drug name only, no claims) with a separate unbranded disease-awareness ad. If the FDA determines the two are perceived as a single combined message, the campaign gets regulated as a full product claim ad, including required risk disclosures.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Major Statement",
+    "category": "Ask Your Doctor",
+    "playful": "The broadcast-ad cousin of Brief Summary — the spoken risk information (sometimes The Mumble itself) legally required in any TV or radio ad making a real claim.",
+    "real": "The FDA-required spoken or displayed summary of a drug's major risks in broadcast advertising, serving the same fair-balance function as the Brief Summary does in print.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "Patient Opinion Leader (POL)",
+    "category": "Ask Your Doctor",
+    "playful": "KOL's newer counterpart — instead of courting influential doctors, companies court influential patients and patient advocates to help shape messaging and build trust.",
+    "real": "A patient or patient-advocate whose experience and public voice carry influence, engaged by pharmaceutical companies similarly to a Key Opinion Leader, but from the patient rather than physician side.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
   }
 ]

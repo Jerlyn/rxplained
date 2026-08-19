@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rxplained-v8';
+const CACHE_NAME = 'rxplained-v16';
 const APP_SHELL = [
   './',
   './index.html',
@@ -8,8 +8,14 @@ const APP_SHELL = [
   './manifest.json',
   './icons/icon-192.png',
   './icons/icon-512.png',
+  // Deliberately NOT precaching cdn.tailwindcss.com: it doesn't send CORS headers for
+  // fetch()/cache.addAll() (only plain <script src> loading), so including it here made
+  // the whole addAll() reject and silently discard every install. Offline visits still get
+  // everything else — HTML/JS/data/fonts/Fuse/confetti — but Tailwind's utility CSS needs
+  // network access, so styling won't render fully offline. Inherent to the CDN approach.
   'https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js',
-  'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap',
+  'https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js',
+  'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap',
 ];
 
 self.addEventListener('install', (event) => {

@@ -11,128 +11,269 @@
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: { 950: '#020C28', 900: '#0A1638', 800: '#12204E' },
+          teal: { 300: '#72F2F2', 400: '#4ADEDE', 500: '#20C4C4' },
+          pink: { 400: '#F47DB1', 500: '#DE6399', 600: '#C5437B' },
+        },
+        fontFamily: {
+          display: ['Space Grotesk', 'sans-serif'],
+          body: ['Plus Jakarta Sans', 'sans-serif'],
+          mono: ['JetBrains Mono', 'monospace'],
+        }
+      }
+    }
+  }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-<a class="skip-link" href="#main">Skip to content</a>
+<body class="min-h-screen relative flex flex-col font-body bg-navy-950 text-slate-300">
 
-<header class="site-header">
-  <div class="header-inner">
-    <a href="#" class="logo" id="logo-home">Rx<span>Plained</span></a>
-    <button class="submit-term-btn" id="open-submit">+ Submit a Term</button>
+<div class="orb-1" aria-hidden="true"></div>
+<div class="orb-2" aria-hidden="true"></div>
+
+<a href="#main-content" class="skip-link sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-teal-400 focus:text-navy-950 focus:font-bold focus:rounded-lg">Skip to content</a>
+
+<header class="sticky top-0 z-40 bg-navy-950/80 backdrop-blur-md border-b border-teal-400/20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+    <a href="#" id="logo-home" class="flex items-center gap-3 group focus:rounded-lg">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-400 to-pink-500 p-0.5 flex items-center justify-center shadow-lg shadow-teal-400/10 group-hover:scale-105 transition-transform">
+        <div class="w-full h-full bg-navy-950 rounded-[10px] flex items-center justify-center">
+          <span class="font-display font-bold text-teal-400 text-xl tracking-tighter">Rx</span>
+        </div>
+      </div>
+      <div>
+        <div class="font-display text-xl font-bold text-white tracking-tight">Rx<span class="text-pink-400">Plained</span></div>
+        <p class="text-xs text-slate-400 font-medium hidden sm:block">The Pharma Advertising Dictionary</p>
+      </div>
+    </a>
+
+    <div class="flex items-center gap-2 sm:gap-3">
+      <button id="cmd-k-btn" type="button" class="flex items-center gap-3 px-3.5 py-2 min-h-[44px] rounded-full bg-navy-900 border border-teal-400/20 text-slate-300 text-sm hover:border-teal-400 hover:text-white transition-all shadow-inner group">
+        <svg class="w-4 h-4 text-teal-400 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <span class="hidden md:inline">Quick Search</span>
+        <kbd class="hidden sm:inline-flex items-center gap-0.5 px-2 py-0.5 text-[11px] font-mono text-slate-400 bg-navy-950 border border-slate-700 rounded-md">⌘K</kbd>
+      </button>
+
+      <button id="saved-filter-badge" type="button" class="relative flex items-center gap-1.5 px-3.5 py-2 min-h-[44px] rounded-full bg-navy-900 border border-pink-500/30 text-pink-400 text-sm font-semibold hover:bg-pink-500/10 transition-all" aria-label="Show saved terms">
+        <svg class="w-4 h-4 fill-pink-500" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        <span class="hidden sm:inline">Saved</span>
+        <span id="saved-count" class="ml-0.5 px-2 py-0.5 bg-pink-500/20 text-pink-300 font-mono text-xs rounded-full">0</span>
+      </button>
+
+      <button id="open-submit" type="button" class="flex items-center gap-1.5 px-4 py-2 min-h-[44px] rounded-full bg-teal-400 hover:bg-teal-300 text-navy-950 font-bold text-sm shadow-md shadow-teal-400/20 hover:scale-105 active:scale-95 transition-all">
+        <span class="text-lg leading-none">+</span>
+        <span class="hidden sm:inline">Submit Term</span>
+      </button>
+    </div>
   </div>
 </header>
 
-<main id="main">
-  <section class="hero">
-    <h1>The pharma ad dictionary<br>nobody asked for.<br><span class="hero-accent">Everybody needed.</span></h1>
-    <p class="hero-sub">283 real terms from inside pharmaceutical advertising — decoded, demystified, occasionally roasted.</p>
+<main id="main-content" class="max-w-6xl mx-auto px-4 sm:px-6 py-8 space-y-10 relative z-10 flex-grow w-full">
 
-    <div class="wotd-card" aria-labelledby="wotd-heading">
-      <p class="wotd-eyebrow" id="wotd-heading">Word of the Day</p>
-      <p class="wotd-cat" id="wotd-cat"></p>
-      <h2 class="wotd-term" id="wotd-term"></h2>
-      <p class="wotd-playful" id="wotd-playful"></p>
-      <button class="wotd-reveal-btn" id="wotd-reveal-btn" type="button" aria-expanded="false" aria-controls="wotd-real-block">
-        <span id="wotd-reveal-label">Tap to see what it actually means</span>
-        <span class="wotd-reveal-arrow" aria-hidden="true">▾</span>
-      </button>
-      <div class="wotd-real-block" id="wotd-real-block" hidden>
-        <p class="wotd-real-label">What it actually means</p>
-        <p class="wotd-real-text" id="wotd-real-text"></p>
-      </div>
+  <section class="text-center space-y-6 max-w-3xl mx-auto">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-navy-900 border border-teal-400/30 text-teal-300 text-xs font-mono tracking-wide uppercase">
+      <span class="w-2 h-2 rounded-full bg-teal-400 motion-safe:animate-pulse" aria-hidden="true"></span>
+      <span>354 Rx Terms Decoded &amp; Deconstructed</span>
     </div>
 
-    <div class="search-filter-row">
-      <div class="search-wrap">
-        <label for="search-input" class="visually-hidden">Search terms</label>
-        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input type="search" id="search-input" placeholder="Search &ldquo;fair balance,&rdquo; &ldquo;KOL,&rdquo; &ldquo;DTC&rdquo;&hellip;" autocomplete="off">
-        <button class="search-clear" id="search-clear" aria-label="Clear search" type="button">&times;</button>
-        <span class="search-kbd" aria-hidden="true"><kbd>&#8984;</kbd><kbd>K</kbd></span>
-      </div>
+    <h1 class="text-3xl sm:text-5xl font-display font-extrabold text-white tracking-tight leading-tight">
+      The pharma ad dictionary<br>nobody asked for.<br>
+      <span class="bg-gradient-to-r from-pink-400 via-purple-300 to-teal-300 bg-clip-text text-transparent">Everybody needed.</span>
+    </h1>
+    <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+      354 real terms from inside pharmaceutical advertising — decoded, demystified, occasionally roasted.
+    </p>
 
-      <div class="filter-controls">
-        <div class="select-wrap">
-          <label for="cat-select" class="visually-hidden">Filter by category</label>
-          <select id="cat-select">
-            <option value="all">All Categories</option>
-            <option value="Doctor Speak">🩺 Doctor Speak</option>
-            <option value="Money Talk">💰 Money Talk</option>
-            <option value="Legal Says">⚖️ Legal Says</option>
-            <option value="Behind the Ad">🎬 Behind the Ad</option>
-            <option value="Ask Your Doctor">📺 Ask Your Doctor</option>
-            <option value="saved">♥ Saved</option>
-          </select>
+    <div class="relative text-left max-w-2xl mx-auto mt-6">
+      <div class="glass-panel rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-2xl" style="border-color: rgba(74,222,222,0.3)">
+        <div class="flex items-start justify-between gap-4 border-b border-slate-700/60 pb-4 mb-4">
+          <div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="px-2.5 py-0.5 bg-teal-400/10 border border-teal-400/30 text-teal-300 font-mono text-xs font-semibold uppercase tracking-wider rounded-md">Word of the Day</span>
+              <span id="wotd-cat-badge" class="px-2.5 py-0.5 bg-pink-500/10 border border-pink-500/30 text-pink-300 font-mono text-xs font-medium rounded-md">Loading…</span>
+            </div>
+            <h2 id="wotd-term-title" class="text-2xl sm:text-3xl font-display font-bold text-white mt-2">—</h2>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <button id="wotd-speak-btn" type="button" aria-label="Listen to definition audio" class="p-2.5 min-w-[44px] min-h-[44px] rounded-xl bg-navy-900 border border-slate-700 text-teal-400 hover:border-teal-400 hover:bg-teal-400/10 transition-all">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
+            </button>
+            <button id="wotd-bookmark-btn" type="button" aria-label="Save Word of the Day" aria-pressed="false" class="p-2.5 min-w-[44px] min-h-[44px] rounded-xl bg-navy-900 border border-slate-700 text-slate-400 hover:text-pink-400 hover:border-pink-500/50 transition-all">
+              <svg class="w-5 h-5 heart-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-1.293-6.364 4.5 4.5 0 00-6.364 0L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            </button>
+          </div>
         </div>
-        <button class="sort-toggle" id="sort-toggle" type="button" aria-pressed="false">
-          <span id="sort-label">Sort: A–Z</span>
-          <span class="sort-arrow" id="sort-arrow" aria-hidden="true">↓</span>
-        </button>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-navy-950/60 border border-purple-400/20 space-y-2">
+            <span class="flex items-center gap-2 text-pink-400 text-xs font-mono font-bold uppercase tracking-wider">🎭 The Pitch (Playful)</span>
+            <p id="wotd-playful-text" class="text-slate-200 text-sm leading-relaxed">Loading daily prescription…</p>
+          </div>
+          <div class="p-4 rounded-xl bg-navy-950/60 border border-teal-400/20 space-y-2">
+            <span class="flex items-center gap-2 text-teal-300 text-xs font-mono font-bold uppercase tracking-wider">📋 The Reality (Official)</span>
+            <p id="wotd-real-text" class="text-slate-300 text-sm leading-relaxed">Loading official meaning…</p>
+          </div>
+        </div>
+
+        <div id="wotd-related"></div>
+
+        <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-end text-xs text-slate-400 font-mono">
+          <button id="random-wotd-btn" type="button" class="min-h-[44px] px-2 text-teal-400 hover:text-teal-300 font-sans font-semibold flex items-center gap-1">
+            <span>🔀 Shuffle Random Term</span>
+          </button>
+        </div>
       </div>
     </div>
-    <p class="result-count" id="result-count" role="status" aria-live="polite"></p>
   </section>
 
-  <section class="terms-section">
-    <div id="terms-grid" class="terms-grid" aria-live="polite"></div>
-    <div class="empty-state" id="empty-state" hidden>
-      <p id="empty-state-default">No prescription found for "<span id="empty-query"></span>."</p>
-      <p id="empty-state-saved" hidden>No saved terms yet. Tap the heart on any word to add it here.</p>
-      <p id="empty-state-filtered" hidden>No matches in <span id="empty-filtered-cat"></span> for "<span id="empty-filtered-query"></span>."</p>
-      <button class="empty-state-cta" id="empty-state-cta" type="button">Be the first to define it →</button>
-      <button class="empty-state-cta" id="empty-clear-category-btn" type="button" hidden>See results in all categories →</button>
+  <section class="space-y-6">
+    <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 max-w-3xl mx-auto">
+      <div class="relative flex-1 sm:max-w-md">
+        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+          <svg class="w-5 h-5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </div>
+        <label for="main-search-input" class="sr-only">Search terms</label>
+        <input type="search" id="main-search-input" placeholder="Search by keyword, acronym, or jargon — e.g. &quot;KOL,&quot; &quot;fair balance&quot;…" class="w-full pl-11 pr-11 py-3.5 min-h-[44px] rounded-full bg-navy-900 border-2 border-teal-400/30 text-white placeholder-slate-400 focus:border-teal-400 focus:bg-navy-950 transition-all text-base shadow-lg outline-none" autocomplete="off">
+        <button id="clear-search-btn" type="button" class="hidden absolute inset-y-0 right-0 w-11 flex items-center justify-center text-slate-400 hover:text-white" aria-label="Clear search">&times;</button>
+      </div>
+
+      <div class="flex items-center justify-center gap-3">
+        <label for="sort-select" class="sr-only">Sort terms</label>
+        <select id="sort-select" class="px-4 py-3 min-h-[44px] rounded-full bg-navy-900 border border-teal-400/30 text-slate-200 text-sm font-semibold hover:border-teal-400 focus:outline-none focus:border-teal-400 cursor-pointer">
+          <option value="az">Sort: A to Z</option>
+          <option value="za">Sort: Z to A</option>
+          <option value="random">Sort: Random</option>
+        </select>
+      </div>
+    </div>
+
+    <nav aria-label="Filter by category">
+      <div id="category-chips-container" class="flex items-center gap-2.5 overflow-x-auto no-scrollbar py-2 px-1"></div>
+    </nav>
+
+    <div class="flex items-center justify-between text-sm font-mono text-slate-400 px-1 border-b border-slate-800 pb-2">
+      <div id="results-count-text" role="status" aria-live="polite">Showing <span class="text-teal-400 font-bold" id="visible-count">0</span> matching terms</div>
+      <div class="hidden sm:block text-xs text-slate-500">⌘K for instant search</div>
     </div>
   </section>
+
+  <section id="terms-container" class="space-y-4" aria-live="polite"></section>
+
+  <div id="empty-state" class="hidden text-center py-16 px-4 glass-panel rounded-2xl max-w-xl mx-auto space-y-4">
+    <div class="w-16 h-16 mx-auto rounded-full bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-pink-400 text-2xl" aria-hidden="true">💊</div>
+    <h3 class="text-xl font-display font-bold text-white">No Prescriptions Found</h3>
+    <p class="text-slate-300 text-sm max-w-md mx-auto" id="empty-state-msg">We couldn't find any pharma terms matching your search criteria.</p>
+    <div class="flex items-center justify-center gap-3 pt-2 flex-wrap">
+      <button id="reset-filters-btn" type="button" class="px-5 py-2.5 min-h-[44px] rounded-full bg-teal-400 text-navy-950 font-bold text-sm hover:bg-teal-300 transition-all">Reset All Filters</button>
+      <button id="empty-submit-btn" type="button" class="px-5 py-2.5 min-h-[44px] rounded-full bg-navy-900 border border-pink-500/40 text-pink-300 font-bold text-sm hover:bg-pink-500/20 transition-all">Propose This Term →</button>
+    </div>
+  </div>
 </main>
 
-<footer class="site-footer">
-  <p>RxPlained is a living dictionary. Something missing? <button class="link-btn" id="open-submit-footer">Tell us</button>.</p>
-  <div class="footer-links">
-    <a class="kofi-link" href="https://ko-fi.com/designlady" target="_blank" rel="noopener noreferrer">☕ Support RxPlained on Ko-fi</a>
+<footer class="border-t border-slate-800/80 bg-navy-950/90 py-10 px-4 mt-20 relative z-10 text-center text-sm text-slate-400">
+  <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="text-center sm:text-left">
+      <p class="font-display font-bold text-white text-base">RxPlained</p>
+      <p class="text-xs text-slate-400 mt-0.5">RxPlained is a living dictionary. Something missing? <button id="open-submit-footer" type="button" class="text-teal-400 hover:underline font-semibold">Tell us</button>.</p>
+    </div>
+    <div class="flex items-center gap-4 text-xs font-semibold">
+      <a href="https://ko-fi.com/designlady" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:underline flex items-center gap-1 min-h-[44px]">☕ Support on Ko-fi</a>
+    </div>
   </div>
 </footer>
 
-<!-- Submit a term dialog -->
-<div class="modal-overlay" id="submit-modal" role="dialog" aria-modal="true" aria-labelledby="submit-modal-title" hidden>
-  <div class="modal-content">
-    <button class="modal-close" id="close-submit-modal" aria-label="Close">&times;</button>
-    <h2 id="submit-modal-title">Submit a term</h2>
-    <p>Know a pharma-ad term we're missing? Send it our way — we read every submission.</p>
-    <form id="submit-form">
+<!-- Cmd+K palette -->
+<div id="cmd-k-modal" class="fixed inset-0 z-50 bg-navy-950/80 backdrop-blur-md hidden flex items-start justify-center pt-16 sm:pt-24 px-4" role="dialog" aria-modal="true" aria-labelledby="cmd-modal-title">
+  <h2 id="cmd-modal-title" class="sr-only">Quick search</h2>
+  <div class="bg-navy-900 border border-teal-400/30 rounded-2xl max-w-2xl w-full shadow-2xl overflow-hidden flex flex-col max-h-[80vh]">
+    <div class="p-4 border-b border-slate-800 flex items-center gap-3 bg-navy-950">
+      <svg class="w-5 h-5 text-teal-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+      <label for="cmd-k-input" class="sr-only">Quick search terms</label>
+      <input type="text" id="cmd-k-input" placeholder="Type to search terms or categories…" class="w-full bg-transparent text-white placeholder-slate-400 focus:outline-none text-lg font-body" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="cmd-k-results" aria-autocomplete="list">
+      <kbd class="px-2 py-1 text-xs font-mono text-slate-400 bg-navy-900 border border-slate-700 rounded-md">ESC</kbd>
+    </div>
+    <div id="cmd-k-results" class="p-2 overflow-y-auto space-y-1 flex-grow" role="listbox" aria-label="Search results"></div>
+    <div class="p-3 bg-navy-950 border-t border-slate-800 text-xs font-mono text-slate-400 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span><kbd class="px-1.5 py-0.5 bg-navy-900 border border-slate-700 rounded">↑</kbd> <kbd class="px-1.5 py-0.5 bg-navy-900 border border-slate-700 rounded">↓</kbd> Navigate</span>
+        <span><kbd class="px-1.5 py-0.5 bg-navy-900 border border-slate-700 rounded">↵</kbd> Select</span>
+      </div>
+      <span>RxPlained</span>
+    </div>
+  </div>
+</div>
+
+<!-- Submit-a-term modal -->
+<div id="submit-modal" class="fixed inset-0 z-50 bg-navy-950/80 backdrop-blur-md hidden flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="submit-modal-title">
+  <div class="glass-panel bg-navy-900 rounded-2xl max-w-lg w-full p-6 sm:p-8 relative space-y-5 shadow-2xl" style="border-color: rgba(74,222,222,0.4)">
+    <button id="close-submit-modal" type="button" class="absolute top-4 right-4 min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-400 hover:text-white text-2xl" aria-label="Close dialog">&times;</button>
+    <div>
+      <h2 id="submit-modal-title" class="text-2xl font-display font-bold text-white">Propose a New Term</h2>
+      <p class="text-slate-300 text-sm mt-1">Know pharma jargon we missed? Send it in — we read every submission.</p>
+    </div>
+    <form id="submit-form" class="space-y-4">
       <input type="hidden" name="_subject" value="RxPlained term submission">
-      <div class="form-group">
-        <label for="term-name">Term</label>
-        <input type="text" id="term-name" name="term" required>
+      <div>
+        <label for="form-term" class="block text-xs font-mono font-bold text-teal-300 uppercase mb-1">Term Name</label>
+        <input type="text" id="form-term" name="term" required placeholder="e.g. Fair Balance, Unbranded Campaign" class="w-full px-4 py-3 min-h-[44px] rounded-xl bg-navy-950 border border-slate-700 text-white focus:border-teal-400 focus:outline-none text-sm">
       </div>
-      <div class="form-group">
-        <label for="term-def">What does it mean?</label>
-        <textarea id="term-def" name="definition" rows="3" required></textarea>
+      <div>
+        <label for="form-playful" class="block text-xs font-mono font-bold text-pink-400 uppercase mb-1">The Pitch (Playful Definition)</label>
+        <textarea id="form-playful" name="definition" rows="2" required placeholder="The witty, realistic take on what it actually means…" class="w-full px-4 py-3 rounded-xl bg-navy-950 border border-slate-700 text-white focus:border-teal-400 focus:outline-none text-sm"></textarea>
       </div>
-      <div class="form-group">
-        <label for="term-cat">Best-fit category</label>
-        <select id="term-cat" name="category" required>
-          <option value="">Choose one…</option>
-          <option>Doctor Speak</option>
-          <option>Money Talk</option>
-          <option>Legal Says</option>
-          <option>Behind the Ad</option>
-          <option>Ask Your Doctor</option>
+      <div>
+        <label for="form-real" class="block text-xs font-mono font-bold text-teal-300 uppercase mb-1">The Reality (Official Definition)</label>
+        <textarea id="form-real" name="real" rows="2" required placeholder="The formal regulatory definition…" class="w-full px-4 py-3 rounded-xl bg-navy-950 border border-slate-700 text-white focus:border-teal-400 focus:outline-none text-sm"></textarea>
+      </div>
+      <div>
+        <label for="form-cat" class="block text-xs font-mono font-bold text-slate-400 uppercase mb-1">Category</label>
+        <select id="form-cat" name="category" required class="w-full px-4 py-3 min-h-[44px] rounded-xl bg-navy-950 border border-slate-700 text-white focus:border-teal-400 focus:outline-none text-sm">
+          <option value="">Select category…</option>
+          <option value="Doctor Speak">🩺 Doctor Speak</option>
+          <option value="Money Talk">💰 Money Talk</option>
+          <option value="Legal Says">⚖️ Legal Says</option>
+          <option value="Behind the Ad">🎬 Behind the Ad</option>
+          <option value="Ask Your Doctor">📺 Ask Your Doctor</option>
         </select>
       </div>
-      <button type="submit" class="btn-primary">Send it in</button>
+      <button type="submit" class="w-full py-3.5 min-h-[48px] rounded-full bg-teal-400 hover:bg-teal-300 text-navy-950 font-bold shadow-lg shadow-teal-400/20 transition-all">Send it in →</button>
     </form>
   </div>
 </div>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top" hidden>
+<button id="back-to-top" type="button" aria-label="Back to top" class="hidden fixed bottom-6 right-6 z-30 w-12 h-12 rounded-full bg-navy-900/90 border border-teal-400/50 text-teal-400 shadow-lg shadow-black/30 backdrop-blur-md flex items-center justify-center hover:border-teal-400 hover:-translate-y-0.5 transition-all">
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
 </button>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/7.0.0/fuse.min.js"></script>
+<div id="toast-container" class="fixed bottom-6 left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 sm:right-6 z-50 pointer-events-none space-y-2"></div>
+
+<div id="install-banner" class="hidden fixed bottom-0 inset-x-0 z-40 bg-navy-900/95 backdrop-blur-md border-t border-teal-400/30 px-4 py-3">
+  <div class="max-w-6xl mx-auto flex items-center justify-between gap-4">
+    <div class="flex items-center gap-3 min-w-0">
+      <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-teal-400 to-pink-500 p-0.5 flex items-center justify-center shrink-0" aria-hidden="true">
+        <div class="w-full h-full bg-navy-950 rounded-md flex items-center justify-center">
+          <span class="font-display font-bold text-teal-400 text-sm">Rx</span>
+        </div>
+      </div>
+      <p id="install-banner-text" class="text-sm text-slate-200 truncate">Install RxPlained for quick access from your home screen.</p>
+    </div>
+    <div class="flex items-center gap-2 shrink-0">
+      <button id="install-banner-action" type="button" class="px-4 py-2 min-h-[44px] rounded-full bg-teal-400 hover:bg-teal-300 text-navy-950 font-bold text-sm transition-all">Install</button>
+      <button id="install-banner-dismiss" type="button" aria-label="Dismiss install prompt" class="min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-400 hover:text-white text-xl">&times;</button>
+    </div>
+  </div>
+</div>
+
 <script src="js/app.js"></script>
 </body>
 </html>

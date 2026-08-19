@@ -588,9 +588,32 @@
 
       const el = document.getElementById(`term-${this.slugify(t.term)}`);
       if (!el) return;
-      el.scrollIntoView({ behavior: this.prefersReducedMotion() ? 'auto' : 'smooth', block: 'center' });
-      el.classList.add('deep-link-highlight');
-      setTimeout(() => el.classList.remove('deep-link-highlight'), 1700);
+
+      // Scrolling to a freshly-rendered element is genuinely unreliable on a cold/first
+      // load: the Tailwind CDN script generates matching utility CSS reactively and
+      // asynchronously (not synchronously within this call), and Google Fonts can still be
+      // mid-fetch, both reflowing card heights after the fact. A fixed animation-frame
+      // delay alone was not enough — verified by repeated real-navigation testing, not just
+      // a single pass — so this waits for web fonts to finish loading, then double-checks
+      // after the scroll actually lands and nudges it once more if a late layout shift
+      // (something this can't fully enumerate in advance) still moved the target.
+      const settled = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+      settled.then(() => {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            const behavior = this.prefersReducedMotion() ? 'auto' : 'smooth';
+            el.scrollIntoView({ behavior, block: 'center' });
+            el.classList.add('deep-link-highlight');
+            setTimeout(() => el.classList.remove('deep-link-highlight'), 1700);
+
+            setTimeout(() => {
+              const rect = el.getBoundingClientRect();
+              const inView = rect.top >= 0 && rect.bottom <= window.innerHeight;
+              if (!inView) el.scrollIntoView({ behavior: 'auto', block: 'center' });
+            }, behavior === 'smooth' ? 700 : 50);
+          });
+        });
+      });
     }
 
     // Deterministic, not fabricated: the next N terms alphabetically within the same

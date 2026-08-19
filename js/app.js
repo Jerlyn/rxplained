@@ -506,10 +506,19 @@
       });
     }
 
+    // Deliberately isolated from searchTerms()/Fuse: a deep link must resolve to exactly
+    // one term or none, never an approximate/ranked match. Do not route this through the
+    // search bar's matching logic even if it seems like reusable code — that logic is fuzzy
+    // and rank-ordered by design, which is correct for a search box and wrong for a hash
+    // lookup. Matches against the canonical `this.terms` array as loaded from terms.json,
+    // never a filtered/sorted view of it.
     checkDeepLink() {
       const match = window.location.hash.match(/#term=(.+)/);
       if (!match) return;
-      const found = this.terms.find((t) => this.slugify(t.term) === match[1]);
+      const slug = match[1];
+      const found = this.terms.find(
+        (t) => this.slugify(t.term) === slug || (t.aliases || []).some((a) => this.slugify(a) === slug)
+      );
       if (found) this.jumpToTerm(found);
     }
 

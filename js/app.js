@@ -565,6 +565,15 @@
         // chips) — this specifically measures whether shared links actually get followed.
         trackEvent('term_view', { term: found.term, category: found.category, source: 'deep_link' });
         this.jumpToTerm(found);
+      } else {
+        // Never fall through silently: an unmatched slug must produce a visible, honest
+        // "not found" signal, not nothing — a silent no-op here is indistinguishable from
+        // a working link to anyone testing casually, and would hide this entire class of
+        // bug (stale/incorrect term data, a bad or outdated shared link) instead of
+        // surfacing it. This branch is unreachable when found is some other, unrelated term
+        // — the lookup above only ever returns the real match or nothing.
+        trackEvent('term_view', { term: null, category: null, source: 'deep_link', slug, found: false });
+        this.showToast(`Couldn't find that term — it may have been renamed. Try searching for it instead.`, true);
       }
     }
 
@@ -922,9 +931,20 @@
   }
   initInstallPrompt(initConsentBanner());
 
+  // Sequencing guarantee: RxPlainedApp is constructed exactly once, here, and only after
+  // res.json() has resolved with the complete, fully-parsed array — res.json() has no
+  // partial/streaming result to observe early, it either resolves whole or rejects. checkDeepLink()
+  // runs synchronously inside the constructor (see its call site) against that same array, so
+  // there is no code path — now or from a future refactor — where a hash lookup can run before
+  // the term list is fully loaded, short of deliberately splitting this into more steps. Keep
+  // the fetch → parse → construct chain in one place rather than passing the terms array through
+  // intermediate functions/modules that could let a lookup slip in ahead of it.
   fetch('data/terms.json')
     .then((res) => res.json())
-    .then((terms) => { window.app = new RxPlainedApp(terms); })
+    .then((terms) => {
+      if (!Array.isArray(terms) || terms.length === 0) throw new Error('terms.json returned no usable data');
+      window.app = new RxPlainedApp(terms);
+    })
     .catch((err) => {
       document.getElementById('terms-container').innerHTML = '<p class="text-center text-slate-300 py-16">Couldn\'t load the dictionary right now. Try refreshing.</p>';
       console.error('Failed to load terms.json', err);

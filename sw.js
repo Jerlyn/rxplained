@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rxplained-v17';
+const CACHE_NAME = 'rxplained-v18';
 const APP_SHELL = [
   './',
   './index.html',

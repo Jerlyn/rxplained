@@ -66,6 +66,18 @@ html { scroll-behavior: smooth; }
    but keep this as a defensive backstop. */
 [hidden] { display: none !important; }
 
-/* Shift these up when the install banner is showing, so it doesn't sit on top of them */
+/* Shift these up when a bottom banner (install or consent) is showing, so it doesn't sit
+   on top of them. The two banners never show at once — consent resolves before the install
+   prompt is allowed to appear — so one offset value covers both, tuned for whichever is
+   currently the taller one at a given width. The install banner is always single-line
+   (~69px, via `truncate`); the consent banner wraps to two rows below the `sm` breakpoint
+   (~125px, two full-width buttons under the message) since unlike the install banner it
+   has two equally-weighted actions that can't be safely squeezed into one line without
+   either button becoming illegible or one being visually de-emphasized versus the other. */
 #back-to-top.banner-visible { bottom: 88px; }
 #toast-container.banner-visible { bottom: 88px; }
+
+@media (max-width: 639px) {
+  #back-to-top.banner-visible { bottom: 148px; }
+  #toast-container.banner-visible { bottom: 148px; }
+}

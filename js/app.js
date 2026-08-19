@@ -3,6 +3,31 @@
 
   const SAVED_KEY = 'rxplained:saved-terms';
   const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mvkpwkze';
+  const GA_MEASUREMENT_ID = 'G-N4ED2WXE30';
+  const CONSENT_KEY = 'rxplained:analytics-consent';
+
+  // Loaded only after explicit consent (see initConsentBanner) — nothing analytics-related
+  // touches the network or sets a cookie before that. The dataLayer/gtag stub is safe to
+  // call before the real script finishes loading; calls just queue.
+  let analyticsEnabled = false;
+  function loadGoogleAnalytics() {
+    if (analyticsEnabled) return;
+    analyticsEnabled = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function gtag() { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', GA_MEASUREMENT_ID);
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+    document.head.appendChild(script);
+  }
+
+  // No-ops silently if consent hasn't been granted — callers never need to check first.
+  function trackEvent(name, params) {
+    if (!analyticsEnabled || typeof window.gtag !== 'function') return;
+    window.gtag('event', name, params || {});
+  }
 
   const CATEGORIES = [
     { id: 'all', label: 'All Terms', icon: '⚡' },
@@ -109,9 +134,11 @@
         this.savedSlugs.add(slug);
         this.showToast(`❤️ Saved "${t.term}"`);
         this.fireConfetti({ particleCount: 30, spread: 60, origin: { y: 0.8 } });
+        trackEvent('save_term', { term: t.term, category: t.category });
       } else {
         this.savedSlugs.delete(slug);
         this.showToast(`Removed "${t.term}" from saved`);
+        trackEvent('unsave_term', { term: t.term, category: t.category });
       }
       this.persistSaved();
       this.updateSavedBadge();
@@ -241,6 +268,7 @@
     // ---------- Events ----------
     initEvents() {
       let debounceTimer;
+      let analyticsTimer;
       this.dom.mainInput.addEventListener('input', (e) => {
         clearTimeout(debounceTimer);
         debounceTimer = setTimeout(() => {
@@ -248,6 +276,17 @@
           this.dom.clearSearchBtn.classList.toggle('hidden', !this.searchQuery.trim());
           this.renderTerms();
         }, 120);
+
+        // Separate, longer debounce so a 'search' event fires once per pause in typing
+        // rather than once per keystroke pause — the 120ms render debounce above is too
+        // short for that and would flood analytics with partial queries.
+        clearTimeout(analyticsTimer);
+        const query = e.target.value.trim();
+        if (query) {
+          analyticsTimer = setTimeout(() => {
+            trackEvent('search', { search_term: query, results_count: this.searchTerms(query).length });
+          }, 700);
+        }
       });
 
       this.dom.clearSearchBtn.addEventListener('click', () => {
@@ -501,6 +540,7 @@
       const url = `${window.location.origin}${basePath}term/${slug}/`;
       navigator.clipboard.writeText(url).then(() => {
         this.showToast('🔗 Link copied to clipboard!');
+        trackEvent('share', { method: 'copy_link', content_type: 'term', item_id: slug, term: t.term });
       }).catch(() => {
         this.showToast("Couldn't copy automatically — link is in your address bar.", true);
       });
@@ -519,7 +559,12 @@
       const found = this.terms.find(
         (t) => this.slugify(t.term) === slug || (t.aliases || []).some((a) => this.slugify(a) === slug)
       );
-      if (found) this.jumpToTerm(found);
+      if (found) {
+        // Distinct from a generic 'term_view' on internal navigation (Cmd+K, related-term
+        // chips) — this specifically measures whether shared links actually get followed.
+        trackEvent('term_view', { term: found.term, category: found.category, source: 'deep_link' });
+        this.jumpToTerm(found);
+      }
     }
 
     // Clears filters so the target is guaranteed visible, scrolls to it, and gives it a
@@ -682,6 +727,9 @@
         if (res.ok) {
           this.showToast('🎉 Thanks — we read every submission.');
           this.fireConfetti({ particleCount: 80, spread: 80, origin: { y: 0.6 } });
+          // Only the controlled-vocabulary category, never the free-text term/definition
+          // fields someone typed — those don't belong in analytics.
+          trackEvent('term_submitted', { category: form.elements.category.value || 'unspecified' });
           this.closeSubmitModal();
           form.reset();
         } else {
@@ -736,8 +784,62 @@
   }
   registerServiceWorker();
 
-  // Also independent of the data load — nothing here depends on the term list.
-  function initInstallPrompt() {
+  // Shows the cookie-consent banner if no prior choice is stored, loads GA on accept, and
+  // never shows again once a choice (either way) has been made. Returns a Promise that
+  // resolves once the consent question has been answered (or was already answered in a
+  // prior visit) — used to hold off the install-prompt banner so the two never stack.
+  function initConsentBanner() {
+    const banner = document.getElementById('consent-banner');
+    const acceptBtn = document.getElementById('consent-accept');
+    const declineBtn = document.getElementById('consent-decline');
+    const backToTop = document.getElementById('back-to-top');
+    const toastContainer = document.getElementById('toast-container');
+
+    return new Promise((resolve) => {
+      const hide = () => {
+        banner.classList.add('hidden');
+        backToTop.classList.remove('banner-visible');
+        toastContainer.classList.remove('banner-visible');
+      };
+
+      let stored = null;
+      try { stored = localStorage.getItem(CONSENT_KEY); } catch (err) { /* private-browsing quota — treat as undecided */ }
+
+      if (stored === 'granted') {
+        loadGoogleAnalytics();
+        resolve();
+        return;
+      }
+      if (stored === 'denied') {
+        resolve();
+        return;
+      }
+
+      banner.classList.remove('hidden');
+      backToTop.classList.add('banner-visible');
+      toastContainer.classList.add('banner-visible');
+
+      acceptBtn.addEventListener('click', () => {
+        try { localStorage.setItem(CONSENT_KEY, 'granted'); } catch (err) { /* app still works without persistence */ }
+        loadGoogleAnalytics();
+        hide();
+        resolve();
+      });
+      declineBtn.addEventListener('click', () => {
+        try { localStorage.setItem(CONSENT_KEY, 'denied'); } catch (err) { /* app still works without persistence */ }
+        hide();
+        resolve();
+      });
+    });
+  }
+
+  // Also independent of the data load — nothing here depends on the term list. Takes a
+  // Promise that resolves once the consent banner has been answered, so the install banner
+  // never appears while the consent banner is still showing (they'd stack at the same
+  // bottom-0 position). The beforeinstallprompt listener is still registered immediately
+  // regardless of consent — it's a one-shot browser event, so it must be captured right
+  // away even if we hold off on actually showing the banner for it.
+  function initInstallPrompt(consentResolved) {
     const INSTALL_DISMISS_KEY = 'rxplained:install-dismissed';
     const banner = document.getElementById('install-banner');
     const text = document.getElementById('install-banner-text');
@@ -769,6 +871,16 @@
     };
     dismissBtn.addEventListener('click', dismiss);
 
+    let readyToShow = false;
+    let consentAnswered = false;
+    const maybeShow = () => {
+      if (readyToShow && consentAnswered) showBanner();
+    };
+    consentResolved.then(() => {
+      consentAnswered = true;
+      maybeShow();
+    });
+
     // iOS never fires beforeinstallprompt and has no programmatic install trigger —
     // "Add to Home Screen" only exists in the share sheet. Show instructions instead
     // of a button that would do nothing.
@@ -781,7 +893,8 @@
     if (isIOS) {
       text.textContent = 'Install RxPlained: tap Share, then "Add to Home Screen."';
       actionBtn.classList.add('hidden');
-      showBanner();
+      readyToShow = true;
+      maybeShow();
       return;
     }
 
@@ -789,7 +902,8 @@
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       deferredPrompt = e;
-      showBanner();
+      readyToShow = true;
+      maybeShow();
     });
 
     actionBtn.addEventListener('click', async () => {
@@ -805,7 +919,7 @@
       try { localStorage.setItem(INSTALL_DISMISS_KEY, '1'); } catch (err) { /* not critical */ }
     });
   }
-  initInstallPrompt();
+  initInstallPrompt(initConsentBanner());
 
   fetch('data/terms.json')
     .then((res) => res.json())

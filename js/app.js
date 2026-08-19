@@ -320,6 +320,7 @@
 
       this.dom.cmdBtn.addEventListener('click', () => this.openCmdModal());
       this.dom.cmdModal.addEventListener('click', (e) => { if (e.target === this.dom.cmdModal) this.closeCmdModal(); });
+      this.dom.cmdModal.addEventListener('keydown', (e) => this.trapFocus(e, this.dom.cmdModal));
       this.dom.cmdInput.addEventListener('input', (e) => this.renderCmdResults(e.target.value));
       this.dom.cmdInput.addEventListener('keydown', (e) => this.handleCmdKeydown(e));
 
@@ -464,7 +465,7 @@
       const slug = this.slugify(t.term);
       return `
         <article id="term-${slug}" data-slug="${slug}" class="glass-panel rounded-2xl p-5 sm:p-6 transition-all hover:border-teal-400/50">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3 mb-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-400/70 pb-3 mb-4">
             <div>
               <span class="text-xs font-mono font-semibold uppercase px-2.5 py-0.5 rounded-md bg-teal-400/10 text-teal-300 border border-teal-400/20">${this.escapeHtml(t.category)}</span>
               <h3 class="text-xl sm:text-2xl font-display font-bold text-white mt-1.5">${this.formatTermHTML(t.term)}</h3>
@@ -506,7 +507,7 @@
           ${this.formatTermHTML(r.term)}
         </button>`).join('');
       return `
-        <div class="mt-4 pt-3 border-t border-slate-800/80 flex flex-wrap items-center gap-2">
+        <div class="mt-4 pt-3 border-t border-slate-400/70 flex flex-wrap items-center gap-2">
           <span class="text-slate-400 font-mono text-[11px] uppercase tracking-wider">More from ${this.escapeHtml(t.category)}:</span>
           ${chips}
         </div>`;
@@ -633,10 +634,10 @@
           class="p-3 rounded-xl cursor-pointer transition-all flex items-center justify-between gap-3 border ${i === this.cmdHighlightIndex ? 'bg-navy-950 border-teal-400/30' : 'border-transparent hover:bg-navy-950/60'}">
           <div class="min-w-0">
             <span class="text-xs font-mono text-teal-400">${this.escapeHtml(t.category)}</span>
-            <h4 class="text-white font-bold text-sm">${this.formatTermHTML(t.term)}</h4>
+            <h3 class="text-white font-bold text-sm">${this.formatTermHTML(t.term)}</h3>
             <p class="text-slate-400 text-xs truncate max-w-md">${this.escapeHtml(t.real)}</p>
           </div>
-          <kbd class="text-[10px] font-mono text-slate-500 px-2 py-1 bg-navy-900 border border-slate-700 rounded shrink-0">Select</kbd>
+          <kbd class="text-[10px] font-mono text-slate-400 px-2 py-1 bg-navy-900 border border-slate-700 rounded shrink-0">Select</kbd>
         </div>`).join('');
 
       this.dom.cmdResults.querySelectorAll('[data-index]').forEach((el) => {

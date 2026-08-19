@@ -45,7 +45,7 @@
 
 <header class="sticky top-0 z-40 bg-navy-950/80 backdrop-blur-md border-b border-teal-400/20">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
-    <a href="#" id="logo-home" class="flex items-center gap-3 group focus:rounded-lg">
+    <a href="#" id="logo-home" class="flex items-center gap-3 group focus:rounded-lg min-h-[44px]">
       <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-400 to-pink-500 p-0.5 flex items-center justify-center shadow-lg shadow-teal-400/10 group-hover:scale-105 transition-transform">
         <div class="w-full h-full bg-navy-950 rounded-[10px] flex items-center justify-center">
           <span class="font-display font-bold text-teal-400 text-xl tracking-tighter">Rx</span>
@@ -58,7 +58,7 @@
     </a>
 
     <div class="flex items-center gap-2 sm:gap-3">
-      <button id="cmd-k-btn" type="button" class="flex items-center gap-3 px-3.5 py-2 min-h-[44px] rounded-full bg-navy-900 border border-teal-400/20 text-slate-300 text-sm hover:border-teal-400 hover:text-white transition-all shadow-inner group">
+      <button id="cmd-k-btn" type="button" aria-label="Quick search" class="flex items-center gap-3 px-3.5 py-2 min-h-[44px] rounded-full bg-navy-900 border border-teal-400/20 text-slate-300 text-sm hover:border-teal-400 hover:text-white transition-all shadow-inner group">
         <svg class="w-4 h-4 text-teal-400 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
         <span class="hidden md:inline">Quick Search</span>
         <kbd class="hidden sm:inline-flex items-center gap-0.5 px-2 py-0.5 text-[11px] font-mono text-slate-400 bg-navy-950 border border-slate-700 rounded-md">⌘K</kbd>
@@ -127,7 +127,7 @@
 
         <div id="wotd-related"></div>
 
-        <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-end text-xs text-slate-400 font-mono">
+        <div class="mt-4 pt-3 border-t border-slate-400/70 flex items-center justify-end text-xs text-slate-400 font-mono">
           <button id="random-wotd-btn" type="button" class="min-h-[44px] px-2 text-teal-400 hover:text-teal-300 font-sans font-semibold flex items-center gap-1">
             <span>🔀 Shuffle Random Term</span>
           </button>
@@ -137,6 +137,7 @@
   </section>
 
   <section class="space-y-6">
+    <h2 class="sr-only">Browse and search all terms</h2>
     <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 max-w-3xl mx-auto">
       <div class="relative flex-1 sm:max-w-md">
         <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
@@ -161,13 +162,13 @@
       <div id="category-chips-container" class="flex items-center gap-2.5 overflow-x-auto no-scrollbar py-2 px-1"></div>
     </nav>
 
-    <div class="flex items-center justify-between text-sm font-mono text-slate-400 px-1 border-b border-slate-800 pb-2">
+    <div class="flex items-center justify-between text-sm font-mono text-slate-400 px-1 border-b border-slate-400/70 pb-2">
       <div id="results-count-text" role="status" aria-live="polite">Showing <span class="text-teal-400 font-bold" id="visible-count">0</span> matching terms</div>
-      <div class="hidden sm:block text-xs text-slate-500">⌘K for instant search</div>
+      <div class="hidden sm:block text-xs text-slate-400">⌘K for instant search</div>
     </div>
   </section>
 
-  <section id="terms-container" class="space-y-4" aria-live="polite"></section>
+  <section id="terms-container" class="space-y-4"></section>
 
   <div id="empty-state" class="hidden text-center py-16 px-4 glass-panel rounded-2xl max-w-xl mx-auto space-y-4">
     <div class="w-16 h-16 mx-auto rounded-full bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-pink-400 text-2xl" aria-hidden="true">💊</div>
@@ -180,7 +181,7 @@
   </div>
 </main>
 
-<footer class="border-t border-slate-800/80 bg-navy-950/90 py-10 px-4 mt-20 relative z-10 text-center text-sm text-slate-400">
+<footer class="border-t border-slate-400/70 bg-navy-950/90 py-10 px-4 mt-20 relative z-10 text-center text-sm text-slate-400">
   <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
     <div class="text-center sm:text-left">
       <p class="font-display font-bold text-white text-base">RxPlained</p>
@@ -196,14 +197,14 @@
 <div id="cmd-k-modal" class="fixed inset-0 z-50 bg-navy-950/80 backdrop-blur-md hidden flex items-start justify-center pt-16 sm:pt-24 px-4" role="dialog" aria-modal="true" aria-labelledby="cmd-modal-title">
   <h2 id="cmd-modal-title" class="sr-only">Quick search</h2>
   <div class="bg-navy-900 border border-teal-400/30 rounded-2xl max-w-2xl w-full shadow-2xl overflow-hidden flex flex-col max-h-[80vh]">
-    <div class="p-4 border-b border-slate-800 flex items-center gap-3 bg-navy-950">
+    <div class="p-4 border-b border-slate-400/70 flex items-center gap-3 bg-navy-950">
       <svg class="w-5 h-5 text-teal-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
       <label for="cmd-k-input" class="sr-only">Quick search terms</label>
       <input type="text" id="cmd-k-input" placeholder="Type to search terms or categories…" class="w-full bg-transparent text-white placeholder-slate-400 focus:outline-none text-lg font-body" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="cmd-k-results" aria-autocomplete="list">
       <kbd class="px-2 py-1 text-xs font-mono text-slate-400 bg-navy-900 border border-slate-700 rounded-md">ESC</kbd>
     </div>
     <div id="cmd-k-results" class="p-2 overflow-y-auto space-y-1 flex-grow" role="listbox" aria-label="Search results"></div>
-    <div class="p-3 bg-navy-950 border-t border-slate-800 text-xs font-mono text-slate-400 flex items-center justify-between">
+    <div class="p-3 bg-navy-950 border-t border-slate-400/70 text-xs font-mono text-slate-400 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <span><kbd class="px-1.5 py-0.5 bg-navy-900 border border-slate-700 rounded">↑</kbd> <kbd class="px-1.5 py-0.5 bg-navy-900 border border-slate-700 rounded">↓</kbd> Navigate</span>
         <span><kbd class="px-1.5 py-0.5 bg-navy-900 border border-slate-700 rounded">↵</kbd> Select</span>

@@ -1056,7 +1056,9 @@
     "real": "The internal review process (known by various names depending on the client) in which a pharmaceutical company's medical and legal teams review promotional materials for scientific accuracy and regulatory compliance before release.",
     "sponsored": false,
     "sponsoredBy": null,
-    "aliases": []
+    "aliases": [
+      "Commercial Review Committee"
+    ]
   },
   {
     "term": "NDA (New Drug Application)",
@@ -3202,6 +3204,15 @@
     "category": "Ask Your Doctor",
     "playful": "KOL's newer counterpart — instead of courting influential doctors, companies court influential patients and patient advocates to help shape messaging and build trust.",
     "real": "A patient or patient-advocate whose experience and public voice carry influence, engaged by pharmaceutical companies similarly to a Key Opinion Leader, but from the patient rather than physician side.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "CRC — Which One? (Commercial Review Committee vs. Colorectal Cancer)",
+    "category": "Legal Says",
+    "playful": "Another acronym doing double duty. In a review-cycle conversation, CRC means the Commercial Review Committee signing off on your materials. In an oncology conversation, CRC means colorectal cancer. Same three letters, very different meetings.",
+    "real": "CRC commonly refers to either the Commercial Review Committee (an internal medical/legal/regulatory review body, also called MLR at some companies) or colorectal cancer (a specific cancer type referenced in clinical and marketing documents) — the correct meaning depends entirely on context.",
     "sponsored": false,
     "sponsoredBy": null,
     "aliases": []

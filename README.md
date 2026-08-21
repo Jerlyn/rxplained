@@ -1,6 +1,6 @@
 # RxPlained
 
-The pharmaceutical advertising dictionary — 355 terms from inside the industry, decoded with a sense of humor. Search, browse by category, and get a new Word of the Day, every day, automatically.
+The pharmaceutical advertising dictionary — 356 terms from inside the industry, decoded with a sense of humor. Search, browse by category, and get a new Word of the Day, every day, automatically.
 
 ## What's here
 
@@ -9,7 +9,7 @@ rxplained/
 ├── index.html          # App shell — markup + Tailwind CDN config
 ├── css/styles.css       # Custom layer Tailwind can't do: glass panels, orbs, focus ring, reduced-motion override
 ├── js/app.js             # RxPlainedApp class — search (Fuse.js), filtering, Cmd+K palette, Word of the Day
-├── data/terms.json      # The 355-term dataset — source of truth
+├── data/terms.json      # The 356-term dataset — source of truth
 ├── scripts/
 │   └── generate_term_pages.py  # Generates term/, sitemap.xml, robots.txt from terms.json — see below
 ├── term/                 # Generated — one static shim page per term, for social-preview crawlers
@@ -88,6 +88,8 @@ Valid `category` values: `Doctor Speak`, `Money Talk`, `Legal Says`, `Behind the
 
 **354 → 355, August 2026**: added `Commercial Review Committee` as an alias to the existing `MLR (Medical-Legal Review)` entry — a client-side synonym for the same review-committee concept. Its abbreviation, `CRC`, was deliberately *not* also added as an alias to `MLR`, since `CRC` already means colorectal cancer in the existing `Oncology's Alphabet Soup (CRC / GAS / ESO / HCC / H&N / GU)` entry — the same kind of acronym collision that `PA — Which One?` and `PR — Which One?` exist to resolve. Followed that established pattern exactly: added a new `CRC — Which One? (Commercial Review Committee vs. Colorectal Cancer)` entry (Legal Says) rather than aliasing the bare acronym onto either underlying concept, matching how neither `Prior Authorization` nor `Physician Assistant` carries `PA` as an alias — the disambiguation entry's own title is what makes the bare acronym discoverable. Verified live: searching `CRC` surfaces both the disambiguation entry and the Oncology's Alphabet Soup entry (search returns every match, ranked — never hides one behind the other), and searching `Commercial Review Committee` surfaces both the disambiguation entry and `MLR`.
 
+**355 → 356, August 2026**: added `Biologic Coordinator (Bio Coordinator)` (Money Talk) — the specialty-pharmacy/insurance liaison role for biologic therapy access, distinct from the existing `Biologics` (the drug class) and `BLA (Biologics License Application)` (the regulatory submission) entries. Checked for a naming/slug collision against both before adding; none — all three occupy clearly different concept space and slugify to distinct paths.
+
 ## Interface
 
 - **Word of the Day** and every term card show both sides at once — 🎭 The Pitch (the playful, roasted take) and 📋 The Reality (the official definition) — side by side on desktop, stacked on mobile. No click needed to see the full definition.
@@ -115,7 +117,7 @@ Google Analytics 4 (measurement ID `G-N4ED2WXE30`), consent-gated — nothing lo
 ## Known gaps before public launch
 
 - **Tailwind CDN and full offline support don't fully coexist.** `cdn.tailwindcss.com` doesn't send CORS headers for `fetch()`/`cache.addAll()` (only plain `<script src>` loading works cross-origin without them), so the service worker can't precache it — trying to include it in the precache list made the *entire* install step fail silently (`cache.addAll` is all-or-nothing), which is worth knowing if this area gets touched again. Everything else (HTML, JS, data, fonts, Fuse, confetti) is cached and works offline after first visit; Tailwind's utility CSS itself needs network access, so styling degrades if the user is fully offline.
-- **Category balance**: current breakdown is Behind the Ad 145, Doctor Speak 90, Money Talk 52, Legal Says 45, Ask Your Doctor 23. "Ask Your Doctor" (DTC/consumer culture) remains the smallest category by a wide margin — 6.5% of the dataset, up slightly from 6.0% at the original 283-entry baseline (17/283 → 23/355), so the correction passes haven't changed the underlying imbalance in any meaningful way. Accurate to the source material, but worth a dedicated content pass if DTC/consumer-facing content is meant to be a bigger part of the product.
+- **Category balance**: current breakdown is Behind the Ad 145, Doctor Speak 90, Money Talk 53, Legal Says 45, Ask Your Doctor 23. "Ask Your Doctor" (DTC/consumer culture) remains the smallest category by a wide margin — 6.5% of the dataset, up slightly from 6.0% at the original 283-entry baseline (17/283 → 23/356), so the correction passes haven't changed the underlying imbalance in any meaningful way. Accurate to the source material, but worth a dedicated content pass if DTC/consumer-facing content is meant to be a bigger part of the product.
 - **Icons** are a placeholder monogram, not final brand artwork — swap `icons/icon-192.png` and `icons/icon-512.png` before shipping.
 - **Social preview image**: per-term OG/Twitter tags reuse `icon-512.png` (square) as a stopgap. Social platforms generally expect a wide banner (~1200×630); a square image often gets cropped oddly, especially for `summary_large_image`-style cards. Worth a proper branded OG image before launch — swap the image URL in `scripts/generate_term_pages.py` and regenerate.
 - **Text-to-speech** relies on the browser's built-in `speechSynthesis` — not universal (no support shows a toast instead of failing silently), and voice quality varies by OS/browser.

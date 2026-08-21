@@ -3216,5 +3216,14 @@
     "sponsored": false,
     "sponsoredBy": null,
     "aliases": []
+  },
+  {
+    "term": "Biologic Coordinator (Bio Coordinator)",
+    "category": "Money Talk",
+    "playful": "The one person actually running interference between you, your doctor, your insurance company, and the specialty pharmacy — so your psoriasis or RA biologic shows up instead of getting stuck in prior-authorization purgatory forever.",
+    "real": "A specialized healthcare professional who bridges patients, medical providers, insurance companies, and specialty pharmacies to secure approval and timely access to complex biologic therapies, frequently for autoimmune conditions like psoriasis and rheumatoid arthritis.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
   }
 ]

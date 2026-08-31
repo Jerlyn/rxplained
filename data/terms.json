@@ -3225,5 +3225,14 @@
     "sponsored": false,
     "sponsoredBy": null,
     "aliases": []
+  },
+  {
+    "term": "CVD — Which One? (Color Vision Deficiency vs. Cardiovascular Disease)",
+    "category": "Doctor Speak",
+    "playful": "Two totally different meanings hiding behind three letters. In a design review, CVD means some users can't tell your red 'warning' text from your green 'success' text. In a clinical trial, CVD means heart and blood vessel disease, the endpoint half of cardiology drug ads are built around.",
+    "real": "CVD commonly refers to either Color Vision Deficiency (a reduced or altered ability to perceive differences between certain colors, informally called color blindness) or Cardiovascular Disease (a long-term condition affecting the heart or blood vessels) — the correct meaning depends entirely on context.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
   }
 ]

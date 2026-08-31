@@ -1,6 +1,6 @@
 # RxPlained
 
-The pharmaceutical advertising dictionary — 356 terms from inside the industry, decoded with a sense of humor. Search, browse by category, and get a new Word of the Day, every day, automatically.
+The pharmaceutical advertising dictionary — 357 terms from inside the industry, decoded with a sense of humor. Search, browse by category, and get a new Word of the Day, every day, automatically.
 
 ## What's here
 
@@ -9,7 +9,7 @@ rxplained/
 ├── index.html          # App shell — markup + Tailwind CDN config
 ├── css/styles.css       # Custom layer Tailwind can't do: glass panels, orbs, focus ring, reduced-motion override
 ├── js/app.js             # RxPlainedApp class — search (Fuse.js), filtering, Cmd+K palette, Word of the Day
-├── data/terms.json      # The 356-term dataset — source of truth
+├── data/terms.json      # The 357-term dataset — source of truth
 ├── scripts/
 │   └── generate_term_pages.py  # Generates term/, sitemap.xml, robots.txt from terms.json — see below
 ├── term/                 # Generated — one static shim page per term, for social-preview crawlers
@@ -92,6 +92,8 @@ Valid `category` values: `Doctor Speak`, `Money Talk`, `Legal Says`, `Behind the
 
 **355 → 356, August 2026**: added `Biologic Coordinator (Bio Coordinator)` (Money Talk) — the specialty-pharmacy/insurance liaison role for biologic therapy access, distinct from the existing `Biologics` (the drug class) and `BLA (Biologics License Application)` (the regulatory submission) entries. Checked for a naming/slug collision against both before adding; none — all three occupy clearly different concept space and slugify to distinct paths.
 
+**356 → 357, August 2026**: added `CVD — Which One? (Color Vision Deficiency vs. Cardiovascular Disease)` (Doctor Speak) — an acronym collision, same pattern as `PA`/`PR`/`CRC — Which One?`. Confirmed neither meaning was already covered anywhere in the dataset (term names, prose, or aliases) before adding, and that the bare `CVD` slug didn't collide with anything. Updated the term count everywhere it's live-displayed, including the `og:description`/`twitter:description` meta tags added in the prior pass — those bake the count into static copy, so they'll need a manual bump on every future addition like this one, not just the hero text and README. **Known gap left as-is**: `images/og-image.png` (also added in the prior pass) has "356 real terms" rendered into its pixels; regenerating it wasn't asked for in this pass, so it's now one count behind. Worth deciding whether to drop the exact number from that image's copy entirely, to stop this staleness recurring every time a term is added.
+
 ## Interface
 
 - **Word of the Day** and every term card show both sides at once — 🎭 The Pitch (the playful, roasted take) and 📋 The Reality (the official definition) — side by side on desktop, stacked on mobile. No click needed to see the full definition.
@@ -119,7 +121,7 @@ Google Analytics 4 (measurement ID `G-N4ED2WXE30`), consent-gated — nothing lo
 ## Known gaps before public launch
 
 - **Tailwind CDN and full offline support don't fully coexist.** `cdn.tailwindcss.com` doesn't send CORS headers for `fetch()`/`cache.addAll()` (only plain `<script src>` loading works cross-origin without them), so the service worker can't precache it — trying to include it in the precache list made the *entire* install step fail silently (`cache.addAll` is all-or-nothing), which is worth knowing if this area gets touched again. Everything else (HTML, JS, data, fonts, Fuse, confetti) is cached and works offline after first visit; Tailwind's utility CSS itself needs network access, so styling degrades if the user is fully offline.
-- **Category balance**: current breakdown is Behind the Ad 145, Doctor Speak 90, Money Talk 53, Legal Says 45, Ask Your Doctor 23. "Ask Your Doctor" (DTC/consumer culture) remains the smallest category by a wide margin — 6.5% of the dataset, up slightly from 6.0% at the original 283-entry baseline (17/283 → 23/356), so the correction passes haven't changed the underlying imbalance in any meaningful way. Accurate to the source material, but worth a dedicated content pass if DTC/consumer-facing content is meant to be a bigger part of the product.
+- **Category balance**: current breakdown is Behind the Ad 145, Doctor Speak 91, Money Talk 53, Legal Says 45, Ask Your Doctor 23. "Ask Your Doctor" (DTC/consumer culture) remains the smallest category by a wide margin — 6.4% of the dataset, up slightly from 6.0% at the original 283-entry baseline (17/283 → 23/357), so the correction passes haven't changed the underlying imbalance in any meaningful way. Accurate to the source material, but worth a dedicated content pass if DTC/consumer-facing content is meant to be a bigger part of the product.
 - **Icons** are a placeholder monogram, not final brand artwork — swap `icons/icon-192.png` and `icons/icon-512.png` before shipping.
 - **Social preview image**: the homepage has a real branded 1200×630 image (`images/og-image.png`, added August 2026), but per-term OG/Twitter tags still reuse `icon-512.png` (square) as a stopgap — a square image gets cropped oddly in a wide `summary_large_image`-style card. Worth swapping the per-term pages to reuse `images/og-image.png` (or a per-term-branded variant) — update the image URL in `scripts/generate_term_pages.py` and regenerate.
 - **Text-to-speech** relies on the browser's built-in `speechSynthesis` — not universal (no support shows a toast instead of failing silently), and voice quality varies by OS/browser.

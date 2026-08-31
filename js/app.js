@@ -465,7 +465,7 @@
       const slug = this.slugify(t.term);
       return `
         <article id="term-${slug}" data-slug="${slug}" class="glass-panel rounded-2xl p-5 sm:p-6 transition-all hover:border-teal-400/50">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-400/70 pb-3 mb-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
             <div>
               <span class="text-xs font-mono font-semibold uppercase px-2.5 py-0.5 rounded-md bg-teal-400/10 text-teal-300 border border-teal-400/20">${this.escapeHtml(t.category)}</span>
               <h3 class="text-xl sm:text-2xl font-display font-bold text-white mt-1.5">${this.formatTermHTML(t.term)}</h3>
@@ -507,7 +507,7 @@
           ${this.formatTermHTML(r.term)}
         </button>`).join('');
       return `
-        <div class="mt-4 pt-3 border-t border-slate-400/70 flex flex-wrap items-center gap-2">
+        <div class="mt-4 flex flex-wrap items-center gap-2">
           <span class="text-slate-400 font-mono text-[11px] uppercase tracking-wider">More from ${this.escapeHtml(t.category)}:</span>
           ${chips}
         </div>`;

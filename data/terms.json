@@ -3234,5 +3234,59 @@
     "sponsored": false,
     "sponsoredBy": null,
     "aliases": []
+  },
+  {
+    "term": "NBA (Next-Best-Action)",
+    "category": "Behind the Ad",
+    "playful": "The algorithm quietly telling a rep (or an automated email system) what to do next for a given doctor — call them, send this specific message, or leave them alone this week — based on everything their past behavior predicts will actually land.",
+    "real": "A data-driven recommendation, often AI-generated, suggesting the optimal next marketing or sales action for a specific HCP or patient, based on their engagement history and predicted response.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "HHS (Department of Health and Human Services)",
+    "category": "Legal Says",
+    "playful": "The parent department that FDA, CMS, and basically every other three-letter healthcare acronym in this dictionary ultimately reports up to.",
+    "real": "The U.S. federal executive department responsible for protecting the health of Americans, overseeing agencies including the FDA, CMS, and NIH.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "NIH (National Institutes of Health)",
+    "category": "Doctor Speak",
+    "playful": "The federal government's biomedical research engine — the place where a huge chunk of the basic science behind new drugs gets funded before any pharma company ever touches it.",
+    "real": "The primary U.S. federal agency for biomedical and public health research, comprising 27 institutes and centers, funding both its own research and grants to universities and other institutions.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "CDER & CBER (FDA's Centers)",
+    "category": "Legal Says",
+    "playful": "FDA's two review desks, split by what's being approved. CDER handles traditional drugs — pills, injections, the NDA/505(b)(2) pathway. CBER handles biologics, vaccines, and gene therapies — the BLA pathway.",
+    "real": "CDER (Center for Drug Evaluation and Research) and CBER (Center for Biologics Evaluation and Research) are the two FDA centers responsible for reviewing and approving, respectively, traditional pharmaceutical drugs and biologic products including vaccines and gene therapies.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "FTC (Federal Trade Commission)",
+    "category": "Legal Says",
+    "playful": "The federal watchdog that shows up when a Pay-for-Delay settlement looks less like a patent dispute and more like two companies agreeing not to compete.",
+    "real": "A U.S. federal agency enforcing antitrust law and consumer protection, including scrutiny of pharmaceutical patent settlements that may delay generic competition.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
+  },
+  {
+    "term": "CDC (Centers for Disease Control and Prevention)",
+    "category": "Doctor Speak",
+    "playful": "The agency tracking outbreaks, publishing vaccination guidelines, and generally being the source everyone cites (correctly or not) in a public health debate.",
+    "real": "A U.S. federal agency focused on protecting public health through disease control, prevention, and health information, operating under HHS.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
   }
 ]

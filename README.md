@@ -1,6 +1,6 @@
 # RxPlained
 
-The pharmaceutical advertising dictionary — 364 terms from inside the industry, decoded with a sense of humor. Search, browse by category, and get a new Word of the Day, every day, automatically.
+The pharmaceutical advertising dictionary — 365 terms from inside the industry, decoded with a sense of humor. Search, browse by category, and get a new Word of the Day, every day, automatically.
 
 ## What's here
 
@@ -9,7 +9,7 @@ rxplained/
 ├── index.html          # App shell — markup + Tailwind CDN config
 ├── css/styles.css       # Custom layer Tailwind can't do: glass panels, orbs, focus ring, reduced-motion override
 ├── js/app.js             # RxPlainedApp class — search (Fuse.js), filtering, Cmd+K palette, Word of the Day
-├── data/terms.json      # The 364-term dataset — source of truth
+├── data/terms.json      # The 365-term dataset — source of truth
 ├── scripts/
 │   └── generate_term_pages.py  # Generates term/, sitemap.xml, robots.txt from terms.json — see below
 ├── term/                 # Generated — one static shim page per term, for social-preview crawlers
@@ -100,6 +100,8 @@ Valid `category` values: `Doctor Speak`, `Money Talk`, `Legal Says`, `Behind the
 
 **363 → 364, August 2026**: added `AFD (Approved for Distribution)` (Behind the Ad) — the Veeva PromoMats/Vault status marking the step immediately after the existing `AFP (Approved For Production)` entry, a deliberate companion pair rather than a duplicate. Confirmed `AFP`'s own entry is genuinely about production approval, not distribution, and that `AFD` had zero mentions anywhere in the dataset before adding.
 
+**364 → 365, August 2026**: added `IND (Investigational New Drug)` (Legal Says) — the FDA application gating Phase I trials, sitting conceptually between the existing `Preclinical Research` and `Clinical Trial Phases (I–IV)` entries. The task requesting this cited both of those as already referencing `IND` in passing; checked, and neither actually does — `IND` had zero mentions anywhere in the dataset. Doesn't change the outcome (still no collision, still safe to add), but the new entry fills a real gap between the two rather than supplementing an existing mention.
+
 ## Interface
 
 - **Word of the Day** and every term card show both sides at once — 🎭 The Pitch (the playful, roasted take) and 📋 The Reality (the official definition) — side by side on desktop, stacked on mobile. No click needed to see the full definition.
@@ -127,7 +129,7 @@ Google Analytics 4 (measurement ID `G-N4ED2WXE30`), consent-gated — nothing lo
 ## Known gaps before public launch
 
 - **Tailwind CDN and full offline support don't fully coexist.** `cdn.tailwindcss.com` doesn't send CORS headers for `fetch()`/`cache.addAll()` (only plain `<script src>` loading works cross-origin without them), so the service worker can't precache it — trying to include it in the precache list made the *entire* install step fail silently (`cache.addAll` is all-or-nothing), which is worth knowing if this area gets touched again. Everything else (HTML, JS, data, fonts, Fuse, confetti) is cached and works offline after first visit; Tailwind's utility CSS itself needs network access, so styling degrades if the user is fully offline.
-- **Category balance**: current breakdown is Behind the Ad 147, Doctor Speak 93, Money Talk 53, Legal Says 48, Ask Your Doctor 23. "Ask Your Doctor" (DTC/consumer culture) remains the smallest category by a wide margin — 6.3% of the dataset, up slightly from 6.0% at the original 283-entry baseline (17/283 → 23/364), so the correction passes haven't changed the underlying imbalance in any meaningful way. Accurate to the source material, but worth a dedicated content pass if DTC/consumer-facing content is meant to be a bigger part of the product.
+- **Category balance**: current breakdown is Behind the Ad 147, Doctor Speak 93, Money Talk 53, Legal Says 49, Ask Your Doctor 23. "Ask Your Doctor" (DTC/consumer culture) remains the smallest category by a wide margin — 6.3% of the dataset, up slightly from 6.0% at the original 283-entry baseline (17/283 → 23/365), so the correction passes haven't changed the underlying imbalance in any meaningful way. Accurate to the source material, but worth a dedicated content pass if DTC/consumer-facing content is meant to be a bigger part of the product.
 - **Icons** are a placeholder monogram, not final brand artwork — swap `icons/icon-192.png` and `icons/icon-512.png` before shipping.
 - **Social preview image**: the homepage has a real branded 1200×630 image (`images/og-image.png`, added August 2026), but per-term OG/Twitter tags still reuse `icon-512.png` (square) as a stopgap — a square image gets cropped oddly in a wide `summary_large_image`-style card. Worth swapping the per-term pages to reuse `images/og-image.png` (or a per-term-branded variant) — update the image URL in `scripts/generate_term_pages.py` and regenerate.
 - **Text-to-speech** relies on the browser's built-in `speechSynthesis` — not universal (no support shows a toast instead of failing silently), and voice quality varies by OS/browser.

@@ -3297,5 +3297,14 @@
     "sponsored": false,
     "sponsoredBy": null,
     "aliases": []
+  },
+  {
+    "term": "IND (Investigational New Drug)",
+    "category": "Legal Says",
+    "playful": "The application that turns 'we tested this on animals' into 'we're allowed to test this on people.' Nothing reaches a human vein, pill bottle, or Phase I trial without clearing this first.",
+    "real": "A formal application submitted to the FDA requesting authorization to administer an investigational drug to humans, required before Phase I clinical trials can begin. The FDA has 30 days to raise concerns; if it doesn't, the trial can proceed.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
   }
 ]

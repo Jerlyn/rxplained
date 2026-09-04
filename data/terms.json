@@ -3288,5 +3288,14 @@
     "sponsored": false,
     "sponsoredBy": null,
     "aliases": []
+  },
+  {
+    "term": "AFD (Approved for Distribution)",
+    "category": "Behind the Ad",
+    "playful": "The actual finish line, one step past AFP. A piece can be cleared for production and still not be allowed out the door — AFD is the status that finally says go: send it to reps, put it on the site, it's done.",
+    "real": "A Veeva PromoMats/Vault status indicating a promotional piece has completed the full MLR review and approval process and is cleared for use by sales reps or public distribution — the step immediately following AFP (Approved for Production).",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
   }
 ]

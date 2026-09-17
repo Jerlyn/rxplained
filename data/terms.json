@@ -3306,5 +3306,14 @@
     "sponsored": false,
     "sponsoredBy": null,
     "aliases": []
+  },
+  {
+    "term": "RTE (Rep-Triggered Email)",
+    "category": "Behind the Ad",
+    "playful": "The automated follow-up that lands in a doctor's inbox right after a rep's visit, triggered with one click in the CRM instead of the rep having to actually sit down and write it themselves.",
+    "real": "An automated email sent to an HCP, triggered by a sales representative following an in-person or virtual detail, used to reinforce key messaging or deliver follow-up content without requiring the rep to draft it manually.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
   }
 ]

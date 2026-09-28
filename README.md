@@ -1,6 +1,6 @@
 # RxPlained
 
-The pharmaceutical advertising dictionary — 366 terms from inside the industry, decoded with a sense of humor. Search, browse by category, and get a new Word of the Day, every day, automatically.
+The pharmaceutical advertising dictionary — 371 terms from inside the industry, decoded with a sense of humor. Search, browse by category, and get a new Word of the Day, every day, automatically.
 
 ## What's here
 
@@ -9,7 +9,7 @@ rxplained/
 ├── index.html          # App shell — markup + Tailwind CDN config
 ├── css/styles.css       # Custom layer Tailwind can't do: glass panels, orbs, focus ring, reduced-motion override
 ├── js/app.js             # RxPlainedApp class — search (Fuse.js), filtering, Cmd+K palette, Word of the Day
-├── data/terms.json      # The 366-term dataset — source of truth
+├── data/terms.json      # The 371-term dataset — source of truth
 ├── scripts/
 │   └── generate_term_pages.py  # Generates term/, sitemap.xml, robots.txt from terms.json — see below
 ├── term/                 # Generated — one static shim page per term, for social-preview crawlers
@@ -104,6 +104,10 @@ Valid `category` values: `Doctor Speak`, `Money Talk`, `Legal Says`, `Behind the
 
 **365 → 366, September 2026**: added `RTE (Rep-Triggered Email)` (Behind the Ad) — the automated, rep-initiated follow-up email. Checked against the two nearest existing concepts: `NPP (Nonpersonal Promotion)` is specifically promotion *without* rep involvement (the opposite premise), and `Closed-Loop Marketing (CLM)` is the broader multi-channel data-feedback loop, not this specific mechanism. `RTE` had zero mentions anywhere in the dataset.
 
+**366 → 371, September 2026**: added five post-approval labeling entries, all Legal Says — `sNDA (Supplemental New Drug Application)`, `CBE (Changes Being Effected)`, `DHCP Letter (Dear Healthcare Provider Letter)`, `Label Carve-Out (Skinny Label)`, and `Class Labeling` — each with `aliases` populated (the field was already live in the schema). Checked against the seven neighbors named in the request plus a full-dataset probe of every new acronym, alias, and key phrase (`sNDA`, `sBLA`, `CBE`, `DHCP`, `skinny`, `carve-out`, `section viii`, `class labeling`, …): zero hits anywhere, and no slug collisions across terms *and* aliases, either against existing entries or among the five. They complement rather than duplicate: `NDA` is the original application and never mentions supplements; `PI` is the document these changes edit; `Hatch-Waxman Act` covers the ANDA pathway and patent term extensions but not the section viii mechanism the skinny-label entry explains; `Authorized Generic` (Money Talk, not Legal Says) is a brand selling its own drug as a generic, unrelated to a generic's carved-out label. **One near-miss worth knowing**: `Warning Letter & Untitled Letter` and the new `DHCP Letter` share the word "letter" but run in opposite directions — OPDP enforcement correspondence *to* manufacturers about promotion, versus a manufacturer's safety communication *to* prescribers. Kept separate. **Noted, not acted on**: three aliases (`DHCP`, `dear healthcare provider letter`, `skinny label`) are already substrings of their own term names, so they're redundant for search — but they still matter for deep links, since `checkDeepLink()` matches alias slugs exactly and those slugs differ from the term slugs. Also, bare `DHCP` would collide with the networking protocol if unrelated content is ever added; same standing note as `NBA` — resolve with a `DHCP — Which One?` entry, not by aliasing.
+
+**`images/og-image.png` no longer bakes in a term count, September 2026**: the social-preview image was hand-updated to drop the "N real terms" line entirely (it had drifted from 356 to 15 terms behind the real count), which resolves the recurring-staleness gap flagged in the 356 → 357 note above. Going forward, adding a term no longer requires regenerating the image — only the count in `index.html`'s `og:description`/`twitter:description` meta text and hero copy still needs the usual bump. The new file is still 1200×630. Minor cosmetic note: it has a stray 1px near-black vertical mark just left of the headline (~x=87, y=242–262), nearly invisible against the navy background; worth a retouch when convenient.
+
 ## Interface
 
 - **Word of the Day** and every term card show both sides at once — 🎭 The Pitch (the playful, roasted take) and 📋 The Reality (the official definition) — side by side on desktop, stacked on mobile. No click needed to see the full definition.
@@ -131,7 +135,7 @@ Google Analytics 4 (measurement ID `G-N4ED2WXE30`), consent-gated — nothing lo
 ## Known gaps before public launch
 
 - **Tailwind CDN and full offline support don't fully coexist.** `cdn.tailwindcss.com` doesn't send CORS headers for `fetch()`/`cache.addAll()` (only plain `<script src>` loading works cross-origin without them), so the service worker can't precache it — trying to include it in the precache list made the *entire* install step fail silently (`cache.addAll` is all-or-nothing), which is worth knowing if this area gets touched again. Everything else (HTML, JS, data, fonts, Fuse, confetti) is cached and works offline after first visit; Tailwind's utility CSS itself needs network access, so styling degrades if the user is fully offline.
-- **Category balance**: current breakdown is Behind the Ad 148, Doctor Speak 93, Money Talk 53, Legal Says 49, Ask Your Doctor 23. "Ask Your Doctor" (DTC/consumer culture) remains the smallest category by a wide margin — 6.3% of the dataset, up slightly from 6.0% at the original 283-entry baseline (17/283 → 23/366), so the correction passes haven't changed the underlying imbalance in any meaningful way. Accurate to the source material, but worth a dedicated content pass if DTC/consumer-facing content is meant to be a bigger part of the product.
+- **Category balance**: current breakdown is Behind the Ad 148, Doctor Speak 93, Money Talk 53, Legal Says 54, Ask Your Doctor 23. "Ask Your Doctor" (DTC/consumer culture) remains the smallest category by a wide margin — 6.2% of the dataset, up slightly from 6.0% at the original 283-entry baseline (17/283 → 23/371), so the correction passes haven't changed the underlying imbalance in any meaningful way. Accurate to the source material, but worth a dedicated content pass if DTC/consumer-facing content is meant to be a bigger part of the product.
 - **Icons** are a placeholder monogram, not final brand artwork — swap `icons/icon-192.png` and `icons/icon-512.png` before shipping.
 - **Social preview image**: the homepage has a real branded 1200×630 image (`images/og-image.png`, added August 2026), but per-term OG/Twitter tags still reuse `icon-512.png` (square) as a stopgap — a square image gets cropped oddly in a wide `summary_large_image`-style card. Worth swapping the per-term pages to reuse `images/og-image.png` (or a per-term-branded variant) — update the image URL in `scripts/generate_term_pages.py` and regenerate.
 - **Text-to-speech** relies on the browser's built-in `speechSynthesis` — not universal (no support shows a toast instead of failing silently), and voice quality varies by OS/browser.

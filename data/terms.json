@@ -3315,5 +3315,68 @@
     "sponsored": false,
     "sponsoredBy": null,
     "aliases": []
+  },
+  {
+    "term": "sNDA (Supplemental New Drug Application)",
+    "category": "Legal Says",
+    "playful": "The paperwork for changing a drug that's already approved. New indication, new dosing, new safety language: if the label is going to say something different, an sNDA is usually how it gets there.",
+    "real": "A supplement to an approved NDA, submitted to the FDA to change something about the approved product, including its labeling. Biologics use the parallel sBLA.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": [
+      "labeling supplement",
+      "supplemental NDA",
+      "sBLA"
+    ]
+  },
+  {
+    "term": "CBE (Changes Being Effected)",
+    "category": "Legal Says",
+    "playful": "The fast lane for safety label updates. When new safety information turns up, a manufacturer can put the change on the label as soon as FDA receives the supplement, without waiting for approval. FDA can still push back afterward.",
+    "real": "A labeling supplement type that lets a manufacturer implement certain changes upon FDA's receipt of the supplement, before approval. It is limited to newly acquired information, such as adding or strengthening a contraindication, warning, precaution, or adverse reaction.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": [
+      "changes being effected supplement",
+      "CBE-0"
+    ]
+  },
+  {
+    "term": "DHCP Letter (Dear Healthcare Provider Letter)",
+    "category": "Legal Says",
+    "playful": "The \"heads up, this changed\" letter. When a label update carries safety news doctors need to hear right away, manufacturers contact prescribers directly instead of hoping someone notices a revised PDF.",
+    "real": "A letter sent by a manufacturer to healthcare providers to communicate important new safety information or significant labeling changes, often at FDA's request or with FDA review.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": [
+      "dear doctor letter",
+      "dear healthcare provider letter",
+      "DHCP"
+    ]
+  },
+  {
+    "term": "Label Carve-Out (Skinny Label)",
+    "category": "Legal Says",
+    "playful": "A generic's label with a few sentences deliberately missing. If the brand still holds a patent on one particular use, the generic can leave that use off its label and launch for everything else.",
+    "real": "A Hatch-Waxman provision (section viii statement) allowing a generic's label to omit an indication still protected by a method-of-use patent or exclusivity, so the generic can be approved for the remaining uses. It has been a frequent subject of patent litigation.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": [
+      "skinny label",
+      "section viii",
+      "section viii carve-out"
+    ]
+  },
+  {
+    "term": "Class Labeling",
+    "category": "Legal Says",
+    "playful": "When one drug's problem becomes every drug's label. If FDA decides a safety issue applies across a whole drug class, every product in that class carries the same warning language, brand or not.",
+    "real": "Labeling language that FDA requires or recommends for all drugs in the same pharmacologic class, so shared risks are described consistently across products.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": [
+      "class-wide labeling",
+      "class labeling changes"
+    ]
   }
 ]

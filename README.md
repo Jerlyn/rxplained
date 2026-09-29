@@ -119,6 +119,48 @@ Valid `category` values: `Doctor Speak`, `Money Talk`, `Legal Says`, `Behind the
 - **Install prompt**: a dismissible bottom banner appears once the browser signals the app is installable (`beforeinstallprompt`, Chrome/Edge/Android) or, on iOS, shows "tap Share → Add to Home Screen" instead (iOS has no programmatic install trigger, so a button that did nothing would be worse than instructions). Dismissal is remembered in `localStorage`; already-installed visits (`display-mode: standalone`) never see it.
 - **"More from [Category]"**: every card and Word of the Day link to a few other terms in the same category — the next ones alphabetically, wrapping around. Deliberately not a fabricated "related terms" claim; there's no data to support real semantic relatedness yet, so this only ever reflects the one relationship the data actually has (shared category).
 
+## Study mode
+
+A flashcard view for learning terms instead of only looking them up. Open it with the **Study** button in the header (next to Submit a Term). It swaps in place of the dictionary inside the same page: not a modal, not a separate page, and **it never touches the URL**, so `#term=` deep links, `checkDeepLink()` and the static `/term/<slug>/` pages are entirely unaffected. All of it lives in `js/app.js` (the `// ---------- Study mode ----------` block), `#study-view` in `index.html`, and a few rules at the end of `css/styles.css`.
+
+**Card flow.** The front shows the category, the term, "Try defining it in your head first." and a **Show definition** button. Revealing shows the playful line and the official definition and only then enables **Got it** and **Still learning**. Grading is disabled until reveal on every input path: buttons, keys and swipe. **Undo** reverses the last grade (single step), restoring both the card and its previous stored status.
+
+**Controls.** Everything works without swiping.
+
+| Action | Button | Key (study view only) |
+|---|---|---|
+| Reveal | Show definition | Space or Enter |
+| Got it | Got it | Right arrow (after reveal) |
+| Still learning | Still learning | Left arrow (after reveal) |
+| Undo | Undo | `u` |
+
+The keys are ignored while typing in an input, select or textarea, while any modal is open, when a modifier key is held, and on key-repeat, so they can't collide with Cmd/Ctrl+K or `/`. Space and Enter yield to a focused button or link instead of double-firing. Swipe is an optional extra (Pointer Events, touch and pen only, after reveal only, `touch-action: pan-y` so vertical scrolling is never blocked, text hints for both directions, snaps back below the threshold). A mouse drag is deliberately *not* treated as a swipe, so text selection keeps working. Under `prefers-reduced-motion` there is no fly-off or rotation; the state change is instant.
+
+**Decks.** *All terms not yet marked known* (default), *by category*, and *Still learning only*. The session deck is shuffled (Fisher-Yates). A card graded Still learning is requeued to the end **once** per session, so "Card i of M" can grow by one the first time that happens; there is no scheduling beyond that. Empty decks show a plain message and a way back. Progress shows "Known: X of N" and "Still learning: Y", with N derived from the loaded data (never hard-coded). The end-of-session summary offers **Review still-learning terms** and **Back to dictionary**. Deliberately absent, because the site's premise is exposing manipulative marketing: streaks, timers, reminders, notifications, "fluency" scores, leaderboards.
+
+**Storage.** `localStorage['rxplained:study:v1']`, separate from the Save/heart key (`rxplained:saved-terms`), which Study mode never reads or writes.
+
+```json
+{ "some-term-slug": { "status": "known" | "learning", "updatedAt": 1790000000000 } }
+```
+
+Keys are `slugify(term)`. Every read and write is wrapped in try/catch: unavailable storage or corrupt JSON falls back to an empty state without throwing (and a note appears in the view if writes are being blocked). Slugs that no longer match a term are ignored, keys that aren't plain `[a-z0-9-]` (including `__proto__`) are dropped on load, and the in-memory map is null-prototype. A term that is renamed loses its progress, since the slug is the key. Bump the `v1` suffix if the shape ever changes.
+
+**Analytics.** Aggregate only, no parameters: `study_started` (opening Study mode, or starting a review of still-learning terms) and `study_session_completed` (a deck reaching its summary). No term, category, count or per-user learning data is ever sent. Both go through the existing consent-gated `trackEvent()`, so they are no-ops until a visitor accepts.
+
+**Accessibility decisions** (verified numbers are in the Accessibility section below).
+- Announcements go through one polite live region (`#study-live`). It is cleared and re-filled on a short timer so an identical message (the same card text twice) still announces.
+- Focus is deliberate and predictable: a new card focuses the term heading (`tabindex="-1"`); reveal and Undo focus the definition group; the summary and empty state focus their headings; **Close returns focus to the Study button** and restores the dictionary scroll position; changing the deck select never steals focus from the select.
+- Reveal uses real disclosure semantics (`aria-expanded` and `aria-controls` on the button, hidden content). The premise that this matches an "existing expand pattern" turned out not to hold: the older expand-in-place cards were removed in the dual-pane redesign (both sides of every term are always visible), so the disclosure was built fresh rather than reused.
+- **Escape closes Study mode** (added September 2026, after user-facing feedback), restoring focus to the Study button the same as clicking Close. It is checked last in the existing Escape chain, so a real dialog (Submit or Cmd+K) open on top of Study still eats Escape first and only closes itself.
+- **Undo** is styled as a plain-text ghost control (`↩ Undo`, no fill or border) rather than a third button matching Got it and Still learning, so it doesn't compete with the two grading actions (added September 2026, same feedback pass). Its position and the `u` key are unchanged; only the visual weight changed. Computed at 7.22:1 against the worst-case card background, so it stays clearly legible while looking secondary.
+- Because Study never writes to the URL, browser Back leaves the site rather than closing Study. Close is the exit.
+
+**Known limits** (documented, not fixed in this phase).
+- Progress is per device and per browser and is lost when site data is cleared. The view says so in plain words. Export/import would be a possible later addition.
+- Dual-meaning entries (`PA`, `PR`, `CVD`, `CRC`) and terms reachable through `aliases` are fine as flashcards but would need special handling if a quiz mode is ever built.
+- Not built, by decision: quiz mode, accounts or sync, spaced repetition, share cards, any change to Save/heart.
+
 ## Analytics
 
 Google Analytics 4 (measurement ID `G-N4ED2WXE30`), consent-gated — nothing loads, and no cookie gets set, until a visitor clicks "Accept" on the consent banner. All of this lives in `js/app.js` (`loadGoogleAnalytics()`, `trackEvent()`, `initConsentBanner()`); there's no separate analytics file or build step.
@@ -130,6 +172,7 @@ Google Analytics 4 (measurement ID `G-N4ED2WXE30`), consent-gated — nothing lo
   - `share` — `method: 'copy_link'`, `content_type: 'term'`, `item_id` (slug), `term`. Fires only on a successful clipboard write, not on click.
   - `term_submitted` — `category` only. The free-text term name and definitions someone types into the submission form are never sent to analytics.
   - `term_view` — `term`, `category`, `source: 'deep_link'`. Fires when `#term=slug` resolves on load, i.e. when someone actually follows a shared link — the main signal for "did sharing work."
+  - `study_started` / `study_session_completed` — no parameters at all. Aggregate counts of Study mode sessions only; nothing about which terms, categories or how many cards. See *Study mode* above.
 - **Not instrumented: the static `/term/<slug>/` pages themselves.** They redirect instantly, and a visitor who hasn't yet answered the consent question (the exact first-time-via-a-shared-link cohort this would most want to measure) can't be tracked pre-consent anyway — so a second GA snippet there would be fragile (may not finish loading before the redirect) for little gain over `term_view` above, which already captures every real visit since the redirect is unconditional. If per-page-load counts specifically are ever needed, host-level access logs (Netlify/Vercel analytics) are a more reliable source than trying to beacon out before an instant navigation.
 
 ## Known gaps before public launch
@@ -158,6 +201,34 @@ Contrast-audited against WCAG AA (4.5:1 text, 3:1 UI components) using the actua
 Also verified, no changes needed: the hover/focus/expanded icon-reveal pattern described in earlier project notes no longer applies — the current dual-pane card design shows all icons unconditionally (verified at a real touch-emulated viewport, not simulated `:hover`), so touch users were never at risk of missing them. `prefers-reduced-motion` correctly covers every current CSS animation via a catch-all `*` selector (not a per-class list that could go stale), plus explicit JS-level gates for the two non-CSS motions (confetti, smooth-scroll). A full keyboard walkthrough confirmed document order is logical everywhere and nothing is mouse-reachable but keyboard-unreachable. Re-ran axe-core (the same engine behind axe DevTools) at both a mobile and desktop viewport after all fixes: zero violations.
 
 Manual screen reader testing (VoiceOver/NVDA/JAWS) was explicitly out of scope for this pass — automated tools and code review catch structural issues, but whether the site actually sounds coherent to someone using a screen reader is a judgment call worth doing by hand before launch.
+
+**Study mode pass, September 2026**: verified with computed results, not assumptions.
+- **Contrast**: 25 new or reused colour pairs computed against the worst-case background (both ambient orbs at peak, composited through the glass layer and then the nested `navy-950/60` panel), 0 failures. The new form-control borders use `border-slate-500` (3.72:1 against `navy-900`, 3.89:1 against the worst-case glass), chosen deliberately over the existing search/sort border style (see the finding below).
+- **axe-core** in four Study states (front, revealed, summary, empty) at 320px: 0 violations. No horizontal overflow at 320, 375, 449, 450, 639, 640, 700, 768 and 1024 CSS px, or in landscape (320px is the reflow equivalent of 200% zoom on a 640px-wide window; browser zoom itself wasn't driven); every header control and every Study control in every state measures at least 44×44.
+- **Header rework, needed to fit the new button.** The header already overflowed by 38px at 320px before Study existed, and adding a button would have overflowed 375–425px too. The wordmark and tagline now hide below 450px (the logo link gained an explicit `aria-label="RxPlained home"` so its accessible name doesn't vanish with them, the same regression the Cmd+K button had), gaps and padding tighten at narrow widths, the logo link got `min-w-[44px]` (it measured 40px wide), and the action cluster is `shrink-0` with a non-wrapping Submit button (the new Study label was pushing "Submit Term" onto two lines between roughly 640 and 767px). The Study label shows from `sm` up; below that the button is icon-only with `aria-label="Study"`.
+- **Real Tab order** in the header is logo, Quick search, Saved, Study, Submit, with the existing double-ring focus style on the Study button.
+- **Screen-reader touch gestures**: the swipe handlers are attached to the card only, never call `preventDefault()`, ignore mouse, and only act after reveal, and the buttons remain the primary path for every action. This is a structural argument, not a test. **No real VoiceOver, TalkBack or NVDA session was run**; that still needs doing by hand on a device, along with confirming the polite announcements sound coherent.
+- **Found here, fixed in the input-border pass below**: the existing search input and sort select used `border-teal-400/30`, under the 3:1 that WCAG 1.4.11 needs for a field boundary.
+
+**Study mode regression run, September 2026** (all against the dev server, 371 terms): search including alias matches (`eDetail`, `skinny label`), no-match empty state and clear; category filter and counts; sort A-Z, Z-A and Random checked against the data's own order; Save and unsave (and that Study never touches the Save key); Submit modal open, Tab and Shift+Tab wrap, Escape, and focus restored to the trigger; Cmd+K, Ctrl+K and `/` (including that Cmd+K still works while Study is open); `#term=` deep links; all 371 static `/term/<slug>/` pages (each canonical URL and redirect target matches its slug); scroll position restored after closing Study. The old "expand-in-place" check does not apply, since that pattern no longer exists. Deep links were also run five times as real page loads through a proxy that delayed every response by 0.3-1.0s, trickled bodies at roughly 200KB/s and forbade caching, on a never-before-visited origin: two static-page redirects to late-alphabet terms, one canonical `#term=` link, one alias slug, and one unknown slug (which correctly shows the "couldn't find that term" toast); every card landed fully in view. **Not the same as the request**: this is a slow-network emulation on a fresh origin, not an incognito window on a genuinely throttled connection, so it is worth repeating once by hand on a phone after deploy.
+
+**Input borders, September 2026**: the pre-launch audit above missed form-field borders. It computed divider borders and text, but never the borders that identify an input, and axe-core does not test WCAG 1.4.11 (Non-text Contrast) at all, so nothing flagged them. Found while building Study mode and measured with the same worst-case method (both orbs at peak, `#3A1C5A`, then through each panel's real computed backgrounds), checking the border against both its own fill and what surrounds it:
+
+| Control | Before | vs fill / vs outside | After | vs fill / vs outside |
+|---|---|---|---|---|
+| Search input (`#main-search-input`) | `border-teal-400/30` | 2.08 / 1.65 (fail) | `border-slate-400/70` | 4.01 / 3.18 |
+| Sort select (`#sort-select`) | `border-teal-400/30` | 2.08 / 1.65 (fail) | `border-slate-400/70` | 4.01 / 3.18 |
+| Submit modal: term, both textareas, category | `border-slate-700` | 1.87 / 1.71 (fail) | `border-slate-500` | 4.06 / 3.72 |
+| Study deck select (`#study-deck`) | `border-slate-500` | 3.72 / 3.88 (already passes, unchanged) | n/a | n/a |
+
+`slate-500`, which the Study deck select uses on glass, is *not* enough on the bare page background (3.72 / 2.95), so the page-level controls use `slate-400/70`, the same token the dividers already use, as the lightest option that clears 3:1 there. Its margin is thin (3.18) but that is the worst-case corner where both orbs overlap. Focus states are unchanged and re-verified with real keyboard focus: the border still turns `teal-400` with the double ring. axe-core 4.9.1 reports 0 violations at 320px and 1280px (Submit modal open); no horizontal overflow at either width. Deliberately left alone: the Cmd+K palette input has no border of its own (it sits in a bordered, labelled dialog with a search icon), and buttons and chips whose text names them don't need a boundary under 1.4.11. `CACHE_NAME` bumped to `rxplained-v35`.
+
+**Service worker for Study mode, September 2026**: `CACHE_NAME` bumped to `rxplained-v34` for the Study release and to `rxplained-v35` for the input-border pass below (verification below was run against v34's contents). Verified from a clean browsing context that installing the worker deletes a stale previous-release cache, that the new cache holds the full shell (HTML with the Study view, JS with the Study code, CSS with the Study rules, all 371 terms), and that a page controlled by the worker serves the JS from that cache and runs a complete Study flow with no new network requests. **Still to do after deploy, by the owner**: a warm-cache visit from a browser that already had the previous version, confirming it picks up the new build (the cache-first strategy has bitten this project before), and a real offline check. Tailwind's utility CSS still needs network access, as noted under *Known gaps*.
+
+**Study mode UX review, September 2026**: external feedback (via Gemini) proposed several Study mode changes; checked each against the actual code before touching anything, since a few no longer applied.
+- **Already true, no change**: grading disabled until reveal; the initial/answer states described; the Close button's accessible name (`aria-label="Close study mode"`) and 44×44 target; the `aria-live="polite"` progress announcements; keyboard shortcut tips already hidden on touch via `@media (hover: hover) and (pointer: fine)` (the equivalent of the suggested `(hover: none) and (pointer: coarse)`); The Pitch/The Reality already stack below `md` (768px), a wider range than the requested 640px.
+- **Made**: Escape now closes Study mode (see *Escape closes Study mode* above); Undo restyled as a plain-text ghost control so it stops competing visually with Got it and Still learning (see *Undo* above). Both were minimal, additive changes: no DOM restructuring, no change to the `u` key, Undo's position, or focus order.
+- **Considered and skipped**: making the whole card tappable to flip, in addition to the existing Show definition button. The explicit button already satisfies keyboard and screen-reader access on its own, and a tap-anywhere card risks accidental reveals and future conflict with the swipe gesture area. Worth revisiting if real usage shows people expect it.
 
 ## Design history
 

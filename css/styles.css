@@ -81,3 +81,19 @@ html { scroll-behavior: smooth; }
   #back-to-top.banner-visible { bottom: 148px; }
   #toast-container.banner-visible { bottom: 148px; }
 }
+
+/* ---- Study mode ---- */
+
+/* Vertical panning always stays with the browser, so long definitions scroll normally;
+   only horizontal drags reach our swipe handler. */
+.study-card { touch-action: pan-y; }
+.study-card.is-dragging { transition: none; user-select: none; -webkit-user-select: none; }
+/* Fly-off and snap-back. The global prefers-reduced-motion rule above already collapses
+   this transition, and the JS skips it entirely when reduced motion is requested. */
+.study-card.is-settling { transition: transform 180ms ease-out, opacity 180ms ease-out; }
+
+/* Show the swipe hint on touch-first devices and the keyboard hint where a real
+   keyboard/mouse is primary. Neither is essential: the buttons always work. */
+.study-hint-touch, .study-hint-keys { display: none; }
+@media (pointer: coarse) { .study-hint-touch { display: block; } }
+@media (hover: hover) and (pointer: fine) { .study-hint-keys { display: block; } }

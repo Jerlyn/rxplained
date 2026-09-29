@@ -2,6 +2,7 @@
   'use strict';
 
   const SAVED_KEY = 'rxplained:saved-terms';
+  const STUDY_KEY = 'rxplained:study:v1';
   const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mvkpwkze';
   const GA_MEASUREMENT_ID = 'G-N4ED2WXE30';
   const CONSENT_KEY = 'rxplained:analytics-consent';
@@ -55,6 +56,13 @@
       this.cmdMatches = [];
       this.lastFocusedEl = null;
 
+      this.studyStorageOk = true;
+      this.studyState = this.loadStudy();
+      this.studyOpen = false;
+      this.studyDeckKind = 'unknown';
+      this.studyScrollY = 0;
+      this.study = this.emptyStudySession();
+
       this.fuse = new Fuse(this.terms, {
         keys: [
           { name: 'term', weight: 0.6 },
@@ -68,6 +76,7 @@
 
       this.initDOM();
       this.initEvents();
+      this.initStudy();
       this.renderWotd();
       this.renderCategoryChips();
       this.renderTerms();
@@ -262,6 +271,39 @@
 
         backToTop: document.getElementById('back-to-top'),
         toastContainer: document.getElementById('toast-container'),
+
+        dictionaryView: document.getElementById('dictionary-view'),
+        studyView: document.getElementById('study-view'),
+        openStudyBtn: document.getElementById('open-study'),
+        studyClose: document.getElementById('study-close'),
+        studyDeck: document.getElementById('study-deck'),
+        studyKnown: document.getElementById('study-known'),
+        studyLearning: document.getElementById('study-learning'),
+        studyLive: document.getElementById('study-live'),
+        studyCard: document.getElementById('study-card'),
+        studySwipeBadge: document.getElementById('study-swipe-badge'),
+        studyPosition: document.getElementById('study-position'),
+        studyCategory: document.getElementById('study-category'),
+        studyTerm: document.getElementById('study-term'),
+        studyFront: document.getElementById('study-front'),
+        studyReveal: document.getElementById('study-reveal'),
+        studyDefinition: document.getElementById('study-definition'),
+        studyPlayful: document.getElementById('study-playful'),
+        studyReal: document.getElementById('study-real'),
+        studyLearningBtn: document.getElementById('study-learning-btn'),
+        studyKnownBtn: document.getElementById('study-known-btn'),
+        studyUndo: document.getElementById('study-undo'),
+        studyEmpty: document.getElementById('study-empty'),
+        studyEmptyTitle: document.getElementById('study-empty-title'),
+        studyEmptyBack: document.getElementById('study-empty-back'),
+        studySummary: document.getElementById('study-summary'),
+        studySummaryTitle: document.getElementById('study-summary-title'),
+        studySumKnown: document.getElementById('study-sum-known'),
+        studySumLearning: document.getElementById('study-sum-learning'),
+        studyReviewLearning: document.getElementById('study-review-learning'),
+        studySummaryBack: document.getElementById('study-summary-back'),
+        studySummaryUndo: document.getElementById('study-summary-undo'),
+        studyNoteExtra: document.getElementById('study-note-extra'),
       };
     }
 
@@ -312,6 +354,9 @@
         } else if (e.key === 'Escape') {
           if (!this.dom.cmdModal.classList.contains('hidden')) this.closeCmdModal();
           else if (!this.dom.submitModal.classList.contains('hidden')) this.closeSubmitModal();
+          // Study mode is a full in-page view, not a dialog, so it's deliberately last in this
+          // chain: a real modal open on top of it should eat Escape first.
+          else if (this.studyOpen) this.closeStudy();
         } else if (e.key === '/' && !isTypingElsewhere && this.dom.cmdModal.classList.contains('hidden') && this.dom.submitModal.classList.contains('hidden')) {
           e.preventDefault();
           this.dom.mainInput.focus();
@@ -712,6 +757,9 @@
 
     selectCmdTerm(t) {
       this.closeCmdModal();
+      // Picking a result from the palette while studying means "take me to that term": leave the
+      // study view first (no focus/scroll restore, jumpToTerm sets both) so it isn't scrolling a hidden page.
+      if (this.studyOpen) this.closeStudy({ restoreFocus: false, restoreScroll: false });
       this.jumpToTerm(t);
     }
 
@@ -793,6 +841,436 @@
         toast.classList.add('opacity-0', 'translate-y-4');
         setTimeout(() => toast.remove(), 300);
       }, isError ? 4200 : 2600);
+    }
+
+    // ---------- Study mode ----------
+    // Flashcard review. Its progress lives under its own localStorage key, entirely separate
+    // from Save/heart, and the view swaps in place without touching the URL, so #term= deep
+    // links and checkDeepLink() are unaffected.
+
+    loadStudy() {
+      // Null-prototype so a slug can never collide with an Object.prototype member.
+      const state = Object.create(null);
+      let raw;
+      try {
+        raw = localStorage.getItem(STUDY_KEY);
+      } catch (err) {
+        this.studyStorageOk = false;
+        return state;
+      }
+      if (!raw) return state;
+      try {
+        const parsed = JSON.parse(raw);
+        if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return state;
+        for (const [slug, v] of Object.entries(parsed)) {
+          // Slugs are [a-z0-9-] by construction; anything else (including "__proto__") is junk.
+          if (!/^[a-z0-9-]+$/.test(slug)) continue;
+          if (v && (v.status === 'known' || v.status === 'learning')) {
+            state[slug] = { status: v.status, updatedAt: Number.isFinite(v.updatedAt) ? v.updatedAt : 0 };
+          }
+        }
+      } catch (err) {
+        // Corrupt JSON: fall back to an empty state; the next write replaces it.
+      }
+      return state;
+    }
+
+    persistStudy() {
+      try {
+        localStorage.setItem(STUDY_KEY, JSON.stringify(this.studyState));
+        this.studyStorageOk = true;
+      } catch (err) {
+        this.studyStorageOk = false;
+      }
+      this.renderStudyNote();
+    }
+
+    renderStudyNote() {
+      this.dom.studyNoteExtra.textContent = this.studyStorageOk
+        ? ''
+        : ' Your browser is blocking storage right now, so this session will not be saved.';
+    }
+
+    // Orphaned slugs (terms removed from the dataset since) are simply never looked up.
+    studyStatus(t) {
+      const entry = this.studyState[this.slugify(t.term)];
+      return entry ? entry.status : null;
+    }
+
+    shuffle(list) {
+      for (let i = list.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [list[i], list[j]] = [list[j], list[i]];
+      }
+      return list;
+    }
+
+    emptyStudySession() {
+      return { deck: [], index: 0, revealed: false, requeued: new Set(), results: new Map(), lastGrade: null };
+    }
+
+    studyShowingCard() {
+      const s = this.study;
+      return s.deck.length > 0 && s.index < s.deck.length;
+    }
+
+    studyCanGrade() {
+      return this.studyOpen && this.studyShowingCard() && this.study.revealed;
+    }
+
+    buildStudyDeck(kind) {
+      let list;
+      if (kind === 'learning') {
+        list = this.terms.filter((t) => this.studyStatus(t) === 'learning');
+      } else if (kind.startsWith('cat:')) {
+        const id = kind.slice(4);
+        list = this.terms.filter((t) => t.category === id && this.studyStatus(t) !== 'known');
+      } else {
+        list = this.terms.filter((t) => this.studyStatus(t) !== 'known');
+      }
+      return this.shuffle(list);
+    }
+
+    renderStudyDeckOptions() {
+      const sel = this.dom.studyDeck;
+      const count = (pred) => this.terms.filter(pred).length;
+      const cats = CATEGORIES.filter((c) => c.id !== 'all' && c.id !== 'saved');
+      if (sel.options.length === 0) {
+        sel.innerHTML = '<option value="unknown"></option><option value="learning"></option>'
+          + `<optgroup label="By category">${cats.map((c) => `<option value="cat:${this.escapeHtml(c.id)}"></option>`).join('')}</optgroup>`;
+      }
+      // Built once; afterwards only the text changes, so refreshing counts never disturbs a
+      // select the user is in the middle of using.
+      const byValue = (v) => Array.from(sel.options).find((o) => o.value === v);
+      byValue('unknown').textContent = `All terms not yet marked known (${count((t) => this.studyStatus(t) !== 'known')} left)`;
+      byValue('learning').textContent = `Still learning only (${count((t) => this.studyStatus(t) === 'learning')})`;
+      cats.forEach((c) => {
+        byValue(`cat:${c.id}`).textContent = `${c.label} (${count((t) => t.category === c.id && this.studyStatus(t) !== 'known')} left)`;
+      });
+      sel.value = this.studyDeckKind;
+    }
+
+    updateStudyProgress() {
+      const n = this.terms.length;
+      const known = this.terms.filter((t) => this.studyStatus(t) === 'known').length;
+      const learning = this.terms.filter((t) => this.studyStatus(t) === 'learning').length;
+      this.dom.studyKnown.textContent = `Known: ${known} of ${n}`;
+      this.dom.studyLearning.textContent = `Still learning: ${learning}`;
+      this.renderStudyDeckOptions();
+    }
+
+    startStudySession(kind) {
+      this.studyDeckKind = kind;
+      this.study = this.emptyStudySession();
+      this.study.deck = this.buildStudyDeck(kind);
+      this.renderStudy();
+    }
+
+    renderStudy() {
+      const s = this.study;
+      const d = this.dom;
+      const empty = s.deck.length === 0;
+      const done = !empty && s.index >= s.deck.length;
+      d.studyCard.hidden = empty || done;
+      d.studyEmpty.hidden = !empty;
+      d.studySummary.hidden = !done;
+      this.updateStudyProgress();
+      if (!empty && !done) {
+        const t = s.deck[s.index];
+        d.studyPosition.textContent = `Card ${s.index + 1} of ${s.deck.length}`;
+        d.studyCategory.textContent = t.category;
+        d.studyTerm.innerHTML = this.formatTermHTML(t.term);
+        d.studyPlayful.textContent = t.playful;
+        d.studyReal.textContent = t.real;
+        this.renderStudyReveal();
+      } else if (done) {
+        const outcomes = Array.from(s.results.values());
+        d.studySumKnown.textContent = `Got it: ${outcomes.filter((x) => x === 'known').length}`;
+        d.studySumLearning.textContent = `Still learning: ${outcomes.filter((x) => x === 'learning').length}`;
+        d.studyReviewLearning.hidden = !this.terms.some((t) => this.studyStatus(t) === 'learning');
+        d.studySummaryUndo.hidden = !s.lastGrade;
+      }
+    }
+
+    // The reveal is a disclosure: the trigger carries aria-expanded/aria-controls and the
+    // controlled region is hidden until it opens. Grading stays disabled until then, so a
+    // "known" can't be reported before recall has been attempted.
+    renderStudyReveal() {
+      const s = this.study;
+      const d = this.dom;
+      d.studyFront.classList.toggle('hidden', s.revealed);
+      d.studyReveal.setAttribute('aria-expanded', String(s.revealed));
+      d.studyDefinition.classList.toggle('hidden', !s.revealed);
+      d.studyLearningBtn.disabled = !s.revealed;
+      d.studyKnownBtn.disabled = !s.revealed;
+      d.studyUndo.disabled = !s.lastGrade;
+    }
+
+    announceStudy(message) {
+      const el = this.dom.studyLive;
+      el.textContent = '';
+      clearTimeout(this._studyLiveTimer);
+      // Cleared first, then set on a tick, so an identical message still re-announces.
+      this._studyLiveTimer = setTimeout(() => { el.textContent = message; }, 60);
+    }
+
+    studyCardAnnouncement() {
+      return `Card ${this.study.index + 1} of ${this.study.deck.length}.`;
+    }
+
+    // Focus rules, kept deliberately predictable:
+    //   new card / start      -> the term heading (screen readers read the term; Tab reaches Show definition)
+    //   after Show definition -> the definition group (its button just disappeared, so focus must move)
+    //   after Undo            -> the definition group (the card comes back already revealed)
+    //   session finished      -> the summary heading
+    //   empty deck            -> the empty-state heading
+    //   Close                 -> back to the header Study button
+    // Changing the deck never steals focus from the select the user is using.
+    focusStudy(kind) {
+      const d = this.dom;
+      const target = { card: d.studyTerm, definition: d.studyDefinition, summary: d.studySummaryTitle, empty: d.studyEmptyTitle }[kind];
+      if (target) target.focus();
+    }
+
+    focusStudyStart() {
+      this.focusStudy(this.studyShowingCard() ? 'card' : 'empty');
+    }
+
+    openStudy() {
+      if (this.studyOpen) {
+        this.focusStudyStart();
+        return;
+      }
+      this.studyOpen = true;
+      this.studyScrollY = window.scrollY;
+      this.dom.dictionaryView.hidden = true;
+      this.dom.studyView.hidden = false;
+      this.scrollInstant(0);
+      this.startStudySession(this.studyDeckKind);
+      this.focusStudyStart();
+      this.announceStudy(this.studyShowingCard() ? this.studyCardAnnouncement() : 'Nothing left to study in this deck.');
+      trackEvent('study_started');
+    }
+
+    closeStudy({ restoreFocus = true, restoreScroll = true } = {}) {
+      if (!this.studyOpen) return;
+      this.studyOpen = false;
+      this.resetStudyCardVisuals();
+      this.dom.studyView.hidden = true;
+      this.dom.dictionaryView.hidden = false;
+      if (restoreScroll) this.scrollInstant(this.studyScrollY);
+      if (restoreFocus) this.dom.openStudyBtn.focus({ preventScroll: true });
+    }
+
+    // html has scroll-behavior: smooth; view swaps should jump, not glide.
+    scrollInstant(y) {
+      const root = document.documentElement;
+      const prev = root.style.scrollBehavior;
+      root.style.scrollBehavior = 'auto';
+      window.scrollTo(0, y);
+      root.style.scrollBehavior = prev;
+    }
+
+    revealStudyCard() {
+      if (!this.studyOpen || !this.studyShowingCard() || this.study.revealed) return;
+      this.study.revealed = true;
+      this.renderStudyReveal();
+      this.focusStudy('definition');
+      this.announceStudy('Definition revealed.');
+    }
+
+    gradeStudy(status) {
+      if (!this.studyCanGrade()) return;
+      const s = this.study;
+      const t = s.deck[s.index];
+      const slug = this.slugify(t.term);
+      const prev = this.studyState[slug] ? { ...this.studyState[slug] } : null;
+      // "Still learning" comes around once more this session, never twice, so a card the
+      // learner keeps missing can't trap them in a loop. No scheduling beyond that.
+      let pushed = false;
+      if (status === 'learning' && !s.requeued.has(slug)) {
+        s.deck.push(t);
+        s.requeued.add(slug);
+        pushed = true;
+      }
+      s.lastGrade = { slug, prev, prevResult: s.results.get(slug), index: s.index, pushed };
+      this.studyState[slug] = { status, updatedAt: Date.now() };
+      s.results.set(slug, status);
+      this.persistStudy();
+      s.index += 1;
+      s.revealed = false;
+      this.renderStudy();
+      const marked = status === 'known' ? 'Got it' : 'Still learning';
+      if (s.index >= s.deck.length) {
+        this.focusStudy('summary');
+        this.announceStudy(`Marked ${marked}. Session complete.`);
+        trackEvent('study_session_completed');
+      } else {
+        this.focusStudy('card');
+        this.announceStudy(`Marked ${marked}. ${this.studyCardAnnouncement()}`);
+      }
+    }
+
+    // Single-step: restores the last graded card, its previous status, and the deck as it was.
+    undoStudy() {
+      const s = this.study;
+      const lg = s.lastGrade;
+      if (!this.studyOpen || !lg) return;
+      if (lg.pushed) {
+        s.deck.pop();
+        s.requeued.delete(lg.slug);
+      }
+      if (lg.prev) this.studyState[lg.slug] = lg.prev;
+      else delete this.studyState[lg.slug];
+      if (lg.prevResult === undefined) s.results.delete(lg.slug);
+      else s.results.set(lg.slug, lg.prevResult);
+      s.index = lg.index;
+      s.revealed = true;
+      s.lastGrade = null;
+      this.persistStudy();
+      this.renderStudy();
+      this.focusStudy('definition');
+      this.announceStudy(`Undid the last answer. ${this.studyCardAnnouncement()} Definition shown.`);
+    }
+
+    initStudy() {
+      const d = this.dom;
+      d.openStudyBtn.addEventListener('click', () => this.openStudy());
+      d.studyClose.addEventListener('click', () => this.closeStudy());
+      d.studyEmptyBack.addEventListener('click', () => this.closeStudy());
+      d.studySummaryBack.addEventListener('click', () => this.closeStudy());
+      d.studyReveal.addEventListener('click', () => this.revealStudyCard());
+      d.studyKnownBtn.addEventListener('click', () => this.gradeStudy('known'));
+      d.studyLearningBtn.addEventListener('click', () => this.gradeStudy('learning'));
+      d.studyUndo.addEventListener('click', () => this.undoStudy());
+      d.studySummaryUndo.addEventListener('click', () => this.undoStudy());
+      d.studyReviewLearning.addEventListener('click', () => {
+        this.startStudySession('learning');
+        this.focusStudyStart();
+        this.announceStudy(this.studyShowingCard() ? this.studyCardAnnouncement() : 'Nothing left to study in this deck.');
+        trackEvent('study_started');
+      });
+      d.studyDeck.addEventListener('change', (e) => {
+        this.startStudySession(e.target.value);
+        const n = this.study.deck.length;
+        this.announceStudy(n ? `Deck changed. ${n} ${n === 1 ? 'card' : 'cards'}.` : 'Deck changed. Nothing left to study in this deck.');
+      });
+      document.addEventListener('keydown', (e) => this.onStudyKeydown(e));
+      this.initStudySwipe();
+      this.renderStudyNote();
+    }
+
+    // Keys are scoped to the study view (or the bare page when nothing is focused) and step
+    // aside for every control that has its own keyboard behaviour.
+    onStudyKeydown(e) {
+      if (!this.studyOpen || e.repeat || e.defaultPrevented) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;  // never shadow Cmd/Ctrl+K and friends
+      if (!this.dom.cmdModal.classList.contains('hidden') || !this.dom.submitModal.classList.contains('hidden')) return;
+      const t = e.target;
+      if (t && (['INPUT', 'SELECT', 'TEXTAREA'].includes(t.tagName) || t.isContentEditable)) return;
+      const inScope = t === document.body || t === document.documentElement || this.dom.studyView.contains(t);
+      if (!inScope) return;
+
+      if (e.key === ' ' || e.key === 'Enter') {
+        // Focused buttons/links activate themselves natively; handling it here too would double-fire.
+        if (t && t.closest && t.closest('button, a, [role="button"]')) return;
+        if (!this.studyShowingCard() || this.study.revealed) return;
+        e.preventDefault();
+        this.revealStudyCard();
+      } else if (e.key === 'ArrowRight') {
+        if (this.studyCanGrade()) { e.preventDefault(); this.gradeStudy('known'); }
+      } else if (e.key === 'ArrowLeft') {
+        if (this.studyCanGrade()) { e.preventDefault(); this.gradeStudy('learning'); }
+      } else if (e.key === 'u' || e.key === 'U') {
+        if (this.study.lastGrade) { e.preventDefault(); this.undoStudy(); }
+      }
+    }
+
+    // Swipe is a convenience layered on top of the buttons and keys, never the only path.
+    // Touch and pen only (a mouse drag would fight text selection); only after the reveal;
+    // vertical movement is left to the browser via touch-action: pan-y.
+    initStudySwipe() {
+      const card = this.dom.studyCard;
+      let drag = null;
+      const threshold = () => Math.max(80, card.offsetWidth * 0.25);
+
+      card.addEventListener('pointerdown', (e) => {
+        if (e.pointerType === 'mouse' || !this.studyCanGrade()) return;
+        if (e.target.closest('button, a, select, input, textarea')) return;
+        drag = { id: e.pointerId, x0: e.clientX, y0: e.clientY, dx: 0, locked: false };
+      });
+
+      card.addEventListener('pointermove', (e) => {
+        if (!drag || e.pointerId !== drag.id) return;
+        const dx = e.clientX - drag.x0;
+        const dy = e.clientY - drag.y0;
+        if (!drag.locked) {
+          if (Math.abs(dx) < 10 && Math.abs(dy) < 10) return;
+          if (Math.abs(dy) > Math.abs(dx)) { drag = null; return; }  // a scroll, not a swipe
+          drag.locked = true;
+          card.setPointerCapture(e.pointerId);
+          card.classList.add('is-dragging');
+        }
+        drag.dx = dx;
+        card.style.transform = `translateX(${dx}px)`;
+        this.updateSwipeBadge(dx, threshold());
+      });
+
+      const finish = (e) => {
+        if (!drag || e.pointerId !== drag.id) return;
+        const { dx, locked } = drag;
+        drag = null;
+        if (!locked) return;
+        card.classList.remove('is-dragging');
+        this.hideSwipeBadge();
+        const commit = e.type === 'pointerup' && Math.abs(dx) >= threshold() && this.studyCanGrade();
+        const reduce = this.prefersReducedMotion();
+        if (commit) {
+          const status = dx > 0 ? 'known' : 'learning';
+          if (reduce) {
+            this.resetStudyCardVisuals();
+            this.gradeStudy(status);
+          } else {
+            card.classList.add('is-settling');
+            card.style.transform = `translateX(${dx > 0 ? '' : '-'}110%)`;
+            card.style.opacity = '0';
+            setTimeout(() => {
+              this.resetStudyCardVisuals();
+              this.gradeStudy(status);
+            }, 180);
+          }
+        } else if (reduce) {
+          this.resetStudyCardVisuals();
+        } else {
+          card.classList.add('is-settling');
+          card.style.transform = '';
+          setTimeout(() => card.classList.remove('is-settling'), 190);
+        }
+      };
+      card.addEventListener('pointerup', finish);
+      card.addEventListener('pointercancel', finish);
+    }
+
+    updateSwipeBadge(dx, threshold) {
+      const badge = this.dom.studySwipeBadge;
+      if (Math.abs(dx) < 24) { badge.classList.add('hidden'); return; }
+      const known = dx > 0;
+      badge.textContent = known ? 'Got it' : 'Still learning';
+      badge.className = 'pointer-events-none absolute top-4 px-3 py-1.5 rounded-md font-mono text-xs font-bold uppercase tracking-wider '
+        + (known ? 'right-4 bg-teal-400 text-navy-950' : 'left-4 bg-navy-900 border border-slate-500 text-slate-200')
+        + (Math.abs(dx) >= threshold ? ' ring-2 ring-white' : '');
+    }
+
+    hideSwipeBadge() {
+      this.dom.studySwipeBadge.classList.add('hidden');
+    }
+
+    resetStudyCardVisuals() {
+      const card = this.dom.studyCard;
+      card.classList.remove('is-dragging', 'is-settling');
+      card.style.transform = '';
+      card.style.opacity = '';
+      this.hideSwipeBadge();
     }
 
     fireConfetti(opts) {

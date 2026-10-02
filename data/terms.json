@@ -3378,5 +3378,14 @@
       "class-wide labeling",
       "class labeling changes"
     ]
+  },
+  {
+    "term": "JTBD (Jobs to Be Done)",
+    "category": "Behind the Ad",
+    "playful": "The framework that reframes 'why do people buy this' into 'what job are they hiring this product to do.' Patients aren't buying a drug, they're hiring it to get back to gardening, sleeping through the night, or just feeling like themselves again.",
+    "real": "A product and marketing strategy framework focused on understanding the underlying 'job' a customer is trying to accomplish, used to shape positioning and messaging around the outcome a patient or HCP actually wants rather than the product's features alone.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": []
   }
 ]

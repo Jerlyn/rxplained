@@ -555,7 +555,7 @@
       if (related.length === 0) return '';
       const chips = related.map((r) => `
         <button type="button" data-related-slug="${this.slugify(r.term)}"
-          class="px-3 py-2 rounded-full bg-navy-900/60 border border-slate-700/60 text-slate-300 text-xs hover:border-teal-400/50 hover:text-teal-300 transition-all">
+          class="inline-flex items-center min-h-[44px] px-3.5 py-2 rounded-full bg-navy-900/60 border border-slate-700/60 text-slate-300 text-xs text-left hover:border-teal-400/50 hover:text-teal-300 transition-all">
           ${this.formatTermHTML(r.term)}
         </button>`).join('');
       return `

@@ -86,9 +86,9 @@
         <span id="saved-count" class="ml-0.5 px-2 py-0.5 bg-pink-500/20 text-pink-300 font-mono text-xs rounded-full">0</span>
       </button>
 
-      <button id="open-study" type="button" aria-label="Study" class="flex items-center justify-center gap-2 px-3 min-w-[44px] min-h-[44px] rounded-full bg-navy-900 border border-teal-400/20 text-slate-300 text-sm font-semibold hover:border-teal-400 hover:text-white transition-all">
+      <button id="open-study" type="button" class="flex flex-col min-[360px]:flex-row items-center justify-center gap-0.5 min-[360px]:gap-2 px-2 min-[360px]:px-3 min-w-[44px] min-h-[44px] rounded-full bg-navy-900 border border-teal-400/20 text-slate-300 text-sm font-semibold hover:border-teal-400 hover:text-white transition-all">
         <svg class="w-4 h-4 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 4h12M4 7h16M5 10h14a1 1 0 011 1v8a1 1 0 01-1 1H5a1 1 0 01-1-1v-8a1 1 0 011-1z"/></svg>
-        <span class="hidden sm:inline">Study</span>
+        <span class="text-[11px] leading-none min-[360px]:text-sm">Study</span>
       </button>
 
       <button id="open-submit" type="button" class="flex items-center gap-1.5 whitespace-nowrap px-4 py-2 min-h-[44px] rounded-full bg-teal-400 hover:bg-teal-300 text-navy-950 font-bold text-sm shadow-md shadow-teal-400/20 hover:scale-105 active:scale-95 transition-all">
@@ -323,7 +323,7 @@
   <div class="glass-panel bg-navy-900 rounded-2xl max-w-lg w-full p-6 sm:p-8 relative space-y-5 shadow-2xl" style="border-color: rgba(74,222,222,0.4)">
     <button id="close-submit-modal" type="button" class="absolute top-4 right-4 min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-400 hover:text-white text-2xl" aria-label="Close dialog">&times;</button>
     <div>
-      <h2 id="submit-modal-title" class="text-2xl font-display font-bold text-white">Propose a New Term</h2>
+      <h2 id="submit-modal-title" class="text-2xl font-display font-bold text-white pr-12">Propose a New Term</h2>
       <p class="text-slate-300 text-sm mt-1">Know pharma jargon we missed? Send it in — we read every submission.</p>
     </div>
     <form id="submit-form" class="space-y-4">

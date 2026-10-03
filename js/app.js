@@ -61,6 +61,9 @@
       this.studyOpen = false;
       this.studyDeckKind = 'unknown';
       this.studyScrollY = 0;
+      this.studyPushed = false;        // true while our {rxStudy} history entry is the current one
+      this.studyIgnorePops = 0;        // popstates caused by our own history.back() in closeStudy()
+      this.studyForwardEntry = false;  // user went Back out of Study; Forward should bring it back
       this.study = this.emptyStudySession();
 
       this.fuse = new Fuse(this.terms, {
@@ -275,6 +278,7 @@
         dictionaryView: document.getElementById('dictionary-view'),
         studyView: document.getElementById('study-view'),
         openStudyBtn: document.getElementById('open-study'),
+        logoHome: document.getElementById('logo-home'),
         studyClose: document.getElementById('study-close'),
         studyDeck: document.getElementById('study-deck'),
         studyKnown: document.getElementById('study-known'),
@@ -977,7 +981,7 @@
       this.updateStudyProgress();
       if (!empty && !done) {
         const t = s.deck[s.index];
-        d.studyPosition.textContent = `Card ${s.index + 1} of ${s.deck.length}`;
+        d.studyPosition.textContent = this.studyRemainingText();
         d.studyCategory.textContent = t.category;
         d.studyTerm.innerHTML = this.formatTermHTML(t.term);
         d.studyPlayful.textContent = t.playful;
@@ -1014,8 +1018,17 @@
       this._studyLiveTimer = setTimeout(() => { el.textContent = message; }, 60);
     }
 
+    // Cards left, counting the one on screen. Deliberately not "Card i of M": a requeued card
+    // grows M, which reads as the deck getting bigger. A requeue moves the index and the deck
+    // length up together, so this number holds steady for that grade and otherwise only falls
+    // (it rises only if the learner uses Undo).
+    studyRemainingText() {
+      const n = this.study.deck.length - this.study.index;
+      return `${n} ${n === 1 ? 'card' : 'cards'} left`;
+    }
+
     studyCardAnnouncement() {
-      return `Card ${this.study.index + 1} of ${this.study.deck.length}.`;
+      return `${this.studyRemainingText()}.`;
     }
 
     // Focus rules, kept deliberately predictable:
@@ -1036,10 +1049,22 @@
       this.focusStudy(this.studyShowingCard() ? 'card' : 'empty');
     }
 
-    openStudy() {
+    // Back/forward. Study is a full-screen view, so on phones and in the installed PWA the system
+    // Back gesture should leave it rather than leave the site. A history entry is pushed carrying
+    // STATE ONLY (no URL argument, so the hash is never touched and #term= deep links, which
+    // checkDeepLink() reads once on load, are unaffected). Every way of closing Study pops that
+    // entry again so the stack never grows from repeated open/close.
+    openStudy({ push = true } = {}) {
       if (this.studyOpen) {
         this.focusStudyStart();
         return;
+      }
+      if (this.studyIgnorePops > 0) return;  // a close is still unwinding; the next click will work
+      this.studyForwardEntry = false;
+      if (push) {
+        try { history.pushState({ rxStudy: true }, ''); this.studyPushed = true; } catch (err) { this.studyPushed = false; }
+      } else {
+        this.studyPushed = true;
       }
       this.studyOpen = true;
       this.studyScrollY = window.scrollY;
@@ -1052,9 +1077,22 @@
       trackEvent('study_started');
     }
 
-    closeStudy({ restoreFocus = true, restoreScroll = true } = {}) {
+    closeStudy({ restoreFocus = true, restoreScroll = true, fromPop = false } = {}) {
       if (!this.studyOpen) return;
       this.studyOpen = false;
+      if (fromPop) {
+        this.studyPushed = false;          // the browser already popped our entry
+        this.studyForwardEntry = true;
+      } else if (this.studyPushed) {
+        this.studyPushed = false;
+        // Only unwind an entry that is really ours; anything else (e.g. a skip-link hash
+        // navigation made while studying) means the stack moved on and Back must not be hijacked.
+        if (history.state && history.state.rxStudy) {
+          this.studyIgnorePops += 1;
+          setTimeout(() => { this.studyIgnorePops = 0; }, 600);  // safety net if no popstate ever arrives
+          history.back();
+        }
+      }
       this.resetStudyCardVisuals();
       this.dom.studyView.hidden = true;
       this.dom.dictionaryView.hidden = false;
@@ -1156,8 +1194,28 @@
         this.announceStudy(n ? `Deck changed. ${n} ${n === 1 ? 'card' : 'cards'}.` : 'Deck changed. Nothing left to study in this deck.');
       });
       document.addEventListener('keydown', (e) => this.onStudyKeydown(e));
+      window.addEventListener('popstate', (e) => this.onStudyPopState(e));
+      // "Home" while studying means leave Study; the plain href="#" would otherwise leave it open.
+      d.logoHome.addEventListener('click', (e) => {
+        if (!this.studyOpen) return;
+        e.preventDefault();
+        this.closeStudy({ restoreFocus: false, restoreScroll: false });
+        this.scrollInstant(0);
+      });
       this.initStudySwipe();
       this.renderStudyNote();
+    }
+
+    onStudyPopState(e) {
+      if (this.studyIgnorePops > 0) {
+        this.studyIgnorePops -= 1;
+        return;
+      }
+      if (this.studyOpen) {
+        this.closeStudy({ fromPop: true });
+      } else if (this.studyForwardEntry && e.state && e.state.rxStudy) {
+        this.openStudy({ push: false });  // Forward after Back: reopen without adding an entry
+      }
     }
 
     // Keys are scoped to the study view (or the bare page when nothing is focused) and step

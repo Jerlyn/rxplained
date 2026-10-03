@@ -105,3 +105,13 @@ html { scroll-behavior: smooth; }
    never trigger a scroll. Applies to focus scrolling and scrollIntoView on these controls only;
    cards, which is what deep links scroll to, are untouched. */
 :is(main, footer) :is(a, button, input, select, textarea, summary, [tabindex]) { scroll-margin-top: 6rem; }
+
+/* Native <select>s: the browser draws its own arrow only a few pixels from the right edge, which
+   looked crowded against a rounded corner. Drop the native arrow and draw one with comfortable
+   room (14px inset). Stroke is #94A3B8 (mist-400), 6.9:1 on the control fill. The open list stays
+   native. Pair with pr-10 so text never runs under the arrow. */
+.select-chevron {
+  -webkit-appearance: none; appearance: none;
+  background-repeat: no-repeat; background-position: right 0.875rem center; background-size: 1rem 1rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+}

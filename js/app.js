@@ -470,7 +470,7 @@
         const isActive = this.currentCategory === cat.id;
         return `
           <button type="button" data-cat-id="${this.escapeHtml(cat.id)}" aria-pressed="${isActive}"
-            class="flex items-center gap-2 px-4 py-2 min-h-[44px] lg:min-h-8 lg:px-3 lg:py-1.5 rounded-full font-semibold text-xs whitespace-nowrap transition-all border ${
+            class="flex items-center gap-2 px-4 py-2 min-h-[44px] lg:min-h-8 lg:px-3 lg:py-1.5 rounded-xl font-semibold text-xs whitespace-nowrap transition-all border ${
               isActive
                 ? 'bg-teal-400 text-navy-950 border-teal-400 shadow-md shadow-teal-400/20'
                 : 'bg-navy-900/80 text-slate-300 border-slate-700/60 hover:border-teal-400/50 hover:text-white'
@@ -538,13 +538,13 @@
               <h3 class="text-xl sm:text-2xl font-display font-bold text-white mt-1.5">${this.formatTermHTML(t.term)}</h3>
             </div>
             <div class="flex items-center gap-2">
-              <button type="button" data-action="speak" class="flex items-center justify-center p-2 min-w-[44px] min-h-[44px] lg:min-w-0 lg:min-h-0 lg:w-8 lg:h-8 lg:p-0 rounded-lg bg-navy-900 border border-slate-700 text-slate-400 hover:text-teal-300 hover:border-teal-400 transition-all" aria-label="Listen to ${this.escapeHtml(t.term)}">
+              <button type="button" data-action="speak" class="flex items-center justify-center p-2 min-w-[44px] min-h-[44px] lg:min-w-0 lg:min-h-0 lg:w-8 lg:h-8 lg:p-0 rounded-xl bg-navy-900 border border-slate-700 text-slate-400 hover:text-teal-300 hover:border-teal-400 transition-all" aria-label="Listen to ${this.escapeHtml(t.term)}">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${SPEAK_PATH}"/></svg>
               </button>
-              <button type="button" data-action="share" class="flex items-center justify-center p-2 min-w-[44px] min-h-[44px] lg:min-w-0 lg:min-h-0 lg:w-8 lg:h-8 lg:p-0 rounded-lg bg-navy-900 border border-slate-700 text-slate-400 hover:text-teal-300 hover:border-teal-400 transition-all" aria-label="Copy link to ${this.escapeHtml(t.term)}">
+              <button type="button" data-action="share" class="flex items-center justify-center p-2 min-w-[44px] min-h-[44px] lg:min-w-0 lg:min-h-0 lg:w-8 lg:h-8 lg:p-0 rounded-xl bg-navy-900 border border-slate-700 text-slate-400 hover:text-teal-300 hover:border-teal-400 transition-all" aria-label="Copy link to ${this.escapeHtml(t.term)}">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${SHARE_PATH}"/></svg>
               </button>
-              <button type="button" data-action="save" data-save-slug="${slug}" aria-pressed="${isSaved}" aria-label="${isSaved ? 'Remove' : 'Save'} ${this.escapeHtml(t.term)}" class="flex items-center justify-center p-2 min-w-[44px] min-h-[44px] lg:min-w-0 lg:min-h-0 lg:w-8 lg:h-8 lg:p-0 rounded-lg bg-navy-900 border border-slate-700 ${isSaved ? 'text-pink-500 border-pink-500/50' : 'text-slate-400'} hover:text-pink-400 transition-all">
+              <button type="button" data-action="save" data-save-slug="${slug}" aria-pressed="${isSaved}" aria-label="${isSaved ? 'Remove' : 'Save'} ${this.escapeHtml(t.term)}" class="flex items-center justify-center p-2 min-w-[44px] min-h-[44px] lg:min-w-0 lg:min-h-0 lg:w-8 lg:h-8 lg:p-0 rounded-xl bg-navy-900 border border-slate-700 ${isSaved ? 'text-pink-500 border-pink-500/50' : 'text-slate-400'} hover:text-pink-400 transition-all">
                 <svg class="w-4 h-4" fill="${isSaved ? 'currentColor' : 'none'}" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${HEART_PATH}"/></svg>
               </button>
             </div>
@@ -570,7 +570,7 @@
       if (related.length === 0) return '';
       const chips = related.map((r) => `
         <button type="button" data-related-slug="${this.slugify(r.term)}"
-          class="inline-flex items-center min-h-[44px] lg:min-h-7 px-3.5 py-2 lg:py-1 rounded-full bg-navy-900/60 border border-slate-700/60 text-slate-300 text-xs text-center hover:border-teal-400/50 hover:text-teal-300 transition-all">
+          class="font-body inline-flex items-center min-h-[44px] lg:min-h-7 px-3.5 py-2 lg:py-1 rounded-xl bg-navy-900/60 border border-slate-700/60 text-slate-300 text-xs text-center hover:border-teal-400/50 hover:text-teal-300 transition-all">
           ${this.formatTermHTML(r.term)}
         </button>`).join('');
       return `

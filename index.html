@@ -88,24 +88,24 @@
     </a>
 
     <div class="flex items-center shrink-0 gap-1.5 min-[450px]:gap-2 sm:gap-3">
-      <button id="cmd-k-btn" type="button" aria-label="Quick search" class="flex items-center gap-3 px-3.5 py-2 min-h-[44px] lg:py-0 lg:min-h-0 lg:h-8 rounded-full bg-navy-900 border border-teal-400/20 text-slate-300 text-sm hover:border-teal-400 hover:text-white transition-all shadow-inner group">
+      <button id="cmd-k-btn" type="button" aria-label="Quick search" class="flex items-center gap-3 px-3.5 py-2 min-h-[44px] lg:py-0 lg:min-h-0 lg:h-8 rounded-xl bg-navy-900 border border-teal-400/20 text-slate-300 text-sm hover:border-teal-400 hover:text-white transition-all shadow-inner group">
         <svg class="w-4 h-4 text-teal-400 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
         <span class="hidden md:inline">Quick Search</span>
         <kbd class="hidden sm:inline-flex items-center gap-0.5 px-2 py-0.5 text-[11px] font-mono text-slate-400 bg-navy-950 border border-slate-700 rounded-md">⌘K</kbd>
       </button>
 
-      <button id="saved-filter-badge" type="button" class="relative flex items-center gap-1.5 px-3 sm:px-3.5 py-2 min-h-[44px] lg:py-0 lg:min-h-0 lg:h-8 rounded-full bg-navy-900 border border-pink-500/30 text-pink-400 text-sm font-semibold hover:bg-pink-500/10 transition-all" aria-label="Show saved terms">
+      <button id="saved-filter-badge" type="button" class="relative flex items-center gap-1.5 px-3 sm:px-3.5 py-2 min-h-[44px] lg:py-0 lg:min-h-0 lg:h-8 rounded-xl bg-navy-900 border border-pink-500/30 text-pink-400 text-sm font-semibold hover:bg-pink-500/10 transition-all" aria-label="Show saved terms">
         <svg class="w-4 h-4 fill-pink-500" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
         <span class="hidden sm:inline">Saved</span>
         <span id="saved-count" class="ml-0.5 px-2 py-0.5 bg-pink-500/20 text-pink-400 font-mono text-xs rounded-full">0</span>
       </button>
 
-      <button id="open-study" type="button" class="flex flex-col min-[360px]:flex-row items-center justify-center gap-0.5 min-[360px]:gap-2 px-2 min-[360px]:px-3 min-w-[44px] min-h-[44px] lg:min-w-0 lg:min-h-0 lg:h-8 lg:py-0 rounded-full bg-navy-900 border border-teal-400/20 text-slate-300 text-sm font-semibold hover:border-teal-400 hover:text-white transition-all">
+      <button id="open-study" type="button" class="flex flex-col min-[360px]:flex-row items-center justify-center gap-0.5 min-[360px]:gap-2 px-2 min-[360px]:px-3 min-w-[44px] min-h-[44px] lg:min-w-0 lg:min-h-0 lg:h-8 lg:py-0 rounded-xl bg-navy-900 border border-teal-400/20 text-slate-300 text-sm font-semibold hover:border-teal-400 hover:text-white transition-all">
         <svg class="w-4 h-4 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 4h12M4 7h16M5 10h14a1 1 0 011 1v8a1 1 0 01-1 1H5a1 1 0 01-1-1v-8a1 1 0 011-1z"/></svg>
         <span class="text-[11px] leading-none min-[360px]:text-sm">Study</span>
       </button>
 
-      <button id="open-submit" type="button" class="flex items-center gap-1.5 whitespace-nowrap px-4 py-2 min-h-[44px] lg:py-0 lg:min-h-0 lg:h-8 rounded-full bg-teal-400 hover:bg-teal-300 text-navy-950 font-bold text-sm shadow-md shadow-teal-400/20 hover:scale-105 active:scale-95 transition-all">
+      <button id="open-submit" type="button" class="flex items-center gap-1.5 whitespace-nowrap px-4 py-2 min-h-[44px] lg:py-0 lg:min-h-0 lg:h-8 rounded-xl bg-teal-400 hover:bg-teal-300 text-navy-950 font-bold text-sm shadow-md shadow-teal-400/20 hover:scale-105 active:scale-95 transition-all">
         <span class="text-lg leading-none">+</span>
         <span class="hidden sm:inline">Submit Term</span>
       </button>
@@ -169,7 +169,7 @@
         <!-- Related-term chips left, Shuffle right from sm up (stacked below that). DOM order, and so tab order, is unchanged: chips, then Shuffle. -->
         <div class="mt-4 pt-3 border-t border-slate-400/70 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-x-4 gap-y-1 text-xs text-slate-400 font-mono">
           <div id="wotd-related" class="min-w-0 sm:flex-1 [&>div]:mt-0"></div>
-          <button id="random-wotd-btn" type="button" class="min-h-[44px] lg:min-h-8 px-2 shrink-0 self-end sm:self-auto text-teal-400 hover:text-teal-300 font-sans font-semibold flex items-center gap-1">
+          <button id="random-wotd-btn" type="button" class="rounded-xl min-h-[44px] lg:min-h-8 px-2 shrink-0 self-end sm:self-auto text-teal-400 hover:text-teal-300 font-body font-semibold flex items-center gap-1">
             <span>🔀 Shuffle Random Term</span>
           </button>
         </div>
@@ -185,13 +185,13 @@
           <svg class="w-5 h-5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
         </div>
         <label for="main-search-input" class="sr-only">Search terms</label>
-        <input type="search" id="main-search-input" placeholder="Search by keyword, acronym, or jargon — e.g. &quot;KOL,&quot; &quot;fair balance&quot;…" class="w-full pl-11 pr-11 py-3.5 min-h-[44px] rounded-full bg-navy-900 border-2 border-slate-400/70 text-white placeholder-slate-400 focus:border-teal-400 focus:bg-navy-950 transition-all text-base shadow-lg outline-none" autocomplete="off">
+        <input type="search" id="main-search-input" placeholder="Search by keyword, acronym, or jargon — e.g. &quot;KOL,&quot; &quot;fair balance&quot;…" class="w-full pl-11 pr-11 py-3.5 min-h-[44px] rounded-xl bg-navy-900 border-2 border-slate-400/70 text-white placeholder-slate-400 focus:border-teal-400 focus:bg-navy-950 transition-all text-base shadow-lg outline-none" autocomplete="off">
         <button id="clear-search-btn" type="button" class="hidden absolute inset-y-0 right-0 w-11 flex items-center justify-center text-slate-400 hover:text-white" aria-label="Clear search">&times;</button>
       </div>
 
       <div class="flex items-center justify-center gap-3 sm:shrink-0">
         <label for="sort-select" class="sr-only">Sort terms</label>
-        <select id="sort-select" class="sm:w-48 px-4 py-3 min-h-[44px] rounded-full bg-navy-900 border border-slate-400/70 text-slate-200 text-sm font-semibold hover:border-teal-400 focus:outline-none focus:border-teal-400 cursor-pointer">
+        <select id="sort-select" class="select-chevron pr-10 sm:w-48 px-4 py-3 min-h-[44px] rounded-xl bg-navy-900 border border-slate-400/70 text-slate-200 text-sm font-semibold hover:border-teal-400 focus:outline-none focus:border-teal-400 cursor-pointer">
           <option value="az">Sort: A to Z</option>
           <option value="za">Sort: Z to A</option>
           <option value="random">Sort: Random</option>
@@ -216,8 +216,8 @@
     <h3 class="text-xl font-display font-bold text-white">No Prescriptions Found</h3>
     <p class="text-slate-300 text-sm max-w-md mx-auto" id="empty-state-msg">We couldn't find any pharma terms matching your search criteria.</p>
     <div class="flex items-center justify-center gap-3 pt-2 flex-wrap">
-      <button id="reset-filters-btn" type="button" class="px-5 py-2.5 min-h-[44px] rounded-full bg-teal-400 text-navy-950 font-bold text-sm hover:bg-teal-300 transition-all">Reset All Filters</button>
-      <button id="empty-submit-btn" type="button" class="px-5 py-2.5 min-h-[44px] rounded-full bg-navy-900 border border-pink-500/40 text-pink-400 font-bold text-sm hover:bg-pink-500/20 transition-all">Propose This Term →</button>
+      <button id="reset-filters-btn" type="button" class="px-5 py-2.5 min-h-[44px] rounded-xl bg-teal-400 text-navy-950 font-bold text-sm hover:bg-teal-300 transition-all">Reset All Filters</button>
+      <button id="empty-submit-btn" type="button" class="px-5 py-2.5 min-h-[44px] rounded-xl bg-navy-900 border border-pink-500/40 text-pink-400 font-bold text-sm hover:bg-pink-500/20 transition-all">Propose This Term →</button>
     </div>
   </div>
 </div><!-- /#dictionary-view -->
@@ -230,14 +230,14 @@
       <h1 id="study-title" class="text-3xl sm:text-4xl font-display font-extrabold text-white tracking-tight">Study mode</h1>
       <p class="text-slate-300 mt-2">Flip through terms and mark what sticks.</p>
     </div>
-    <button id="study-close" type="button" aria-label="Close study mode" class="shrink-0 flex items-center gap-2 px-5 py-3 min-h-[48px] rounded-full bg-navy-900 border border-slate-500 text-slate-300 enabled:hover:text-white enabled:hover:border-slate-300 font-semibold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"><span aria-hidden="true">&times;</span><span>Close</span></button>
+    <button id="study-close" type="button" aria-label="Close study mode" class="shrink-0 flex items-center gap-2 px-5 py-3 min-h-[48px] rounded-xl bg-navy-900 border border-slate-500 text-slate-300 enabled:hover:text-white enabled:hover:border-slate-300 font-semibold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"><span aria-hidden="true">&times;</span><span>Close</span></button>
   </div>
 
   <div class="glass-panel rounded-2xl p-4 sm:p-5">
     <div class="flex flex-col lg:flex-row lg:items-end gap-4">
       <div class="flex-1">
         <label for="study-deck" class="block text-xs font-mono font-bold text-teal-300 uppercase tracking-wider mb-1.5">Deck</label>
-        <select id="study-deck" class="w-full px-4 py-3 min-h-[44px] rounded-xl bg-navy-900 border border-slate-500 text-slate-200 text-sm font-semibold focus:border-teal-400 cursor-pointer"></select>
+        <select id="study-deck" class="select-chevron pr-10 w-full px-4 py-3 min-h-[44px] rounded-xl bg-navy-900 border border-slate-500 text-slate-200 text-sm font-semibold focus:border-teal-400 cursor-pointer"></select>
       </div>
       <div class="lg:shrink-0 space-y-2">
         <!-- One line from 360px up ("Known: X of N | Still learning: Y"); stacks below that rather than wrap awkwardly. -->
@@ -266,7 +266,7 @@
     </div>
     <div id="study-front" class="space-y-4">
       <p class="text-slate-300">Try defining it in your head first.</p>
-      <button id="study-reveal" type="button" aria-expanded="false" aria-controls="study-definition" class="px-5 py-3 min-h-[48px] rounded-full bg-teal-400 enabled:hover:bg-teal-300 text-navy-950 font-bold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed">Show definition</button>
+      <button id="study-reveal" type="button" aria-expanded="false" aria-controls="study-definition" class="px-5 py-3 min-h-[48px] rounded-xl bg-teal-400 enabled:hover:bg-teal-300 text-navy-950 font-bold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed">Show definition</button>
     </div>
     <div id="study-definition" tabindex="-1" role="group" aria-label="Definition" class="hidden">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -281,9 +281,9 @@
       </div>
     </div>
     <div class="flex flex-wrap gap-3">
-      <button id="study-learning-btn" type="button" disabled class="flex-1 sm:flex-none px-5 py-3 min-h-[48px] rounded-full bg-navy-900 border border-slate-500 text-slate-300 enabled:hover:text-white enabled:hover:border-slate-300 font-semibold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed">Still learning</button>
-      <button id="study-known-btn" type="button" disabled class="flex-1 sm:flex-none px-5 py-3 min-h-[48px] rounded-full bg-teal-400 enabled:hover:bg-teal-300 text-navy-950 font-bold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed">Got it</button>
-      <button id="study-undo" type="button" disabled class="px-5 py-3 min-h-[48px] rounded-full bg-transparent border border-transparent text-slate-400 enabled:hover:text-white enabled:hover:underline font-semibold text-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed"><span aria-hidden="true">&#8617;</span> Undo</button>
+      <button id="study-learning-btn" type="button" disabled class="flex-1 sm:flex-none px-5 py-3 min-h-[48px] rounded-xl bg-navy-900 border border-slate-500 text-slate-300 enabled:hover:text-white enabled:hover:border-slate-300 font-semibold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed">Still learning</button>
+      <button id="study-known-btn" type="button" disabled class="flex-1 sm:flex-none px-5 py-3 min-h-[48px] rounded-xl bg-teal-400 enabled:hover:bg-teal-300 text-navy-950 font-bold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed">Got it</button>
+      <button id="study-undo" type="button" disabled class="px-5 py-3 min-h-[48px] rounded-xl bg-transparent border border-transparent text-slate-400 enabled:hover:text-white enabled:hover:underline font-semibold text-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed"><span aria-hidden="true">&#8617;</span> Undo</button>
     </div>
     <p class="study-hint-touch text-xs text-slate-400">After you show the definition, swipe right for Got it or left for Still learning. The buttons work too.</p>
     <p class="study-hint-keys text-xs text-slate-400">Keys: Space or Enter shows the definition. Right arrow is Got it, left arrow is Still learning, U is Undo.</p>
@@ -292,7 +292,7 @@
   <div id="study-empty" hidden class="glass-panel rounded-2xl p-6 sm:p-8 text-center space-y-4">
     <h2 id="study-empty-title" tabindex="-1" class="text-2xl font-display font-bold text-white">Nothing left to study here</h2>
     <p id="study-empty-msg" class="text-slate-300 text-sm max-w-md mx-auto">This deck has no cards right now. Pick another deck above, or go back to the dictionary.</p>
-    <button id="study-empty-back" type="button" class="px-5 py-3 min-h-[48px] rounded-full bg-navy-900 border border-slate-500 text-slate-300 enabled:hover:text-white enabled:hover:border-slate-300 font-semibold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed">Back to dictionary</button>
+    <button id="study-empty-back" type="button" class="px-5 py-3 min-h-[48px] rounded-xl bg-navy-900 border border-slate-500 text-slate-300 enabled:hover:text-white enabled:hover:border-slate-300 font-semibold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed">Back to dictionary</button>
   </div>
 
   <div id="study-summary" hidden class="glass-panel rounded-2xl p-6 sm:p-8 text-center space-y-5">
@@ -302,10 +302,10 @@
       <p id="study-sum-learning"></p>
     </div>
     <div class="flex flex-col sm:flex-row gap-3 justify-center">
-      <button id="study-review-learning" type="button" class="px-5 py-3 min-h-[48px] rounded-full bg-teal-400 enabled:hover:bg-teal-300 text-navy-950 font-bold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed">Review still-learning terms</button>
-      <button id="study-summary-back" type="button" class="px-5 py-3 min-h-[48px] rounded-full bg-navy-900 border border-slate-500 text-slate-300 enabled:hover:text-white enabled:hover:border-slate-300 font-semibold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed">Back to dictionary</button>
+      <button id="study-review-learning" type="button" class="px-5 py-3 min-h-[48px] rounded-xl bg-teal-400 enabled:hover:bg-teal-300 text-navy-950 font-bold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed">Review still-learning terms</button>
+      <button id="study-summary-back" type="button" class="px-5 py-3 min-h-[48px] rounded-xl bg-navy-900 border border-slate-500 text-slate-300 enabled:hover:text-white enabled:hover:border-slate-300 font-semibold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed">Back to dictionary</button>
     </div>
-    <button id="study-summary-undo" type="button" class="px-5 py-3 min-h-[48px] rounded-full bg-transparent border border-transparent text-slate-400 enabled:hover:text-white enabled:hover:underline font-semibold text-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed"><span aria-hidden="true">&#8617;</span> Undo last answer</button>
+    <button id="study-summary-undo" type="button" class="px-5 py-3 min-h-[48px] rounded-xl bg-transparent border border-transparent text-slate-400 enabled:hover:text-white enabled:hover:underline font-semibold text-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed"><span aria-hidden="true">&#8617;</span> Undo last answer</button>
   </div>
 
   <p id="study-note" class="text-xs text-slate-400 text-center">Progress is saved on this device and browser only. Clearing your browser data resets it.<span id="study-note-extra"></span></p>
@@ -369,7 +369,7 @@
       </div>
       <div>
         <label for="form-cat" class="block text-xs font-mono font-bold text-slate-400 uppercase mb-1">Category</label>
-        <select id="form-cat" name="category" required class="w-full px-4 py-3 min-h-[44px] rounded-xl bg-navy-950 border border-slate-500 text-white focus:border-teal-400 focus:outline-none text-sm">
+        <select id="form-cat" name="category" required class="select-chevron pr-10 w-full px-4 py-3 min-h-[44px] rounded-xl bg-navy-950 border border-slate-500 text-white focus:border-teal-400 focus:outline-none text-sm">
           <option value="">Select category…</option>
           <option value="Doctor Speak">🩺 Doctor Speak</option>
           <option value="Money Talk">💰 Money Talk</option>
@@ -378,7 +378,7 @@
           <option value="Ask Your Doctor">📺 Ask Your Doctor</option>
         </select>
       </div>
-      <button type="submit" class="w-full py-3.5 min-h-[48px] rounded-full bg-teal-400 hover:bg-teal-300 text-navy-950 font-bold shadow-lg shadow-teal-400/20 transition-all">Send it in →</button>
+      <button type="submit" class="w-full py-3.5 min-h-[48px] rounded-xl bg-teal-400 hover:bg-teal-300 text-navy-950 font-bold shadow-lg shadow-teal-400/20 transition-all">Send it in →</button>
     </form>
   </div>
 </div>
@@ -400,7 +400,7 @@
       <p id="install-banner-text" class="text-sm text-slate-200 truncate">Install RxPlained for quick access from your home screen.</p>
     </div>
     <div class="flex items-center gap-2 shrink-0">
-      <button id="install-banner-action" type="button" class="px-4 py-2 min-h-[44px] rounded-full bg-teal-400 hover:bg-teal-300 text-navy-950 font-bold text-sm transition-all">Install</button>
+      <button id="install-banner-action" type="button" class="px-4 py-2 min-h-[44px] rounded-xl bg-teal-400 hover:bg-teal-300 text-navy-950 font-bold text-sm transition-all">Install</button>
       <button id="install-banner-dismiss" type="button" aria-label="Dismiss install prompt" class="min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-400 hover:text-white text-xl">&times;</button>
     </div>
   </div>
@@ -417,8 +417,8 @@
       <p class="text-sm text-slate-200">We use Google Analytics to see how people use RxPlained.</p>
     </div>
     <div class="flex items-center gap-2 shrink-0 w-full sm:w-auto">
-      <button id="consent-decline" type="button" class="flex-1 sm:flex-initial px-4 py-2 min-h-[44px] rounded-full bg-navy-900 border border-slate-500 text-slate-300 hover:text-white hover:border-slate-300 font-semibold text-sm transition-all">No thanks</button>
-      <button id="consent-accept" type="button" class="flex-1 sm:flex-initial px-4 py-2 min-h-[44px] rounded-full bg-teal-400 hover:bg-teal-300 text-navy-950 font-bold text-sm transition-all">Accept</button>
+      <button id="consent-decline" type="button" class="flex-1 sm:flex-initial px-4 py-2 min-h-[44px] rounded-xl bg-navy-900 border border-slate-500 text-slate-300 hover:text-white hover:border-slate-300 font-semibold text-sm transition-all">No thanks</button>
+      <button id="consent-accept" type="button" class="flex-1 sm:flex-initial px-4 py-2 min-h-[44px] rounded-xl bg-teal-400 hover:bg-teal-300 text-navy-950 font-bold text-sm transition-all">Accept</button>
     </div>
   </div>
 </div>

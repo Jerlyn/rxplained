@@ -1373,7 +1373,17 @@
 
     fireConfetti(opts) {
       if (this.prefersReducedMotion() || typeof confetti !== 'function') return;
-      confetti(opts);
+      // The library's default canvas is appended outside <main> with no accessible hiding, which
+      // axe's `region` rule flags while it animates. Own it instead: one decorative canvas,
+      // aria-hidden, created on first use, same settings the library would have used.
+      if (!this._confettiFn) {
+        const canvas = document.createElement('canvas');
+        canvas.setAttribute('aria-hidden', 'true');
+        Object.assign(canvas.style, { position: 'fixed', top: '0', left: '0', width: '100%', height: '100%', pointerEvents: 'none', zIndex: '100' });
+        document.body.appendChild(canvas);
+        this._confettiFn = confetti.create(canvas, { resize: true });
+      }
+      this._confettiFn(opts);
     }
   }
 

@@ -283,6 +283,9 @@
         studyDeck: document.getElementById('study-deck'),
         studyKnown: document.getElementById('study-known'),
         studyLearning: document.getElementById('study-learning'),
+        studyProgress: document.getElementById('study-progress'),
+        studyProgressFill: document.getElementById('study-progress-fill'),
+        studyEmptyMsg: document.getElementById('study-empty-msg'),
         studyLive: document.getElementById('study-live'),
         studyCard: document.getElementById('study-card'),
         studySwipeBadge: document.getElementById('study-swipe-badge'),
@@ -833,10 +836,17 @@
     }
 
     // ---------- Toast ----------
-    showToast(message, isError = false) {
+    // `silent` toasts are visual confirmation only (no role, hidden from assistive tech, not
+    // clickable) for places that already announce the same thing through their own live region,
+    // so a screen reader doesn't hear it twice and a toast can never sit over a tappable control.
+    // `key` replaces any earlier toast with that key instead of stacking them.
+    showToast(message, isError = false, { silent = false, key = null, duration = null } = {}) {
+      if (key) this.dom.toastContainer.querySelectorAll('[data-toast-key]').forEach((el) => { if (el.dataset.toastKey === key) el.remove(); });
       const toast = document.createElement('div');
-      toast.setAttribute('role', 'status');
-      toast.className = `px-4 py-3 rounded-full text-sm font-bold shadow-xl backdrop-blur-md transition-all transform translate-y-4 opacity-0 pointer-events-auto flex items-center gap-2 ${isError ? 'bg-pink-500 text-navy-950' : 'bg-teal-400 text-navy-950'}`;
+      if (silent) toast.setAttribute('aria-hidden', 'true');
+      else toast.setAttribute('role', 'status');
+      if (key) toast.dataset.toastKey = key;
+      toast.className = `px-4 py-3 rounded-full text-sm font-bold shadow-xl backdrop-blur-md transition-all transform translate-y-4 opacity-0 ${silent ? 'pointer-events-none' : 'pointer-events-auto'} flex items-center gap-2 ${isError ? 'bg-pink-500 text-navy-950' : 'bg-teal-400 text-navy-950'}`;
       toast.textContent = message;
       this.dom.toastContainer.appendChild(toast);
 
@@ -844,7 +854,7 @@
       setTimeout(() => {
         toast.classList.add('opacity-0', 'translate-y-4');
         setTimeout(() => toast.remove(), 300);
-      }, isError ? 4200 : 2600);
+      }, duration || (isError ? 4200 : 2600));
     }
 
     // ---------- Study mode ----------
@@ -926,6 +936,10 @@
       let list;
       if (kind === 'learning') {
         list = this.terms.filter((t) => this.studyStatus(t) === 'learning');
+      } else if (kind === 'saved') {
+        // Reads the existing Save/heart set (savedSlugs); never writes to it or keeps a second list.
+        // Not-yet-known like the other decks, so finishing it reaches the summary.
+        list = this.terms.filter((t) => this.isSaved(t) && this.studyStatus(t) !== 'known');
       } else if (kind.startsWith('cat:')) {
         const id = kind.slice(4);
         list = this.terms.filter((t) => t.category === id && this.studyStatus(t) !== 'known');
@@ -940,7 +954,7 @@
       const count = (pred) => this.terms.filter(pred).length;
       const cats = CATEGORIES.filter((c) => c.id !== 'all' && c.id !== 'saved');
       if (sel.options.length === 0) {
-        sel.innerHTML = '<option value="unknown"></option><option value="learning"></option>'
+        sel.innerHTML = '<option value="unknown"></option><option value="learning"></option><option value="saved"></option>'
           + `<optgroup label="By category">${cats.map((c) => `<option value="cat:${this.escapeHtml(c.id)}"></option>`).join('')}</optgroup>`;
       }
       // Built once; afterwards only the text changes, so refreshing counts never disturbs a
@@ -948,6 +962,7 @@
       const byValue = (v) => Array.from(sel.options).find((o) => o.value === v);
       byValue('unknown').textContent = `All terms not yet marked known (${count((t) => this.studyStatus(t) !== 'known')} left)`;
       byValue('learning').textContent = `Still learning only (${count((t) => this.studyStatus(t) === 'learning')})`;
+      byValue('saved').textContent = `Saved terms (${count((t) => this.isSaved(t) && this.studyStatus(t) !== 'known')} left)`;
       cats.forEach((c) => {
         byValue(`cat:${c.id}`).textContent = `${c.label} (${count((t) => t.category === c.id && this.studyStatus(t) !== 'known')} left)`;
       });
@@ -979,6 +994,8 @@
       d.studyEmpty.hidden = !empty;
       d.studySummary.hidden = !done;
       this.updateStudyProgress();
+      this.renderStudyProgressBar(empty);
+      if (empty) d.studyEmptyMsg.textContent = this.studyEmptyMessage();
       if (!empty && !done) {
         const t = s.deck[s.index];
         d.studyPosition.textContent = this.studyRemainingText();
@@ -994,6 +1011,27 @@
         d.studyReviewLearning.hidden = !this.terms.some((t) => this.studyStatus(t) === 'learning');
         d.studySummaryUndo.hidden = !s.lastGrade;
       }
+    }
+
+    // Share of this session's deck already graded. A requeue lengthens the deck and advances the
+    // index together, so this only rises (Undo aside). Decorative to assistive tech beyond its
+    // name and value: the live region already says how many cards are left.
+    renderStudyProgressBar(empty) {
+      const s = this.study;
+      const total = s.deck.length;
+      const pct = empty ? 0 : Math.round((Math.min(s.index, total) / total) * 100);
+      this.dom.studyProgressFill.style.width = `${pct}%`;
+      this.dom.studyProgress.setAttribute('aria-valuenow', String(pct));
+      this.dom.studyProgress.setAttribute('aria-valuetext', empty ? 'No cards in this deck' : `${pct}% of this deck studied this session`);
+    }
+
+    studyEmptyMessage() {
+      if (this.studyDeckKind === 'saved') {
+        return this.terms.some((t) => this.isSaved(t))
+          ? 'Every saved term is already marked known. Save more terms with the heart, or pick another deck above.'
+          : 'You have not saved any terms yet. Tap the heart on a term in the dictionary, then come back, or pick another deck above.';
+      }
+      return 'This deck has no cards right now. Pick another deck above, or go back to the dictionary.';
     }
 
     // The reveal is a disclosure: the trigger carries aria-expanded/aria-controls and the
@@ -1147,6 +1185,7 @@
         this.focusStudy('card');
         this.announceStudy(`Marked ${marked}. ${this.studyCardAnnouncement()}`);
       }
+      this.showToast(status === 'known' ? 'Marked as known' : 'Marked for review', false, { silent: true, key: 'study', duration: 1800 });
     }
 
     // Single-step: restores the last graded card, its previous status, and the deck as it was.
@@ -1169,6 +1208,7 @@
       this.renderStudy();
       this.focusStudy('definition');
       this.announceStudy(`Undid the last answer. ${this.studyCardAnnouncement()} Definition shown.`);
+      this.showToast('Undone last response', false, { silent: true, key: 'study', duration: 1800 });
     }
 
     initStudy() {

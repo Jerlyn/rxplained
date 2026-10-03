@@ -230,14 +230,23 @@
   </div>
 
   <div class="glass-panel rounded-2xl p-4 sm:p-5">
-    <div class="flex flex-col sm:flex-row sm:items-end gap-4">
+    <div class="flex flex-col lg:flex-row lg:items-end gap-4">
       <div class="flex-1">
         <label for="study-deck" class="block text-xs font-mono font-bold text-teal-300 uppercase tracking-wider mb-1.5">Deck</label>
         <select id="study-deck" class="w-full px-4 py-3 min-h-[44px] rounded-xl bg-navy-900 border border-slate-500 text-slate-200 text-sm font-semibold focus:border-teal-400 cursor-pointer"></select>
       </div>
-      <div class="text-sm font-mono text-slate-300 space-y-1 sm:text-right">
-        <p id="study-known"></p>
-        <p id="study-learning"></p>
+      <div class="lg:shrink-0 space-y-2">
+        <!-- One line from 360px up ("Known: X of N | Still learning: Y"); stacks below that rather than wrap awkwardly. -->
+        <p class="text-xs sm:text-sm font-mono text-mist-300 flex flex-col min-[360px]:flex-row min-[360px]:items-center min-[360px]:flex-wrap gap-x-3 gap-y-0.5 lg:justify-end">
+          <span id="study-known"></span>
+          <span aria-hidden="true" class="hidden min-[360px]:inline text-mist-400">|</span>
+          <span class="sr-only">, </span>
+          <span id="study-learning"></span>
+        </p>
+        <!-- Deck progress this session. Not focusable and never announced on its own: the live region carries "N cards left". -->
+        <div id="study-progress" role="progressbar" aria-label="Progress through this deck" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" class="h-2 rounded-full bg-navy-950 border border-mist-500 overflow-hidden">
+          <div id="study-progress-fill" class="h-full rounded-full bg-teal-400 transition-[width] duration-300 ease-out" style="width: 0%"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -278,7 +287,7 @@
 
   <div id="study-empty" hidden class="glass-panel rounded-2xl p-6 sm:p-8 text-center space-y-4">
     <h2 id="study-empty-title" tabindex="-1" class="text-2xl font-display font-bold text-white">Nothing left to study here</h2>
-    <p class="text-slate-300 text-sm max-w-md mx-auto">This deck has no cards right now. Pick another deck above, or go back to the dictionary.</p>
+    <p id="study-empty-msg" class="text-slate-300 text-sm max-w-md mx-auto">This deck has no cards right now. Pick another deck above, or go back to the dictionary.</p>
     <button id="study-empty-back" type="button" class="px-5 py-3 min-h-[48px] rounded-full bg-navy-900 border border-slate-500 text-slate-300 enabled:hover:text-white enabled:hover:border-slate-300 font-semibold text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed">Back to dictionary</button>
   </div>
 

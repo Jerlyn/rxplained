@@ -97,3 +97,11 @@ html { scroll-behavior: smooth; }
 .study-hint-touch, .study-hint-keys { display: none; }
 @media (pointer: coarse) { .study-hint-touch { display: block; } }
 @media (hover: hover) and (pointer: fine) { .study-hint-keys { display: block; } }
+
+/* The header is sticky (80px). When Shift+Tab lands on a control that is already inside the
+   viewport but sitting under that header, the browser doesn't scroll, so the control (and its
+   focus ring) ends up partly hidden. A scroll margin makes the browser treat anything within
+   6rem of the top as needing a scroll. Scoped to main and footer so the header's own buttons
+   never trigger a scroll. Applies to focus scrolling and scrollIntoView on these controls only;
+   cards, which is what deep links scroll to, are untouched. */
+:is(main, footer) :is(a, button, input, select, textarea, summary, [tabindex]) { scroll-margin-top: 6rem; }

@@ -487,9 +487,17 @@
     }
 
     selectCategory(catId) {
+      // Re-rendering the pill row destroys the button that was just activated, which dropped
+      // keyboard focus to <body>. If focus was inside the row, hand it to the re-rendered pill
+      // for the same category so Tab / Shift+Tab continue from where the user was.
+      const hadFocus = this.dom.chipsContainer.contains(document.activeElement);
       this.currentCategory = catId;
       this.renderCategoryChips();
       this.renderTerms();
+      if (hadFocus) {
+        const pill = Array.from(this.dom.chipsContainer.querySelectorAll('[data-cat-id]')).find((b) => b.dataset.catId === catId);
+        if (pill) pill.focus({ preventScroll: true });
+      }
     }
 
     // ---------- Term list ----------

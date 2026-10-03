@@ -56,6 +56,12 @@ def truncate(text: str, max_len: int) -> str:
     return text[: max_len - 1].rsplit(" ", 1)[0] + "…"
 
 
+# Colors below are deliberately plain hex literals, not Tailwind classes or tokens: these stubs are
+# framework-free on purpose (no Tailwind CDN, no external CSS, ~2 KB each) so crawlers and social
+# previews get a tiny page. #020C28 and #4ADEDE are the brand navy and teal. #C4C9D4 is a light
+# blue-grey for body text that intentionally matches no Tailwind shade (nearest is slate-300,
+# #CBD5E1); it only shows for the instant before the redirect. Keep this comment OUT of the
+# template string below, otherwise it would change every generated page.
 PAGE_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
 <head>

@@ -34,10 +34,24 @@
   tailwind.config = {
     theme: {
       extend: {
+        // BRAND COLOR TOKENS. `extend` MERGES with Tailwind's built-in palette, so only the shades
+        // listed here are brand. Any other shade of these hues (pink-300, teal-200, purple-300...)
+        // silently resolves to a Tailwind default: don't use them. Add the shade here first.
         colors: {
-          navy: { 950: '#020C28', 900: '#0A1638', 800: '#12204E' },
-          teal: { 300: '#72F2F2', 400: '#4ADEDE', 500: '#20C4C4' },
-          pink: { 400: '#F47DB1', 500: '#DE6399', 600: '#C5437B' },
+          navy: { 950: '#020C28', 900: '#0A1638' },
+          teal: { 300: '#72F2F2', 400: '#4ADEDE' },
+          pink: { 400: '#F47DB1', 500: '#DE6399' },
+          // Legible brand purple, for text/borders/gradients on the dark theme. The raw brand
+          // purple #36069A is only 1.4-1.5:1 against navy, so it is used solely as the ambient
+          // glow (the orb in css/styles.css), never as a foreground color.
+          purple: { 400: '#9D7AE8' },
+          // Named neutrals: aliases for the Tailwind slate values already used across the site, so
+          // the greys read as intentional. Existing call sites still say slate-*; same values.
+          //   200 emphasised body text   300 body text   400 secondary text / hints / icons
+          //   500 field + control borders on glass panels (3.7:1 on navy-900)
+          //   400 at 70% opacity: borders of controls sitting on the bare page, plus dividers
+          //   700 decorative hairlines only (1.7:1): never a field or control boundary
+          mist: { 200: '#E2E8F0', 300: '#CBD5E1', 400: '#94A3B8', 500: '#64748B', 700: '#334155' },
         },
         fontFamily: {
           display: ['Space Grotesk', 'sans-serif'],
@@ -83,7 +97,7 @@
       <button id="saved-filter-badge" type="button" class="relative flex items-center gap-1.5 px-3 sm:px-3.5 py-2 min-h-[44px] rounded-full bg-navy-900 border border-pink-500/30 text-pink-400 text-sm font-semibold hover:bg-pink-500/10 transition-all" aria-label="Show saved terms">
         <svg class="w-4 h-4 fill-pink-500" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
         <span class="hidden sm:inline">Saved</span>
-        <span id="saved-count" class="ml-0.5 px-2 py-0.5 bg-pink-500/20 text-pink-300 font-mono text-xs rounded-full">0</span>
+        <span id="saved-count" class="ml-0.5 px-2 py-0.5 bg-pink-500/20 text-pink-400 font-mono text-xs rounded-full">0</span>
       </button>
 
       <button id="open-study" type="button" class="flex flex-col min-[360px]:flex-row items-center justify-center gap-0.5 min-[360px]:gap-2 px-2 min-[360px]:px-3 min-w-[44px] min-h-[44px] rounded-full bg-navy-900 border border-teal-400/20 text-slate-300 text-sm font-semibold hover:border-teal-400 hover:text-white transition-all">
@@ -111,19 +125,19 @@
 
     <h1 class="text-3xl sm:text-5xl font-display font-extrabold text-white tracking-tight leading-tight">
       The pharma ad dictionary<br>nobody asked for.<br>
-      <span class="bg-gradient-to-r from-pink-400 via-purple-300 to-teal-300 bg-clip-text text-transparent">Everybody needed.</span>
+      <span class="bg-gradient-to-r from-pink-400 via-purple-400 to-teal-300 bg-clip-text text-transparent">Everybody needed.</span>
     </h1>
     <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
       372 real terms — decoded, demystified, occasionally roasted.
     </p>
 
     <div class="relative text-left max-w-2xl mx-auto mt-6">
-      <div class="glass-panel rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-2xl" style="border-color: rgba(74,222,222,0.3)">
+      <div class="glass-panel rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-2xl border-teal-400/30 hover:border-teal-400/30">
         <div class="flex items-start justify-between gap-4 border-b border-slate-700/60 pb-4 mb-4">
           <div>
             <div class="flex items-center gap-2 flex-wrap">
               <span class="px-2.5 py-0.5 bg-teal-400/10 border border-teal-400/30 text-teal-300 font-mono text-xs font-semibold uppercase tracking-wider rounded-md">Word of the Day</span>
-              <span id="wotd-cat-badge" class="px-2.5 py-0.5 bg-pink-500/10 border border-pink-500/30 text-pink-300 font-mono text-xs font-medium rounded-md">Loading…</span>
+              <span id="wotd-cat-badge" class="px-2.5 py-0.5 bg-pink-500/10 border border-pink-500/30 text-pink-400 font-mono text-xs font-medium rounded-md">Loading…</span>
             </div>
             <h2 id="wotd-term-title" class="text-2xl sm:text-3xl font-display font-bold text-white mt-2">—</h2>
           </div>
@@ -199,7 +213,7 @@
     <p class="text-slate-300 text-sm max-w-md mx-auto" id="empty-state-msg">We couldn't find any pharma terms matching your search criteria.</p>
     <div class="flex items-center justify-center gap-3 pt-2 flex-wrap">
       <button id="reset-filters-btn" type="button" class="px-5 py-2.5 min-h-[44px] rounded-full bg-teal-400 text-navy-950 font-bold text-sm hover:bg-teal-300 transition-all">Reset All Filters</button>
-      <button id="empty-submit-btn" type="button" class="px-5 py-2.5 min-h-[44px] rounded-full bg-navy-900 border border-pink-500/40 text-pink-300 font-bold text-sm hover:bg-pink-500/20 transition-all">Propose This Term →</button>
+      <button id="empty-submit-btn" type="button" class="px-5 py-2.5 min-h-[44px] rounded-full bg-navy-900 border border-pink-500/40 text-pink-400 font-bold text-sm hover:bg-pink-500/20 transition-all">Propose This Term →</button>
     </div>
   </div>
 </div><!-- /#dictionary-view -->
@@ -320,7 +334,7 @@
 
 <!-- Submit-a-term modal -->
 <div id="submit-modal" class="fixed inset-0 z-50 bg-navy-950/80 backdrop-blur-md hidden flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="submit-modal-title">
-  <div class="glass-panel bg-navy-900 rounded-2xl max-w-lg w-full p-6 sm:p-8 relative space-y-5 shadow-2xl" style="border-color: rgba(74,222,222,0.4)">
+  <div class="glass-panel bg-navy-900 rounded-2xl max-w-lg w-full p-6 sm:p-8 relative space-y-5 shadow-2xl border-teal-400/40 hover:border-teal-400/40">
     <button id="close-submit-modal" type="button" class="absolute top-4 right-4 min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-400 hover:text-white text-2xl" aria-label="Close dialog">&times;</button>
     <div>
       <h2 id="submit-modal-title" class="text-2xl font-display font-bold text-white pr-12">Propose a New Term</h2>

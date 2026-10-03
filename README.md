@@ -167,7 +167,7 @@ Keys are `slugify(term)`. Every read and write is wrapped in try/catch: unavaila
 
 Written against the repo as it actually is, so future handoff prompts can start from facts rather than assumptions. (Several earlier prompts assumed a "single-column list" and an "expand-in-place" card; neither exists any more.)
 
-**Styling stack.** Tailwind via its CDN script, configured inline in `index.html` (`tailwind.config`: custom `navy` 950/900/800, `teal` 300/400/500 and `pink` 400/500/600; everything else, including the `slate` greys, is Tailwind's default palette). `css/styles.css` (about 100 lines, no `@apply`) holds only what utilities can't: the glass panel and its three custom properties (`--glass-bg`, `--glass-border`, `--glass-border-hover`), the two ambient orbs, the global double-ring `:focus-visible`, the reduced-motion override, and seven Study rules. So class names like `border-slate-500` or `bg-navy-950` in reports are the literal classes in the markup, not shorthand for CSS variables. "Vanilla" in older prompts means no build step and no JS framework, not no Tailwind.
+**Styling stack.** Tailwind via its CDN script, configured inline in `index.html` (`tailwind.config`; the full token list is under *Color tokens* below). `css/styles.css` (about 100 lines, no `@apply`) holds only what utilities can't: the glass panel and its three custom properties (`--glass-bg`, `--glass-border`, `--glass-border-hover`), the two ambient orbs, the global double-ring `:focus-visible`, the reduced-motion override, and seven Study rules. So class names like `border-slate-500` or `bg-navy-950` in reports are the literal classes in the markup, not shorthand for CSS variables. "Vanilla" in older prompts means no build step and no JS framework, not no Tailwind.
 
 **Header controls, left to right** (all at least 44×44; no horizontal overflow from 320px up):
 1. Logo link `#logo-home`, `aria-label="RxPlained home"`. The wordmark appears from 450px and the tagline from 640px.
@@ -189,6 +189,31 @@ Written against the repo as it actually is, so future handoff prompts can start 
 Not storage, but state worth knowing about: while Study is open the current history entry carries `{ rxStudy: true }` (see *Study mode*).
 
 **Cache.** `sw.js` `CACHE_NAME` is bumped on every HTML, JS, CSS or data change; check the head of that file for the live value rather than trusting a doc.
+
+## Color tokens
+
+The single source of truth is the `tailwind.config` block in `index.html`. Use these class names, not raw hex values and not other shades of the same hue.
+
+| Token | Value | Use |
+|---|---|---|
+| `navy-950` | `#020C28` | page background, deepest surfaces |
+| `navy-900` | `#0A1638` | raised surfaces: controls, modals, kbd chips |
+| `teal-400` | `#4ADEDE` | primary accent: buttons, focus ring, links, borders (often at `/20`, `/30`, `/40`) |
+| `teal-300` | `#72F2F2` | light teal: labels, gradient end |
+| `pink-500` | `#DE6399` | secondary accent: fills, error toast |
+| `pink-400` | `#F47DB1` | light pink: text on dark, "The Pitch" labels, gradient start |
+| `purple-400` | `#9D7AE8` | the legible brand purple: Pitch pane borders, gradient middle. 5.88:1 on navy-950 |
+| `mist-200` / `300` / `400` / `500` / `700` | `#E2E8F0` / `#CBD5E1` / `#94A3B8` / `#64748B` / `#334155` | named neutrals (see below) |
+
+**Naming convention:** `hue-shade`, where the shade number is the Tailwind-style lightness step (950 darkest, 300 lightest) and the hue is the brand color's family. Add a new shade to the config before using it.
+
+**Two things that are not obvious:**
+- **`extend` merges with Tailwind's built-in palette**, so only the shades in the table are brand. `pink-300`, `teal-200`, `purple-300` and every other shade of these hues still resolve, silently, to Tailwind's default colors. That is how `text-pink-300` and `via-purple-300` ended up in the markup. If a class names a shade that is not in the table, it is drift.
+- **The raw brand purple `#36069A` is deliberately not a foreground token.** It measures 1.4 to 1.5:1 against navy, so as text or a border it would fail even the 3:1 UI minimum. It stays where it already was: the ambient glow (the orb in `css/styles.css`). `purple-400` is the separate tint to use wherever purple has to be legible.
+
+**Neutrals (`mist`).** These are aliases for the Tailwind `slate` values the site already used, added so the greys are documented as intentional. About 98 existing call sites still say `slate-*`; they resolve to the same values, were not renamed (no behavior change, real regression risk), and new code should prefer `mist-*`. Roles: `200` emphasised body text; `300` body text; `400` secondary text, hints and icons (6.91:1 on navy-900); `500` field and control borders on glass panels (3.72:1 on navy-900, 3.89:1 on glass); `400` at 70% opacity for borders of controls on the bare page and for dividers (3.18:1 against the worst-case page); `700` for decorative hairlines only (about 1.7:1), never a field or control boundary. Opacity modifiers work as usual (`border-mist-400/70`).
+
+**Where the same hex lives outside Tailwind** (so a future palette change finds all of them): `css/styles.css` (the orbs, the focus ring, `--glass-*`) and `scripts/generate_term_pages.py` (the term-page stub template, deliberately plain hex because those pages load no CSS framework).
 
 ## Analytics
 
@@ -263,6 +288,26 @@ Manual screen reader testing (VoiceOver/NVDA/JAWS) was explicitly out of scope f
 - **The 17 axe "needs review" contrast items**: that number belongs to one viewport and state (645px, Submit modal open). axe only lists nodes in view, so it varies (22 on the dictionary at 320px, 26 with the Submit modal, 25 with Cmd+K, 11 and 10 on Study). Every one falls into four groups, all caused by text sitting on glass over the gradient orbs, which axe cannot resolve: text on a `bg-gradient` or glass surface (the hero headline, card titles, category chips, related-term chips, Study text), count badges partially overlapped by a neighbour (category chips), the Submit modal title and textareas flagged as partially overlapping, and three arrow glyphs in the Cmd+K footer that are not text. I cannot honestly map those node by node onto the earlier audits, so I did not claim they were covered: I recomputed every one directly with the worst-case method (both orbs at peak, `#3A1C5A`, composited through each element's real ancestor backgrounds; gradient text checked at every stop; disabled controls exempt; large-text threshold applied by size and weight). Result: 3,768 text elements in the dictionary view (min 6.14:1), 8 in the Submit modal (6.91), 17 in the Cmd+K palette (6.91), and 12 to 18 per Study state (7.41), **0 failures**. Nothing still needs the calculation. Placeholder text is not a text node and was not in that sweep (slate-400 on navy-900 or navy-950 measured 6.91 and 7.54 in the border pass).
 - **Rest of the checks**: axe-core 4.9.1 at 320px in the dictionary, Submit modal, and Study front, revealed, next-card, learning-deck, summary and empty states: 0 violations. Search (including aliases and the new JTBD term), category filter, sort, Save and unsave, Submit modal focus trap and Escape, Cmd/Ctrl+K and `/`, and a Study run by keyboard all pass. `CACHE_NAME` is now `rxplained-v37`.
 - **Not done, owner's**: screen reader testing, a real incognito run on a throttled connection, and the warm-cache and offline checks after deploy.
+
+**Brand-token drift fix, October 2026**: follow-up to an audit that compared the markup with the Tailwind config.
+- **Added** `purple-400` (`#9D7AE8`) to the config, plus the `mist` neutral aliases (above). **Removed** `navy-800`, `teal-500` and `pink-600`: confirmed unused anywhere (markup, JS, CSS, generator, and all 372 term pages). Removing them has no visible effect, but note that those shades now fall back to Tailwind's defaults if anyone uses them (`teal-500` becomes `#14B8A6`, `pink-600` `#DB2777`; `navy-800` produces no style at all), which is the merge trap described above.
+- **Drift fixed (7 instances)**: `via-purple-300` became `via-purple-400` (the one edit this needed); the three `border-purple-400/20` Pitch-pane borders needed no markup edit, because naming the new tint `purple-400` means those classes now resolve to the brand purple instead of Tailwind's `#C084FC`; the three `text-pink-300` became `text-pink-400`.
+- **Contrast, measured in the page** (worst case: both orbs at peak, `#3A1C5A`, then each element's real ancestor backgrounds; the earlier "audit numbers" used plain navy-950):
+
+| Instance | Before | After | Needs |
+|---|---|---|---|
+| Saved count badge `text-xs` (`#saved-count`) | 7.62 | 5.53 | 4.5 |
+| Word of the Day category badge `text-xs` | 9.19 | 6.68 | 4.5 |
+| Empty-state Submit button `text-sm` | 9.77 | 7.10 | 4.5 |
+| Headline gradient, lowest point along it (large text) | 5.62 | 4.27 (at the purple stop; 5.62 at the pink start) | 3 |
+
+  All pass. Every number fell, because the new colors are darker, which is expected; none fell below its requirement. Against plain navy-950, `purple-400` is 5.88:1 and `pink-400` is 7.75:1.
+- **Pitch-pane borders, an existing issue this did not create**: the three purple borders paint at 1.30 to 1.36:1 (was 1.36), and their teal Reality-pane siblings at 1.53. Both are well under the 3:1 this project applies to dividers. They frame text panes and carry no meaning on their own, and the instruction was to keep the same opacity pattern, so they were left. Raising them is a small separate decision (for example `/40` instead of `/20`).
+- **Inline `rgba` removed** from the Word of the Day panel and the Submit modal panel: now `border-teal-400/30` and `border-teal-400/40`. Each also carries the matching `hover:` variant, because `.glass-panel:hover` in the stylesheet would otherwise brighten the border on hover; the inline style used to pin it, and a hover check in the browser confirms they still stay pinned at `0.3` and `0.4`.
+- **`#C4C9D4` in the term-page generator**: left as a literal and now commented as intentionally matching no Tailwind shade (nearest is `slate-300`). Re-running the generator produces no change to any term page or the sitemap.
+- **`--glass-bg: rgba(4, 14, 46, 0.88)`**: reported, not changed. It predates the navy token (it is from the vanilla V2 build on Aug 16, two days before the Tailwind rebuild), carries no comment about why its RGB differs, and composites to `#040E2D` over a navy-950 page, about two to five RGB steps from navy-950 itself. Aligning it to navy-950 would be safe in direction (every audited text and border ratio on glass would rise by at most 0.15, for example `slate-400` text 7.22 to 7.36 in the worst case) but would shift numbers already recorded here, so it is a deliberate choice, not a cleanup. Aligning to navy-900 would lower them (slate-400 text 6.78) and is not recommended.
+- **Correction to an earlier README claim, and the re-run**: the "3,768 text elements, 0 failures" sweep in the Study follow-up note composited each element's backgrounds starting from the opaque `<body>` color, which erased the worst-case orb layer for anything sitting directly on the page. Re-run with the base fixed (worst-case page `#3A1C5A` under every element, gradient text checked along its whole length, disabled controls exempt): **0 failures** in the dictionary view (3,770 elements), Submit modal (8), Cmd+K palette (17), empty state (4) and every Study state (12 to 18). The honest lowest values are lower than the earlier ones: the headline gradient at 4.27:1 (large text, needs 3) and the Study "saved on this device" note at 5.47:1 (small text, needs 4.5), versus the 6.14 and 7.41 first reported.
+- **Regression and checks, after the changes**: search (aliases, JTBD, no-match), category filter, sort, Save and unsave, Submit modal focus trap and Escape, Cmd/Ctrl+K and `/`, a Study run by keyboard and Back closing it: all pass. axe-core 4.9.1 at 320px and 1280px (dictionary, Submit modal, Study): 0 violations, no horizontal overflow. Five cold deep-link loads through the delaying proxy (three static `/term/` pages, a direct `#term=`, an alias slug) all landed on the right card, centered. The test browser pane was only 368px tall this time, shorter than the cards (483 to 574px), so "fully in view" was impossible and "centered" was used as the pass condition; the earlier runs were in a taller pane. Term pages and sitemap are byte-identical after re-running the generator. `CACHE_NAME` is now `rxplained-v38`.
 
 **Study mode UX review, September 2026**: external feedback (via Gemini) proposed several Study mode changes; checked each against the actual code before touching anything, since a few no longer applied.
 - **Already true, no change**: grading disabled until reveal; the initial/answer states described; the Close button's accessible name (`aria-label="Close study mode"`) and 44×44 target; the `aria-live="polite"` progress announcements; keyboard shortcut tips already hidden on touch via `@media (hover: hover) and (pointer: fine)` (the equivalent of the suggested `(hover: none) and (pointer: coarse)`); The Pitch/The Reality already stack below `md` (768px), a wider range than the requested 640px.

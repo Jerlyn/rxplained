@@ -3387,5 +3387,17 @@
     "sponsored": false,
     "sponsoredBy": null,
     "aliases": []
+  },
+  {
+    "term": "Non-Formulary Exception",
+    "category": "Money Talk",
+    "playful": "The \"please make an exception\" request. When the drug your doctor wants isn't on the plan's approved list, this is how you ask the plan to cover it anyway, usually with your doctor explaining why the covered options won't cut it.",
+    "real": "A request asking a health plan to cover a drug that is not on its formulary. In Medicare Part D it is a type of coverage determination that requires a supporting statement from the prescriber, and plans generally decide within 72 hours of receiving that statement (24 hours if expedited). Timelines for commercial and Medicaid plans vary. A tiering exception is the related request for a lower cost share on a drug the plan already covers.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": [
+      "formulary exception",
+      "non-formulary drug request"
+    ]
   }
 ]

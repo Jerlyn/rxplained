@@ -3399,5 +3399,30 @@
       "formulary exception",
       "non-formulary drug request"
     ]
+  },
+  {
+    "term": "AAAAI (American Academy of Allergy, Asthma & Immunology)",
+    "category": "Doctor Speak",
+    "playful": "The big professional society for allergists and immunologists, and the home of the late-winter meeting where new allergy, asthma, and immunology data drops. Four A's plus an I, so yes, it's easy to confuse with advertising's AAAA.",
+    "real": "A professional medical society founded in 1943 with more than 7,000 members, including allergists, asthma specialists, clinical immunologists, and allied health professionals. It hosts a major annual meeting each late winter and was formerly abbreviated AAAAI.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": [
+      "AAAAI",
+      "American Academy of Allergy and Immunology",
+      "allergy academy"
+    ]
+  },
+  {
+    "term": "IFU (Instructions for Use)",
+    "category": "Legal Says",
+    "playful": "The assembly manual for a medicine. When a drug comes in a pen, autoinjector, or inhaler, the IFU is the picture-heavy, step-by-step handout that shows a patient how to prepare and use it without a nurse standing over them. It looks like a throwaway insert, but it's FDA-approved labeling and goes through review like everything else.",
+    "real": "FDA-approved patient labeling that gives step-by-step written and visual directions for using a drug with complicated or detailed patient-use instructions, such as an autoinjector, pen, or inhaler. FDA's July 2022 final guidance covers IFUs for prescription drugs, biologics, and drug-led or biologic-led combination products. Standalone medical devices fall outside that guidance. IFU design is usually tested alongside the device through Human Factors Testing.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": [
+      "instructions for use",
+      "patient IFU"
+    ]
   }
 ]

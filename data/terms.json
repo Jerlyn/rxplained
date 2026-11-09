@@ -547,7 +547,7 @@
     "term": "Extended Release (XR / ER / SR)",
     "category": "Doctor Speak",
     "playful": "The reason some drug names end in a mysterious extra letter — special coatings that release the medicine slowly, so you take it once instead of three times a day.",
-    "real": "A drug formulation using special coatings or ingredients to control the rate of release into the body, reducing dosing frequency.",
+    "real": "A drug formulation using special coatings or ingredients to control the rate of release into the body, reducing dosing frequency. In breast cancer, ER also stands for Estrogen Receptor (see the HR entry).",
     "sponsored": false,
     "sponsoredBy": null,
     "aliases": []
@@ -1755,8 +1755,8 @@
   {
     "term": "PR — Which One? (Partial Response vs. Public Relations)",
     "category": "Behind the Ad",
-    "playful": "In a clinical conversation, PR means the tumor shrank. In an agency meeting, PR means someone's managing the brand's public image. Read the room before you nod along.",
-    "real": "PR commonly refers to either Partial Response (a clinical trial tumor-response category) or Public Relations (a marketing communications discipline) — meaning depends entirely on context.",
+    "playful": "In a clinical conversation, PR can mean the tumor shrank (Partial Response) or, in breast cancer, a progesterone receptor on the tumor. In an agency meeting, PR means someone's managing the brand's public image. Read the room before you nod along.",
+    "real": "PR commonly refers to Partial Response (a clinical trial tumor-response category), Progesterone Receptor (a receptor tested in breast cancer, alongside ER, that helps define hormone receptor-positive disease), or Public Relations (a marketing communications discipline). The correct meaning depends entirely on context.",
     "sponsored": false,
     "sponsoredBy": null,
     "aliases": []
@@ -3449,6 +3449,90 @@
     "aliases": [
       "premarket approval",
       "FDA approved device"
+    ]
+  },
+  {
+    "term": "HER2 (Human Epidermal Growth Factor Receptor 2)",
+    "category": "Doctor Speak",
+    "playful": "A protein on the surface of some breast cancer cells that tells them to grow, and one of the first things a tumor gets sorted by. For years the question was simple: HER2-positive or not. Then drug makers found a middle group, HER2-low, that used to be filed under negative and is now its own treatable segment.",
+    "real": "A growth-promoting protein on the surface of some breast cancer cells. Labs score it with immunohistochemistry (IHC) and, when the result is borderline, in situ hybridization (ISH). HER2-positive means IHC 3+, or IHC 2+ with a positive ISH test. HER2-low means IHC 1+, or IHC 2+ with a negative ISH test. These tumors were long grouped with HER2-negative until the FDA's 2022 approval of trastuzumab deruxtecan for HER2-low metastatic breast cancer made the category clinically actionable. A newer HER2-ultralow category (IHC 0 with membrane staining) followed.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": [
+      "HER2-positive",
+      "HER2-low",
+      "HER2-ultralow",
+      "HER2-negative",
+      "ERBB2"
+    ]
+  },
+  {
+    "term": "HR (Which One? Hormone Receptor vs. Hazard Ratio vs. Human Resources)",
+    "category": "Doctor Speak",
+    "playful": "Three meanings, one very busy acronym. In a breast cancer brand meeting, HR means hormone receptor: the tumor has receptors for estrogen and/or progesterone, which is why HR+ patients get endocrine therapy. In a trial readout, HR means hazard ratio: below 1 usually means the treatment group did better. And in the agency hallway, it's still the department that handles your PTO.",
+    "real": "HR commonly refers to Hormone Receptor (breast cancers with receptors for estrogen and/or progesterone are called HR-positive, written HR+; the receptors are abbreviated ER and PR), Hazard Ratio (a statistic comparing the rate of an event, such as progression or death, between two groups over time, usually reported with a Confidence Interval; a value below 1 usually means the treatment group had fewer events), or Human Resources (an agency department). The correct meaning depends entirely on context.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": [
+      "hormone receptor",
+      "hormone receptor-positive",
+      "HR+",
+      "hazard ratio",
+      "estrogen receptor",
+      "progesterone receptor"
+    ]
+  },
+  {
+    "term": "CDK4/6 Inhibitor",
+    "category": "Doctor Speak",
+    "playful": "A drug class that puts the brakes on the cell cycle, so cancer cells stall instead of dividing. In hormone receptor-positive breast cancer it's paired with endocrine therapy, and that combination became a first-line standard for HR+/HER2- metastatic disease.",
+    "real": "A class of targeted drugs that inhibit the cyclin-dependent kinases CDK4 and CDK6, which drive cell division. Three are FDA approved (palbociclib, ribociclib, and abemaciclib) in combination with endocrine therapy, such as an aromatase inhibitor or fulvestrant, for hormone receptor-positive, HER2-negative advanced or metastatic breast cancer.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": [
+      "CDK4/6i",
+      "CDK4/6",
+      "CDK 4/6",
+      "cyclin-dependent kinase inhibitor",
+      "palbociclib",
+      "ribociclib",
+      "abemaciclib"
+    ]
+  },
+  {
+    "term": "TNBC (Triple-Negative Breast Cancer)",
+    "category": "Doctor Speak",
+    "playful": "A breast cancer defined by what it lacks: no estrogen receptors, no progesterone receptors, and no excess HER2. That leaves hormone therapies and HER2-targeted drugs with nothing to grab onto, which is why chemotherapy, immunotherapy, PARP inhibitors, and ADCs carry so much of this story.",
+    "real": "A breast cancer subtype that lacks expression of the estrogen receptor (ER) and progesterone receptor (PR) and does not overexpress HER2. Because it lacks those targets, it does not respond to hormonal therapy or HER2-targeted drugs. Treatment options include chemotherapy, immunotherapy, PARP inhibitors, and antibody-drug conjugates.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": [
+      "triple-negative",
+      "triple negative breast cancer"
+    ]
+  },
+  {
+    "term": "ADC (Antibody-Drug Conjugate)",
+    "category": "Doctor Speak",
+    "playful": "A guided missile for chemotherapy. An antibody finds a target on the cancer cell, and a linker delivers a cytotoxic payload straight to it, aiming to concentrate the damage where the tumor is.",
+    "real": "A targeted cancer therapy made of three parts: an antibody that binds a specific target on tumor cells, a cytotoxic drug (the payload), and a chemical linker joining them. Examples in breast cancer include trastuzumab deruxtecan, which targets HER2, and sacituzumab govitecan, which targets TROP2.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": [
+      "antibody drug conjugate",
+      "antibody-drug conjugates"
+    ]
+  },
+  {
+    "term": "mBC (Metastatic Breast Cancer)",
+    "category": "Doctor Speak",
+    "playful": "Breast cancer that has moved to a new address. When it spreads to another organ, say the liver, it's still breast cancer, not a new liver cancer, so treatment is still chosen by the breast cancer's biology, like HR and HER2 status.",
+    "real": "Breast cancer that has spread from the breast to distant parts of the body. A tumor that has spread, for example to the liver, is still called metastatic breast cancer rather than liver cancer, because it is made of breast cancer cells. Often written with receptor status as shorthand, such as HR+/HER2- mBC. Related to the existing r/m (Recurrent/Metastatic) entry.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": [
+      "MBC",
+      "metastatic breast cancer"
     ]
   }
 ]

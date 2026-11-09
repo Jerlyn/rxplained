@@ -3424,5 +3424,31 @@
       "instructions for use",
       "patient IFU"
     ]
+  },
+  {
+    "term": "510(k) (Premarket Notification)",
+    "category": "Legal Says",
+    "playful": "The device world's shortcut. Instead of proving a new device is safe and effective from scratch, the maker shows FDA it's substantially equivalent to a device already on the market (the predicate). Pass, and it's FDA cleared, which is not the same as FDA approved. That one-word slip is exactly what MLR exists to catch.",
+    "real": "A premarket submission to FDA demonstrating that a device is substantially equivalent to a legally marketed predicate device. A successful 510(k) results in FDA clearance, not approval, and a 510(k)-cleared device should not be promoted as \"FDA approved.\" It is the usual pathway for moderate-risk (Class II) devices. High-risk Class III devices generally need a PMA instead.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": [
+      "510k",
+      "premarket notification",
+      "FDA cleared",
+      "substantial equivalence"
+    ]
+  },
+  {
+    "term": "PMA (Premarket Approval)",
+    "category": "Legal Says",
+    "playful": "The device world's full audition. High-risk Class III devices can't lean on a lookalike, so the maker has to prove with its own evidence, often clinical trials, that the device is safe and effective. It's the closest thing devices have to an NDA, and it's the only device pathway that earns the word \"approved.\"",
+    "real": "FDA's most stringent device marketing application, generally required for high-risk Class III devices. The applicant must provide valid scientific evidence that the device is safe and effective for its intended use, and a successful PMA results in FDA approval. Compare 510(k), which results in clearance.",
+    "sponsored": false,
+    "sponsoredBy": null,
+    "aliases": [
+      "premarket approval",
+      "FDA approved device"
+    ]
   }
 ]

@@ -40,6 +40,14 @@ BASE_URL = "https://rxplained.com"
 
 MAX_DESCRIPTION_LENGTH = 200
 
+# Old slug -> current term name. When a term is renamed or replaced after its static page has
+# already been deployed (and possibly shared), list the retired slug here so term/<old-slug>/
+# keeps existing and redirects to the replacement. This has to live in the generator because
+# main() wipes term/ on every run. Legacy slugs are deliberately left out of the sitemap.
+LEGACY_REDIRECTS = {
+    "adc-antibody-drug-conjugate": "ADC (Which One? Antibody-Drug Conjugate vs. Art Directors Club vs. Apparent Diffusion Coefficient)",
+}
+
 
 def slugify(s: str) -> str:
     # Must exactly match js/app.js's slugify() — same regex semantics — so that
@@ -168,10 +176,23 @@ def main():
         page_dir.mkdir(parents=True, exist_ok=True)
         (page_dir / "index.html").write_text(build_page(term), encoding="utf-8")
 
+    terms_by_name = {t["term"]: t for t in terms}
+    for old_slug, current_name in LEGACY_REDIRECTS.items():
+        if old_slug in seen_slugs:
+            raise SystemExit(f"Legacy slug '{old_slug}' collides with a real term ('{seen_slugs[old_slug]}').")
+        if current_name not in terms_by_name:
+            raise SystemExit(f"Legacy redirect '{old_slug}' points to '{current_name}', which is not in terms.json.")
+        page_dir = OUTPUT_DIR / old_slug
+        page_dir.mkdir(parents=True, exist_ok=True)
+        (page_dir / "index.html").write_text(build_page(terms_by_name[current_name]), encoding="utf-8")
+
     write_sitemap(seen_slugs.keys())
     write_robots()
 
-    print(f"Generated {len(terms)} term pages in {OUTPUT_DIR.relative_to(ROOT)}/, plus sitemap.xml and robots.txt")
+    print(
+        f"Generated {len(terms)} term pages (+{len(LEGACY_REDIRECTS)} legacy redirect) in "
+        f"{OUTPUT_DIR.relative_to(ROOT)}/, plus sitemap.xml and robots.txt"
+    )
 
 
 if __name__ == "__main__":

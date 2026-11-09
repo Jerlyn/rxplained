@@ -3512,15 +3512,19 @@
     ]
   },
   {
-    "term": "ADC (Antibody-Drug Conjugate)",
+    "term": "ADC (Which One? Antibody-Drug Conjugate vs. Art Directors Club vs. Apparent Diffusion Coefficient)",
     "category": "Doctor Speak",
-    "playful": "A guided missile for chemotherapy. An antibody finds a target on the cancer cell, and a linker delivers a cytotoxic payload straight to it, aiming to concentrate the damage where the tumor is.",
-    "real": "A targeted cancer therapy made of three parts: an antibody that binds a specific target on tumor cells, a cytotoxic drug (the payload), and a chemical linker joining them. Examples in breast cancer include trastuzumab deruxtecan, which targets HER2, and sacituzumab govitecan, which targets TROP2.",
+    "playful": "Three meanings, one acronym, and a very different meeting for each. In a breast cancer brand meeting, ADC means antibody-drug conjugate: an antibody finds a target on the cancer cell, and a linker delivers a chemotherapy payload straight to it. In a radiology readout, it means apparent diffusion coefficient, an MRI measurement of how freely water moves through tissue. And in the creative department, ADC is the Art Directors Club, home of the ADC Annual Awards (and the ADC Cube).",
+    "real": "ADC commonly refers to Antibody-Drug Conjugate (a targeted cancer therapy made of an antibody that binds a tumor target, a cytotoxic payload, and a linker joining them; examples in breast cancer include trastuzumab deruxtecan, which targets HER2, and sacituzumab govitecan, which targets TROP2), Apparent Diffusion Coefficient (a measurement from diffusion-weighted MRI that reflects how freely water moves in tissue, used as an imaging biomarker, including for tumor response), or the Art Directors Club (the New York creative organization founded in 1920 that runs the ADC Annual Awards, now part of The One Club for Creativity). The correct meaning depends entirely on context.",
     "sponsored": false,
     "sponsoredBy": null,
     "aliases": [
+      "antibody-drug conjugate",
       "antibody drug conjugate",
-      "antibody-drug conjugates"
+      "antibody-drug conjugates",
+      "Art Directors Club",
+      "apparent diffusion coefficient",
+      "ADC (Antibody-Drug Conjugate)"
     ]
   },
   {
